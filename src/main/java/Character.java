@@ -27,6 +27,7 @@ public class Character {
     public void setPoints(double points){this.points=points;}
     public double getPoints(){return this.points;}
 
+    public void addPokemon(Pokemon pokemon){this.pokemons.add(pokemon);}
     public void setPokemons(LinkedList<Pokemon> pokemons){this.pokemons=pokemons;}
     public LinkedList<Pokemon> getPokemons(){return this.pokemons;}
 

@@ -17,8 +17,8 @@ public class ManagerImpl implements Manager {
     LinkedList<User> userList = new LinkedList<User>();
     LinkedList<Pokemon> pokemonList = new LinkedList<Pokemon>();
     LinkedList<Object> objectList = new LinkedList<Object>();
+    LinkedList<Map> mapList = new LinkedList<Map>();
 
-    User user;
     @Override
     public void RegisterUser(User user) {
         int i=0;
@@ -38,7 +38,7 @@ public class ManagerImpl implements Manager {
         int i=0;
         int trobat=0;
         while (i<userList.size()){
-            if (userList.get(i).getUsername().equals(name)){
+            if (userList.get(i).getUsername().equals(name) && userList.get(i).getPassword().equals(password)){
                 trobat=1;
             }
             i++;
@@ -59,11 +59,25 @@ public class ManagerImpl implements Manager {
     }
 
     @Override
-    public void AddObject(Object object) {
+    public void CreateObject(Object object) {
+        int i=0;
+        int trobat=0;
+        while (i<objectList.size()){
+            if (objectList.get(i).getName().equals(object.getName())){
+                trobat++;
+            }
+            i++;
+        }
+        if(trobat==0){objectList.add(object);}
+    }
+
+    @Override
+    public void AddObject(User user, Object object) {
         int i=0;
         while (i<userList.size()){
             if (userList.get(i).getUsername().equals(user.getUsername())){
                 userList.get(i).getCharacter().addObject(object);
+                userList.get(i).getCharacter().setMoney(userList.get(i).getCharacter().getMoney() - object.getPrice());
             }
             i++;
         }
@@ -72,6 +86,16 @@ public class ManagerImpl implements Manager {
     @Override
     public void AddPokemon(Pokemon pokemon) {
         this.pokemonList.add(pokemon);
+    }
+
+    @Override
+    public LinkedList<User> getUsers() {
+        return this.userList;
+    }
+
+    @Override
+    public LinkedList<Map> getMaps() {
+        return this.mapList;
     }
 
     @Override
