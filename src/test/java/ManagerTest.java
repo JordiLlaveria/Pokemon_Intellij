@@ -1,13 +1,8 @@
-import org.apache.log4j.Logger;
-import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import sun.awt.image.ImageWatched;
 
-import javax.swing.text.Element;
 import java.util.LinkedList;
-import java.util.List;
 
 public class ManagerTest {
     ManagerImpl manager;
@@ -25,29 +20,29 @@ public class ManagerTest {
         LinkedList<Pokemon> AshpokemonsList = new LinkedList<Pokemon>();
         LinkedList<Object> AshobjectsList = new LinkedList<Object>();
 
-        Character characterjordi = new Character("jllaveria",100,0,JordipokemonsList,JordiobjectsList);
-        Character characterash = new Character("ash",100,0,AshpokemonsList,AshobjectsList);
-        Jordi = new User("Jordi", "1234", "jordi.llaveria@estudiantat.upc.edu",characterjordi);
-        Ash = new User("Ash", "1234", "ash@gmail.com",characterash);
-        manager.RegisterUser(Jordi);
-        manager.RegisterUser(Ash);
-
         LinkedList<Atack> pikachuAtackList = new LinkedList<Atack>();
         LinkedList<Atack> bulbasaurAtackList = new LinkedList<Atack>();
         pikachu = new Pokemon(1,"Pikachu",50,"Electric", pikachuAtackList);
         bulbasaur = new Pokemon(1,"Bulbasaur",45,"Grass",bulbasaurAtackList);
-        manager.AddPokemon(pikachu);
-        manager.AddPokemon(bulbasaur);
+        manager.addPokemon(pikachu);
+        manager.addPokemon(bulbasaur);
 
-        Object potion = new Object("Potion", 20,"Healthcure");
-        Object pokeball = new Object("Pokeball", 18,"Pokeball");
-        manager.CreateObject(potion);
-        manager.CreateObject(pokeball);
-        manager.AddObject(Jordi,potion);
-        manager.AddObject(Ash,pokeball);
+        Character characterjordi = new Character("jllaveria",100,0,JordipokemonsList,JordiobjectsList);
+        Character characterash = new Character("ash",100,0,AshpokemonsList,AshobjectsList);
+        characterjordi.addPokemon(bulbasaur);
+        characterash.addPokemon(pikachu);
+        Jordi = new User("Jordi", "1234", "jordi.llaveria@estudiantat.upc.edu",characterjordi);
+        Ash = new User("Ash", "1234", "ash@gmail.com",characterash);
+        manager.registerUser(Jordi);
+        manager.registerUser(Ash);
 
-        Jordi.getCharacter().addPokemon(pikachu);
-        Ash.getCharacter().addPokemon(bulbasaur);
+        Object potion = new Object("Potion", 20,"Healthcure","Adds +20 health");
+        Object pokeball = new Object("Pokeball", 18,"Pokeball", "Allows to capture a pokemon with probability 1/3");
+        manager.createObject(potion);
+        manager.createObject(pokeball);
+        manager.addObject(Jordi,potion);
+        manager.addObject(Ash,pokeball);
+
     }
 
     @Test

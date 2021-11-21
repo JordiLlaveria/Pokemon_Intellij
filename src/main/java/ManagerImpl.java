@@ -20,7 +20,7 @@ public class ManagerImpl implements Manager {
     LinkedList<Map> mapList = new LinkedList<Map>();
 
     @Override
-    public void RegisterUser(User user) {
+    public void registerUser(User user) {
         int i=0;
         int trobat=0;
         while (i<userList.size()){
@@ -34,7 +34,7 @@ public class ManagerImpl implements Manager {
     }
 
     @Override
-    public boolean LoginUser(String name, String password) {
+    public boolean loginUser(String name, String password) {
         int i=0;
         int trobat=0;
         while (i<userList.size()){
@@ -48,7 +48,7 @@ public class ManagerImpl implements Manager {
     }
 
     @Override
-    public void AddCharacter(User user, Character character) {
+    public void addCharacter(User user, Character character) {
         int i=0;
         while (i<userList.size()){
             if (userList.get(i).getUsername().equals(user.getUsername())){
@@ -59,7 +59,7 @@ public class ManagerImpl implements Manager {
     }
 
     @Override
-    public void CreateObject(Object object) {
+    public void createObject(Object object) {
         int i=0;
         int trobat=0;
         while (i<objectList.size()){
@@ -72,7 +72,7 @@ public class ManagerImpl implements Manager {
     }
 
     @Override
-    public void AddObject(User user, Object object) {
+    public void addObject(User user, Object object) {
         int i=0;
         while (i<userList.size()){
             if (userList.get(i).getUsername().equals(user.getUsername())){
@@ -84,7 +84,7 @@ public class ManagerImpl implements Manager {
     }
 
     @Override
-    public void AddPokemon(Pokemon pokemon) {
+    public void addPokemon(Pokemon pokemon) {
         this.pokemonList.add(pokemon);
     }
 
@@ -111,7 +111,40 @@ public class ManagerImpl implements Manager {
     }
 
     @Override
+    public LinkedList<Pokemon> getPokemonsCharacter(Character character) {
+        int i=0;
+        int trobat=0;
+        while (i<userList.size()){
+            if (userList.get(i).getCharacter().getNickname().equals(character.getNickname())){
+                trobat=1;
+            }
+            i++;
+        }
+        if(trobat==1){return userList.get(i).getCharacter().getPokemons();}
+        else{return null;}
+    }
+
+    @Override
     public LinkedList<Object> getObjects() {
         return this.objectList;
+    }
+
+    @Override
+    public LinkedList<Object> getObjectsPersonatge(Character character) {
+        int i=0;
+        int trobat=0;
+        while (i<userList.size()){
+            if (userList.get(i).getCharacter().getNickname().equals(character.getNickname())){
+                trobat=1;
+            }
+            i++;
+        }
+        if(trobat==1){return userList.get(i).getCharacter().getObjects();}
+        else{return null;}
+    }
+
+    @Override
+    public Map levelup(Character character) {
+        return null;
     }
 }
