@@ -1,3 +1,5 @@
+package edu.upc.dsa.models;
+
 public class Enemy {
     String name;
     String message;

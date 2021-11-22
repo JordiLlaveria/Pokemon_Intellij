@@ -1,3 +1,5 @@
+package edu.upc.dsa.models;
+
 public class Atack {
     private String name;
     private String type;

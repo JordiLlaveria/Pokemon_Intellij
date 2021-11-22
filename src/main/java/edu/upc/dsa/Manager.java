@@ -1,3 +1,8 @@
+package edu.upc.dsa;
+import edu.upc.dsa.models.*;
+import edu.upc.dsa.models.Character;
+import edu.upc.dsa.models.Object;
+
 import java.util.LinkedList;
 
 public interface Manager {

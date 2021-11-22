@@ -1,5 +1,11 @@
+package edu.upc.dsa;
+
 import java.util.*;
 
+import edu.upc.dsa.models.*;
+import edu.upc.dsa.models.Character;
+import edu.upc.dsa.models.Map;
+import edu.upc.dsa.models.Object;
 import org.apache.log4j.Logger;
 
 public class ManagerImpl implements Manager {
@@ -17,7 +23,7 @@ public class ManagerImpl implements Manager {
     LinkedList<User> userList = new LinkedList<User>();
     LinkedList<Pokemon> pokemonList = new LinkedList<Pokemon>();
     LinkedList<Object> objectList = new LinkedList<Object>();
-    LinkedList<Map> mapList = new LinkedList<Map>();
+    LinkedList<edu.upc.dsa.models.Map> mapList = new LinkedList<edu.upc.dsa.models.Map>();
 
     @Override
     public void registerUser(User user) {
@@ -94,7 +100,7 @@ public class ManagerImpl implements Manager {
     }
 
     @Override
-    public LinkedList<Map> getMaps() {
+    public LinkedList<edu.upc.dsa.models.Map> getMaps() {
         return this.mapList;
     }
 

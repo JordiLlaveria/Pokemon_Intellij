@@ -1,3 +1,9 @@
+import edu.upc.dsa.ManagerImpl;
+import edu.upc.dsa.models.Atack;
+import edu.upc.dsa.models.Character;
+import edu.upc.dsa.models.Object;
+import edu.upc.dsa.models.Pokemon;
+import edu.upc.dsa.models.User;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -15,10 +21,10 @@ public class ManagerTest {
         this.manager = ManagerImpl.getInstance();
 
         LinkedList<Pokemon> JordipokemonsList = new LinkedList<Pokemon>();
-        LinkedList<Object> JordiobjectsList = new LinkedList<Object>();
+        LinkedList<edu.upc.dsa.models.Object> JordiobjectsList = new LinkedList<edu.upc.dsa.models.Object>();
 
         LinkedList<Pokemon> AshpokemonsList = new LinkedList<Pokemon>();
-        LinkedList<Object> AshobjectsList = new LinkedList<Object>();
+        LinkedList<edu.upc.dsa.models.Object> AshobjectsList = new LinkedList<edu.upc.dsa.models.Object>();
 
         LinkedList<Atack> pikachuAtackList = new LinkedList<Atack>();
         LinkedList<Atack> bulbasaurAtackList = new LinkedList<Atack>();
@@ -36,8 +42,8 @@ public class ManagerTest {
         manager.registerUser(Jordi);
         manager.registerUser(Ash);
 
-        Object potion = new Object("Potion", 20,"Healthcure","Adds +20 health");
-        Object pokeball = new Object("Pokeball", 18,"Pokeball", "Allows to capture a pokemon with probability 1/3");
+        edu.upc.dsa.models.Object potion = new edu.upc.dsa.models.Object("Potion", 20,"Healthcure","Adds +20 health");
+        edu.upc.dsa.models.Object pokeball = new Object("Pokeball", 18,"Pokeball", "Allows to capture a pokemon with probability 1/3");
         manager.createObject(potion);
         manager.createObject(pokeball);
         manager.addObject(Jordi,potion);

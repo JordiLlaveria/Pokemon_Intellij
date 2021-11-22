@@ -1,8 +1,13 @@
+package edu.upc.dsa.services;
+import edu.upc.dsa.models.*;
+import edu.upc.dsa.models.Map;
+import edu.upc.dsa.models.Object;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
-
+import edu.upc.dsa.Manager;
+import edu.upc.dsa.ManagerImpl;
 import javax.ws.rs.*;
 import javax.ws.rs.core.GenericEntity;
 import javax.ws.rs.core.MediaType;

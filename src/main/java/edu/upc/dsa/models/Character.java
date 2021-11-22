@@ -1,3 +1,5 @@
+package edu.upc.dsa.models;
+
 import java.util.LinkedList;
 
 public class Character {

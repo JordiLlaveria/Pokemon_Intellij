@@ -1,3 +1,5 @@
+package edu.upc.dsa.models;
+
 import java.util.Comparator;
 
 public class Ranking implements Comparator<User> {
