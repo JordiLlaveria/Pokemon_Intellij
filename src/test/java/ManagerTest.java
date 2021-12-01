@@ -14,7 +14,7 @@ public class ManagerTest {
     ManagerImpl manager;
     User Jordi;
     User Ash;
-    Pokemon pikachu;
+    Pokemon squirtle;
     Pokemon bulbasaur;
     @Before
     public void setUp  () {
@@ -22,21 +22,20 @@ public class ManagerTest {
 
         LinkedList<Pokemon> JordipokemonsList = new LinkedList<Pokemon>();
         LinkedList<edu.upc.dsa.models.Object> JordiobjectsList = new LinkedList<edu.upc.dsa.models.Object>();
-
         LinkedList<Pokemon> AshpokemonsList = new LinkedList<Pokemon>();
         LinkedList<edu.upc.dsa.models.Object> AshobjectsList = new LinkedList<edu.upc.dsa.models.Object>();
 
-        LinkedList<Atack> pikachuAtackList = new LinkedList<Atack>();
+        LinkedList<Atack> squirtleAtackList = new LinkedList<Atack>();
         LinkedList<Atack> bulbasaurAtackList = new LinkedList<Atack>();
-        pikachu = new Pokemon(1,"Pikachu",50,"Electric", pikachuAtackList);
-        bulbasaur = new Pokemon(1,"Bulbasaur",45,"Grass",bulbasaurAtackList);
-        manager.addPokemon(pikachu);
+        squirtle = new Pokemon("Squirtle","water",1,squirtleAtackList,100,60,50,10);
+        bulbasaur = new Pokemon("Bulbasur","grass",1,bulbasaurAtackList,100,80,50,30);
+        manager.addPokemon(squirtle);
         manager.addPokemon(bulbasaur);
 
         Character characterjordi = new Character("jllaveria",100,0,JordipokemonsList,JordiobjectsList);
         Character characterash = new Character("ash",100,0,AshpokemonsList,AshobjectsList);
         characterjordi.addPokemon(bulbasaur);
-        characterash.addPokemon(pikachu);
+        characterash.addPokemon(squirtle);
         Jordi = new User("Jordi", "1234", "jordi.llaveria@estudiantat.upc.edu",characterjordi);
         Ash = new User("Ash", "1234", "ash@gmail.com",characterash);
         manager.registerUser(Jordi);
