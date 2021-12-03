@@ -1,9 +1,8 @@
 import edu.upc.dsa.ManagerImpl;
+import edu.upc.dsa.models.*;
 import edu.upc.dsa.models.Atack;
 import edu.upc.dsa.models.Character;
 import edu.upc.dsa.models.Object;
-import edu.upc.dsa.models.Pokemon;
-import edu.upc.dsa.models.User;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

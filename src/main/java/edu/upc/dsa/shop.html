@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Store</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../javascripts/comprar.js"></script>
+    <link rel="stylesheet" href="css/estilosTienda.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Odibee+Sans&display=swap" rel="stylesheet">
+</head>
+<style>
+    * {
+    box-sizing: border-box;
+    }
+
+    .column {
+    float: left;
+    width: 50%;
+    padding: 5px;
+    }
+
+    /* Clearfix (clear floats) */
+    .row::after {
+    content: "";
+    clear: both;
+    display: table;
+    }
+</style>
+<body>
+<div class="container"></div>
+<div class="page-nav">
+    <h1>Welcome to our shop</h1>
+    <h2>Equip yourself!</h2>
+</div>
+
+<div class="exc-container">
+    <h3>See our catalogue</h3>
+    <a href="catalogue.html"><button class="button" id="catalogue">See catalogue</button></a>
+</div>
+
+
+<div class="padding"></div>
+
+<div class="container">
+    <div class="row">
+        <div class="column">
+            <h3>Pokeball</h3>
+            <img src="pictures/pokeball.png" width="200" height="200" />
+            <h3>150 coins</h3>
+            <button class="button-add" id="buttonpokeball">Buy now</button>
+        </div>
+        <div class="column">
+            <h3>Superball</h3>
+            <img src="pictures/superball.jpg" width="200" height="200" />
+            <h3>300 coins</h3>
+            <button class="button-add" id="buttonsuperball">Buy now</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="column">
+            <h3>Potion</h3>
+            <img src="pictures/potion1.png" width="200" height="200" />
+            <h3>150 coins</h3>
+            <button class="button-add" id="buttonpotion">Buy now</button>
+        </div>
+        <div class="column">
+            <h3>Super Potion</h3>
+            <img src="pictures/superpotion.jpg" width="200" height="200" />
+            <h3>300 coins</h3>
+            <button class="button-add" id="buttonsuperpotion">Buy now</button>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

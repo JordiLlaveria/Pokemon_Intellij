@@ -2,6 +2,7 @@ package edu.upc.dsa.models;
 
 public class Map {
     private String name;
+    private String URL;
 
     public Map(){}
     public Map(String name){
