@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ManagerTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-12-01T10:54:53" hostname="DESKTOP-FUR0H1U" time="0.025">
-  <properties/>
-  <testcase name="ComprobarRegistre" classname="ManagerTest" time="0.025"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

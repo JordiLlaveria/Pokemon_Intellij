@@ -28,7 +28,7 @@
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="9430a149-0f3a-4fef-9b2d-ff1e67fab51c">
-      <console name="Connection" type="STANDARD" schema="dsa" session="Main"><![CDATA[SELECT * FROM pokemon.character;]]></console>
+      <console name="Connection" type="STANDARD" schema="" session="Main"><![CDATA[select * from pokemon.user;]]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
@@ -76,12 +76,12 @@
           <config-type value="CUSTOM" />
           <database-version value="10.6" />
           <driver-source value="EXTERNAL" />
-          <driver-library value="C:\Connectors_MariaDB\mariadb-java-client-2.7.3.jar" />
+          <driver-library value="C:\connectors\mariadb-java-client-2.7.3.jar" />
           <driver value="org.mariadb.jdbc.Driver" />
           <url value="jdbc:mariadb://localhost:3306" />
           <type value="USER_PASSWORD" />
           <user value="root" />
-          <deprecated-pwd value="MTgwODAw" />
+          <deprecated-pwd value="Sm9yZGlfbWFyaWFkYg==" />
         </database>
         <properties>
           <auto-commit value="false" />

@@ -89,7 +89,7 @@ public class Server {
     public Response Register(User u) {
         if (u.getCharacter()!=null && u.getEmail()!=null && u.getPassword()!= null && u.getUsername()!=null){
             this.manager.registerUser(u);
-            return Response.status(201).entity(u.getId()).build();
+            return Response.status(201).entity(u.getUsername()).build();
         }
         else{
             return Response.status(500).entity(u.getUsername()).build();

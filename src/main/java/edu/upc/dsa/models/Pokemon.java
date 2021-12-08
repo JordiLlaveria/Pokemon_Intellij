@@ -7,17 +7,17 @@ public class Pokemon {
     private String type;
     private int level;
     //private String aspect;
-    LinkedList<Atack> atackList = new LinkedList<Atack>();
+    LinkedList<Attack> attackList = new LinkedList<Attack>();
     private double maxHealth;
     private double actualHealth;
     private double probCapture;
     private double probAppear;
 
-    public Pokemon(String name,String type,int level,LinkedList<Atack> atackList, double maxHealth, double actualHealth,double probCapture,double probAppear){
+    public Pokemon(String name, String type, int level, LinkedList<Attack> attackList, double maxHealth, double actualHealth, double probCapture, double probAppear){
         this.name=name;
         this.type=type;
         this.level=level;
-        this.atackList=atackList;
+        this.attackList = attackList;
         this.maxHealth=maxHealth;
         this.actualHealth=actualHealth;
         this.probCapture=probCapture;
@@ -28,7 +28,7 @@ public class Pokemon {
     public void setLevel(int level){this.level=level;}
     public void setMaxHealth(double maxHealth){this.maxHealth=maxHealth;}
     public void setActualHealth(double actualHealth){this.actualHealth=actualHealth;}
-    public void setAtackList(LinkedList<Atack> atackList){this.atackList=atackList;}
+    public void setAtackList(LinkedList<Attack> attackList){this.attackList = attackList;}
     public void setProbCapture(double probCapture) {this.probCapture = probCapture;}
     public void setProbAppear(double probAppear) {this.probAppear = probAppear;}
 
@@ -37,7 +37,7 @@ public class Pokemon {
     public double getLevel(){return this.level;}
     public double getMaxHealth(){return this.maxHealth;}
     public double getActualHealth(){return this.actualHealth;}
-    public LinkedList<Atack> getAtackList(){return this.atackList;}
+    public LinkedList<Attack> getAtackList(){return this.attackList;}
     public double getProbCapture() {return probCapture;}
     public double getProbAppear() {return probAppear;}
 }

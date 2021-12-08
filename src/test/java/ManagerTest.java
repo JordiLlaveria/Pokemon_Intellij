@@ -1,6 +1,6 @@
 import edu.upc.dsa.ManagerImpl;
 import edu.upc.dsa.models.*;
-import edu.upc.dsa.models.Atack;
+import edu.upc.dsa.models.Attack;
 import edu.upc.dsa.models.Character;
 import edu.upc.dsa.models.Object;
 import org.junit.Assert;
@@ -24,10 +24,10 @@ public class ManagerTest {
         LinkedList<Pokemon> AshpokemonsList = new LinkedList<Pokemon>();
         LinkedList<edu.upc.dsa.models.Object> AshobjectsList = new LinkedList<edu.upc.dsa.models.Object>();
 
-        LinkedList<Atack> squirtleAtackList = new LinkedList<Atack>();
-        LinkedList<Atack> bulbasaurAtackList = new LinkedList<Atack>();
-        squirtle = new Pokemon("Squirtle","water",1,squirtleAtackList,100,60,50,10);
-        bulbasaur = new Pokemon("Bulbasur","grass",1,bulbasaurAtackList,100,80,50,30);
+        LinkedList<Attack> squirtleAttackList = new LinkedList<Attack>();
+        LinkedList<Attack> bulbasaurAttackList = new LinkedList<Attack>();
+        squirtle = new Pokemon("Squirtle","water",1, squirtleAttackList,100,60,50,10);
+        bulbasaur = new Pokemon("Bulbasur","grass",1, bulbasaurAttackList,100,80,50,30);
         manager.addPokemon(squirtle);
         manager.addPokemon(bulbasaur);
 

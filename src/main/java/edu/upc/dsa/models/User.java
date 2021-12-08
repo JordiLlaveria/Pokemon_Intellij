@@ -1,9 +1,9 @@
 package edu.upc.dsa.models;
 
 public class User {
+    private String id;
     private String username;
     private String password;
-    private String id;
     private String email;
     private Character character;
 
