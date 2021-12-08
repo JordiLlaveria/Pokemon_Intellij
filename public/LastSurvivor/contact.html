@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LastSurvivor</title>
+    <link rel="icon" type="image/png" href="img/icon.png" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
+    <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+    <link rel="stylesheet" type="text/css" href="contact.css">
+    <script src = "JSON_Player.js"></script>
+    <script>
+        $(document).ready(function(){
+            myStorage = window.localStorage;
+        });
+    </script>
+</head>
+<body>
+<!-- HERE GOES ALL OF THE HTML TOP NAVIGATION BAR-->
+<nav class="topnav">
+    <a id="home-main" href="index.html">Home</a>
+    <a id="htm" href="store.html">Store</a>
+    <a id ="about" href="about.html" >About</a>
+    <div class = "sign">
+        <form>
+            <div id="signInBtn" class="btn-group btn-group-justified">
+                <a href="login.html" class="btn btn-info">Sign In</a>
+            </div>
+            <div id="signUpBtn" class="btn-group btn-group-justified">
+                <a href="register.html" class="btn btn-info">Sign Up</a>
+            </div>
+        </form>
+    </div>
+</nav>
+<div id="contact-body">
+    <!-- HERE GOES ALL OF THE HTML BODY CODE-->
+    <div class="container">
+        <div class="jumbotron jumbotron-billboard">
+            <div style="text-align:center">
+                <h2>Contact Us</h2>
+                <p>Swing by for a cup of coffee, or leave us a message:</p>
+            </div>
+            <div class="row">
+                <div class="column">
+                    <img src="img/eetac.jpg" style="width:100%" class="img">
+                </div>
+                <div class="column">
+                    <form action="/action_page.php">
+                        <label for="fname">First Name</label>
+                        <input type="text" id="fname" name="firstname" placeholder="Your name..">
+                        <label for="lname">Last Name</label>
+                        <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+                        <label for="country">Country</label>
+                        <select id="country" name="country">
+                            <option value="Spain">Spain</option>
+                            <option value="France">France</option>
+                            <option value="Portugal">Portugal</option>
+                            <option value="Germany">Germany</option>
+                            <option value="Poland">Poland</option>
+                            <option value="Italy">Italy</option>
+                            <option value="Bulgaria">Bulgaria</option>
+                            <option value="Netherlands">Netherlands</option>
+                            <option value="Canada">Canada</option>
+                            <option value="USA">USA</option>
+                        </select>
+                        <label for="subject">Subject</label>
+                        <textarea id="subject" name="subject" placeholder="Write something.." style="height:170px"></textarea>
+                        <div class = "sign">
+                            <form>
+                                <div id="submit" class="btn-group btn-group-justified">
+                                    <a class="btn btn-info">Submit</a>
+                                </div>
+                            </form>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>

@@ -1,20 +1,24 @@
 package edu.upc.dsa.services;
+
+import edu.upc.dsa.Manager;
+import edu.upc.dsa.ManagerImpl;
 import edu.upc.dsa.models.*;
-import edu.upc.dsa.models.Map;
-import edu.upc.dsa.models.Object;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
-import edu.upc.dsa.Manager;
-import edu.upc.dsa.ManagerImpl;
-import javax.ws.rs.*;
+
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
 import javax.ws.rs.core.GenericEntity;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.lang.Object;
 import java.util.LinkedList;
-import java.util.*;
 import java.util.List;
+import java.util.Map;
 
 
 @Api(value ="/endpoint", description = "Endpoint to Track Service")
@@ -34,8 +38,8 @@ public class Server {
     @Path("/objects")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getObjects(){
-        List <Object> objects = this.manager.getObjects();
-        GenericEntity<List<Object>> entity = new GenericEntity<List<Object>>(objects) {};
+
+        GenericEntity<List<Object>> entity = null;
         return Response.status(200).entity(entity).build();
     }
     @GET
@@ -60,8 +64,8 @@ public class Server {
     @Path("/maps")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getMaps(){
-        List <Map> maps = this.manager.getMaps();
-        GenericEntity<List<Map>> entity = new GenericEntity<List<Map>>(maps) {};
+        LinkedList<edu.upc.dsa.models.Map> maps = this.manager.getMaps();
+        GenericEntity<List<Map>> entity = null;
         return Response.status(200).entity(entity).build();
     }
     @GET
@@ -114,5 +118,4 @@ public class Server {
         }
     }
 }
-//per provar
 
