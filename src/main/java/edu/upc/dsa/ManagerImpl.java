@@ -1,20 +1,21 @@
 package edu.upc.dsa;
 
-import java.util.*;
-
 import edu.upc.dsa.models.*;
 import edu.upc.dsa.models.Character;
 import edu.upc.dsa.models.Map;
 import edu.upc.dsa.models.Object;
 import org.apache.log4j.Logger;
 
-public class ManagerImpl implements Manager {
+import java.util.Collections;
+import java.util.LinkedList;
+
+public class ManagerImpl implements edu.upc.dsa.Manager {
 
     private static ManagerImpl instance;
     private ManagerImpl(){}
     public static ManagerImpl getInstance(){
         if (instance==null){
-            instance=new ManagerImpl();
+            instance= ManagerImpl.getInstance();
         }
         return instance;
     }

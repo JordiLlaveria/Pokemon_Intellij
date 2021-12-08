@@ -1,0 +1,290 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+body{
+    font-family: 'Roboto' , sans-serif;
+    background: url("img/aboutBackground.jpg") no-repeat center center fixed;
+    background-size: cover;
+
+}
+
+.main-section{
+    margin: 0 auto;
+    margin-top: 130px;
+    padding: 0;
+}
+.modal-content{
+    background-color: darkslategrey;
+    opacity: .75;
+    padding: 0 18px;
+    box-shadow: 0px 0px 3px #848484;
+}
+.form-group{
+    margin-bottom: 25px;
+}
+
+.form-group input{
+    height: 42px;
+    border-radius: 5px;
+    border: 0;
+    font-size: 18px;
+    padding-left: 54px;
+}
+.fa-user{
+    position: absolute;
+    left: 20px;
+    font-size: 30px;
+    padding-top: 15px;
+    color: slategray;
+}
+.fa-lock{
+    position: absolute;
+    left: 20px;
+    font-size: 30px;
+    padding-top: 15px;
+    color: slategray;
+}
+.btn-info{
+    background-color: darkcyan;
+    color: azure;
+}
+
+.btn{
+    background-color: darkcyan;
+    width: 200px;
+    color: azure;
+}
+
+.topnav{
+    overflow: hidden;
+    background-color: transparent !important;
+}
+.topnav a{
+    float: left;
+    display: block;
+    color: #9eebcf;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+.topnav a:hover{
+    transition: 0.6s all;
+}
+.sign{
+    float: right;
+    padding: 6px;
+    margin-top: 8px;
+    margin-right: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+
+.img {
+    float: left;
+    width:  400px;
+    height: 400px;
+    background-size: cover;
+    border-radius: 10px ;
+    box-shadow: 0px 0px 2px #848484;
+}
+.left-align-text{
+    text-align:left;
+    margin-top: 0px;
+    margin-right: 20px;
+    margin-bottom: 0px;
+    margin-left: 20px;
+    text-decoration: none;
+    font-size: 20px;
+}
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+/* Banner */
+
+#banner {
+    padding: 12em 0 10em 0;
+    background-size: cover;
+    background-position: top;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    text-align: center;
+    border-top: 0.5em solid darkcyan;
+}
+
+#banner h1 {
+    font-size: 7.5em;
+    font-weight: 100;
+    color: #fff;
+    line-height: 1em;
+    margin: 0 0 0.5em 0;
+    padding: 0;
+}
+
+#banner p {
+    font-size: 4.5em;
+    color: rgba(255, 255, 255, 0.55);
+    margin-bottom: 1.75em;
+}
+/* Section/Article */
+
+section.special, article.special {
+    text-align: center;
+}
+
+section.special article, article.special article {
+    text-align: left;
+}
+section.wrapper, article.wrapper {
+    padding: 6em 0;
+}
+
+section.wrapper header, article.wrapper header {
+    margin-bottom: 4em;
+}
+
+section.wrapper header h2, article.wrapper header h2 {
+    font-size: 3.75em;
+    margin: 0 0 .5em 0;
+}
+
+section.wrapper header p, article.wrapper header p {
+    font-size: 2.5em;
+}
+
+section.wrapper article header, article.wrapper article header {
+    margin: 0;
+}
+/*Section Style and color    */
+section.wrapper.style1, article.wrapper.style1 {
+    background: darkcyan;
+    color: azure;
+}
+
+section.wrapper.style1 header h2, article.wrapper.style1 header h2 {
+    color: #fff;
+}
+
+section.wrapper.style1 header p, article.wrapper.style1 header p {
+    color: azure;
+}
+/*Name Header Style    */
+section.wrapper.style1 h3, article.wrapper.style1 h3 {
+    color: #FFF;
+}
+
+header p {
+    color: #bbb;
+    position: relative;
+    margin: 0 0 2.75em 0;
+}
+
+header h2 + p {
+    font-size: 4.25em;
+    margin-top: -1em;
+}
+
+header h3 + p {
+    font-size: 1.1em;
+    margin-top: -0.8em;
+}
+
+header h4 + p,
+header h5 + p,
+header h6 + p {
+    font-size: 0.9em;
+    margin-top: -0.6em;
+}
+/* Flex */
+
+.flex {
+    display: -ms-flexbox;
+    -ms-flex-wrap: wrap;
+    -ms-flex-pack: justify;
+    display: -moz-flex;
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    -moz-flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -moz-justify-content: space-between;
+    -webkit-justify-content: space-between;
+    -ms-justify-content: space-between;
+    justify-content: space-between;
+}
+
+
+.flex.flex-5 .box {
+    width: 16%;
+}
+
+/* Image */
+
+.image {
+    border-radius: 0;
+    border: 0;
+    display: inline-block;
+    position: relative;
+}
+
+.image img {
+    border-radius: 0;
+    display: block;
+}
+
+.image.left, .image.right {
+    max-width: 40%;
+}
+
+.image.left img, .image.right img {
+    width: 100%;
+}
+
+.image.round img {
+    border-radius: 100%;
+}
+
+.image.left {
+    float: left;
+    padding: 0 0.25em 1em 0;
+    top: 0.25em;
+}
+
+.image.right {
+    float: right;
+    padding: 0 0 0.25em 0.5em;
+    top: 0.25em;
+}
+
+.image.fit {
+    display: block;
+    margin: 0 0 0.25em 0;
+    width: 100%;
+}
+
+.image.fit img {
+    width: 100%;
+}
+
+.image.main {
+    display: block;
+    margin: 0 0 1em 0;
+    width: 100%;
+}
+
+.image.main img {
+    width: 100%;
+}
