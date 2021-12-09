@@ -41,17 +41,19 @@ public class ManagerImpl implements edu.upc.dsa.Manager {
     }
 
     @Override
-    public boolean loginUser(String name, String password) {
+    public User loginUser(String name, String password) {
         int i=0;
         int trobat=0;
         while (i<userList.size()){
             if (userList.get(i).getUsername().equals(name) && userList.get(i).getPassword().equals(password)){
                 trobat=1;
             }
-            i++;
+            else {
+                i++;
+            }
         }
-        if (trobat==0){return false;}
-        else{return true;}
+        if (trobat==1){return userList.get(i);}
+        else{return null;}
     }
 
     @Override
