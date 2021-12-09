@@ -103,18 +103,18 @@ public class Server {
     @ApiOperation(value = "Login operation", notes = "asdasd")
     @ApiResponses(value = {
             @ApiResponse(code = 201, message = "Successful", response = User.class),
-            @ApiResponse(code = 500, message = "Error")
+            @ApiResponse(code = 404, message = "Not found")
     })
 
     @Path("/login")
     @Produces(MediaType.APPLICATION_JSON)
     public Response Login(String username, String pwd) {
         if (username!= null && pwd!=null){
-            this.manager.loginUser(username, pwd);
-            return Response.status(201).entity(username).build();
+            User user = this.manager.loginUser(username, pwd);
+            return Response.status(201).entity(user).build();
         }
         else{
-            return Response.status(500).entity(username).build();
+            return Response.status(404).build();
         }
     }
 }

@@ -8,7 +8,7 @@ import java.util.LinkedList;
 
 public interface Manager {
     public void registerUser(User user);
-    public boolean loginUser(String name, String password);
+    public User loginUser(String name, String password);
     public void addCharacter(User user, Character character);
     public void createObject(Object object);
     public void addObject(User user, Object object);
