@@ -6,7 +6,7 @@ import java.util.List;
 public interface Session<E> {
     void save(Object entity);
     void close();
-    Object get(Object object, int ID);
+    Object get(Object object, String name);
     void update(Object object);
     void delete(Object object);
     List<Object> findAll(Object object);

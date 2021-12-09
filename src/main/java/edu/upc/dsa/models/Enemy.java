@@ -3,14 +3,15 @@ package edu.upc.dsa.models;
 public class Enemy {
     String name;
     String message;
-    Pokemon pokemon;
+    String pokemon_name;
+    Pokemons pokemons;
 
     public Enemy(){}
-    public Enemy(String name, String message, Pokemon pokemon){
+    public Enemy(String name, String message, Pokemons pokemons){
         this();
         setName(name);
         setMessage(message);
-        setPokemon(pokemon);
+        setPokemon(pokemons);
     }
 
     public void setName(String name){this.name=name;}
@@ -19,6 +20,9 @@ public class Enemy {
     public void setMessage(String message){this.message=message;}
     public String getMessage(){return this.message;}
 
-    public void setPokemon(Pokemon pokemon){this.pokemon=pokemon;}
-    public Pokemon getPokemon(){return this.pokemon;}
+    public void setPokemon(Pokemons pokemons){this.pokemons = pokemons;}
+    public Pokemons getPokemon(){return this.pokemons;}
+
+    public void setPokemon_name(String name){this.pokemon_name=name;}
+    public String getPokemon_name(){return this.pokemon_name;}
 }

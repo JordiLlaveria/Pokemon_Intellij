@@ -1,22 +1,15 @@
 import edu.upc.dsa.FactorySession;
-import edu.upc.dsa.ManagerImpl;
 import edu.upc.dsa.Session;
 import edu.upc.dsa.models.*;
-import edu.upc.dsa.models.Attack;
 import edu.upc.dsa.models.Character;
 import edu.upc.dsa.models.Object;
-import edu.upc.dsa.util.ObjectHelper;
-import edu.upc.dsa.util.QueryHelper;
-import org.junit.Assert;
 import org.junit.Test;
-
-import java.util.List;
 
 public class QueryHelperTest {
 
     @Test
     public void ProbarSetter(){
-        User u = new User("Maria", "12345", "maria@gmail.com",null);
+        //User u = new User("Maria", "12345", "maria@gmail.com",null);
         //ObjectHelper.setter(e,"name","Juan");
         //Assert.assertEquals(e.getName(),"Juan");
     }
@@ -29,19 +22,50 @@ public class QueryHelperTest {
     @Test
     public void testInsert(){
         Character c = new Character();
-        User u = new User("Maria", "12345", "maria@gmail.com",c);
+        User u = new User("Maria", "12345", "maria@gmail.com","James");
         FactorySession s = new FactorySession();
         Session sess = s.openSession();
         sess.save(u);
     }
     @Test
-    public void testSelect(){
-        //Employee e = new Employee();
+    public void testSelectUser(){
+        User u = new User();
         FactorySession s = new FactorySession();
         Session sess = s.openSession();
-        //sess.get(e,2);
+        sess.get(u,"Jordi");
     }
 
+    @Test
+    public void testSelectCharacter(){
+        Character c = new Character();
+        FactorySession s = new FactorySession();
+        Session sess = s.openSession();
+        sess.get(c,"James");
+    }
+
+    @Test
+    public void testSelectPokemon(){
+        Pokemons p = new Pokemons();
+        FactorySession s = new FactorySession();
+        Session sess = s.openSession();
+        sess.get(p,"Squirtle");
+    }
+
+    @Test
+    public void testSelectObject(){
+        Object o = new Object();
+        FactorySession s = new FactorySession();
+        Session sess = s.openSession();
+        sess.get(o,"Pokeball");
+    }
+
+    @Test
+    public void testSelectEnemy(){
+        Enemy e = new Enemy();
+        FactorySession s = new FactorySession();
+        Session sess = s.openSession();
+        sess.get(e,"Malo1");
+    }
     @Test
     public void testUpdate(){
         //Employee e = new Employee("Aida","Padilla", 600);

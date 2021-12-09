@@ -45,14 +45,14 @@ public class Server {
     @GET
     @ApiOperation(value = "get list of pokemons", notes = "asdasd")
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Successful", response = Pokemon.class, responseContainer = "List"),
+            @ApiResponse(code = 200, message = "Successful", response = Pokemons.class, responseContainer = "List"),
             @ApiResponse(code = 500, message = "Error")
     })
     @Path("/pokemons")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getPokemons(){
-        List <Pokemon> pokemons = this.manager.getPokemons();
-        GenericEntity<List<Pokemon>> entity = new GenericEntity<List<Pokemon>>(pokemons) {};
+        List <Pokemons> pokemons = this.manager.getPokemons();
+        GenericEntity<List<Pokemons>> entity = new GenericEntity<List<Pokemons>>(pokemons) {};
         return Response.status(200).entity(entity).build();
     }
     @GET
@@ -91,12 +91,12 @@ public class Server {
     @Path("/user")
     @Produces(MediaType.APPLICATION_JSON)
     public Response Register(User u) {
-        if (u.getCharacter()!=null && u.getEmail()!=null && u.getPassword()!= null && u.getUsername()!=null){
+        if (u.getCharacter()!=null && u.getEmail()!=null && u.getPassword()!= null && u.getName()!=null){
             this.manager.registerUser(u);
-            return Response.status(201).entity(u.getUsername()).build();
+            return Response.status(201).entity(u.getName()).build();
         }
         else{
-            return Response.status(500).entity(u.getUsername()).build();
+            return Response.status(500).entity(u.getName()).build();
         }
     }
     @POST

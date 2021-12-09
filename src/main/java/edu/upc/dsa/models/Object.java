@@ -2,12 +2,12 @@ package edu.upc.dsa.models;
 
 public class Object {
     private String name;
-    private double price;
+    private Double price;
     private String type;
     private String description;
 
     public Object(){}
-    public Object(String name, double price, String type, String description){
+    public Object(String name, Double price, String type, String description){
         this();
         setName(name);
         setPrice(price);
@@ -18,8 +18,8 @@ public class Object {
     public void setName(String name){this.name=name;}
     public String getName(){return this.name;}
 
-    public void setPrice(double price){this.price=price;}
-    public double getPrice(){return this.price;}
+    public void setPrice(Double price){this.price=price;}
+    public Double getPrice(){return this.price;}
 
     public void setType(String type){this.type=type;}
     public String getType(){return this.type;}

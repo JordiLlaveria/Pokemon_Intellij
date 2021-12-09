@@ -49,21 +49,22 @@ public class SessionImpl implements edu.upc.dsa.Session {
         }
     }
 
-    public Object get(Object object, int ID) {
+    public Object get(Object object, String name) {
         String selectQuery = QueryHelper.createQuerySELECT(object.getClass());
         PreparedStatement pstm = null;
 
         try {
             pstm = conn.prepareStatement(selectQuery);
-            pstm.setObject(1, ID);
+            pstm.setObject(1, name);
             ResultSet rs = pstm.executeQuery();
             ResultSetMetaData rsmd = rs.getMetaData();
             int columnsNumber = rsmd.getColumnCount();
             while (rs.next()) {
-                int i=2;
+                int i=1;
                 while (i<columnsNumber+1) {
                     Object e = rs.getObject(i);
-                    ObjectHelper.setter(object,rsmd.getColumnLabel(i),e);
+                    if (e!=null)
+                        ObjectHelper.setter(object,rsmd.getColumnLabel(i),e);
                     i++;
                 }
             }

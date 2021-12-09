@@ -22,7 +22,7 @@ public class ManagerImpl implements edu.upc.dsa.Manager {
 
     final static Logger logger = Logger.getLogger(ManagerImpl.class);
     LinkedList<User> userList = new LinkedList<User>();
-    LinkedList<Pokemon> pokemonList = new LinkedList<Pokemon>();
+    LinkedList<Pokemons> pokemonsList = new LinkedList<Pokemons>();
     LinkedList<Object> objectList = new LinkedList<Object>();
     LinkedList<edu.upc.dsa.models.Map> mapList = new LinkedList<edu.upc.dsa.models.Map>();
 
@@ -31,7 +31,7 @@ public class ManagerImpl implements edu.upc.dsa.Manager {
         int i=0;
         int trobat=0;
         while (i<userList.size()){
-            if (userList.get(i).getUsername().equals(user.getUsername())){
+            if (userList.get(i).getName().equals(user.getName())){
                 trobat=1;
             }
             i++;
@@ -45,7 +45,7 @@ public class ManagerImpl implements edu.upc.dsa.Manager {
         int i=0;
         int trobat=0;
         while (i<userList.size()){
-            if (userList.get(i).getUsername().equals(name) && userList.get(i).getPassword().equals(password)){
+            if (userList.get(i).getName().equals(name) && userList.get(i).getPassword().equals(password)){
                 trobat=1;
             }
             i++;
@@ -58,7 +58,7 @@ public class ManagerImpl implements edu.upc.dsa.Manager {
     public void addCharacter(User user, Character character) {
         int i=0;
         while (i<userList.size()){
-            if (userList.get(i).getUsername().equals(user.getUsername())){
+            if (userList.get(i).getName().equals(user.getName())){
                 userList.get(i).setCharacter(character);
             }
             i++;
@@ -82,7 +82,7 @@ public class ManagerImpl implements edu.upc.dsa.Manager {
     public void addObject(User user, Object object) {
         int i=0;
         while (i<userList.size()){
-            if (userList.get(i).getUsername().equals(user.getUsername())){
+            if (userList.get(i).getName().equals(user.getName())){
                 userList.get(i).getCharacter().addObject(object);
                 userList.get(i).getCharacter().setMoney(userList.get(i).getCharacter().getMoney() - object.getPrice());
             }
@@ -91,8 +91,8 @@ public class ManagerImpl implements edu.upc.dsa.Manager {
     }
 
     @Override
-    public void addPokemon(Pokemon pokemon) {
-        this.pokemonList.add(pokemon);
+    public void addPokemon(Pokemons pokemons) {
+        this.pokemonsList.add(pokemons);
     }
 
     @Override
@@ -113,16 +113,16 @@ public class ManagerImpl implements edu.upc.dsa.Manager {
     }
 
     @Override
-    public LinkedList<Pokemon> getPokemons() {
-        return this.pokemonList;
+    public LinkedList<Pokemons> getPokemons() {
+        return this.pokemonsList;
     }
 
     @Override
-    public LinkedList<Pokemon> getPokemonsCharacter(Character character) {
+    public LinkedList<Pokemons> getPokemonsCharacter(Character character) {
         int i=0;
         int trobat=0;
         while (i<userList.size()){
-            if (userList.get(i).getCharacter().getNickname().equals(character.getNickname())){
+            if (userList.get(i).getCharacter().getName().equals(character.getName())){
                 trobat=1;
             }
             i++;
@@ -141,7 +141,7 @@ public class ManagerImpl implements edu.upc.dsa.Manager {
         int i=0;
         int trobat=0;
         while (i<userList.size()){
-            if (userList.get(i).getCharacter().getNickname().equals(character.getNickname())){
+            if (userList.get(i).getCharacter().getName().equals(character.getName())){
                 trobat=1;
             }
             i++;
