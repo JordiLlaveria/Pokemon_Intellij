@@ -30,7 +30,7 @@ public class ManagerImpl implements edu.upc.dsa.Manager {
     public void registerUser(User user) {
         int i=0;
         int trobat=0;
-        while (i<userList.size()){
+        while ((i<userList.size())&&(trobat == 0)){
             if (userList.get(i).getUsername().equals(user.getUsername())){
                 trobat=1;
             }
@@ -44,7 +44,7 @@ public class ManagerImpl implements edu.upc.dsa.Manager {
     public User loginUser(String name, String password) {
         int i=0;
         int trobat=0;
-        while (i<userList.size()){
+        while ((i<userList.size())&&(trobat == 0)){
             if (userList.get(i).getUsername().equals(name) && userList.get(i).getPassword().equals(password)){
                 trobat=1;
             }
@@ -59,9 +59,11 @@ public class ManagerImpl implements edu.upc.dsa.Manager {
     @Override
     public void addCharacter(User user, Character character) {
         int i=0;
-        while (i<userList.size()){
+        int trobat = 0;
+        while ((i<userList.size())&&(trobat == 0)){
             if (userList.get(i).getUsername().equals(user.getUsername())){
                 userList.get(i).setCharacter(character);
+                trobat = 1;
             }
             i++;
         }
@@ -71,7 +73,7 @@ public class ManagerImpl implements edu.upc.dsa.Manager {
     public void createObject(Object object) {
         int i=0;
         int trobat=0;
-        while (i<objectList.size()){
+        while ((i<objectList.size()) && (trobat == 0)){
             if (objectList.get(i).getName().equals(object.getName())){
                 trobat++;
             }
@@ -83,10 +85,12 @@ public class ManagerImpl implements edu.upc.dsa.Manager {
     @Override
     public void addObject(User user, Object object) {
         int i=0;
-        while (i<userList.size()){
+        int trobat = 0;
+        while ((i<userList.size()) &&(trobat==0)){
             if (userList.get(i).getUsername().equals(user.getUsername())){
                 userList.get(i).getCharacter().addObject(object);
                 userList.get(i).getCharacter().setMoney(userList.get(i).getCharacter().getMoney() - object.getPrice());
+                trobat = 1;
             }
             i++;
         }
@@ -123,11 +127,13 @@ public class ManagerImpl implements edu.upc.dsa.Manager {
     public LinkedList<Pokemon> getPokemonsCharacter(Character character) {
         int i=0;
         int trobat=0;
-        while (i<userList.size()){
+        while ((i<userList.size())&&(trobat == 0)){
             if (userList.get(i).getCharacter().getNickname().equals(character.getNickname())){
                 trobat=1;
             }
-            i++;
+            else {
+                i++;
+            }
         }
         if(trobat==1){return userList.get(i).getCharacter().getPokemons();}
         else{return null;}
@@ -142,11 +148,13 @@ public class ManagerImpl implements edu.upc.dsa.Manager {
     public LinkedList<Object> getObjectsPersonatge(Character character) {
         int i=0;
         int trobat=0;
-        while (i<userList.size()){
+        while ((i<userList.size())&&(trobat == 0)){
             if (userList.get(i).getCharacter().getNickname().equals(character.getNickname())){
                 trobat=1;
             }
-            i++;
+            else {
+                i++;
+            }
         }
         if(trobat==1){return userList.get(i).getCharacter().getObjects();}
         else{return null;}
