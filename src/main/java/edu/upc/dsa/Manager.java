@@ -8,9 +8,13 @@ import java.util.LinkedList;
 
 public interface Manager {
     public boolean registerUser(User user);
-    public boolean loginUser(String name, String password);
-    public Character searchCharacter(User user);
-    //public void addCharacter(User user, Character character);
+    public User loginUser(String name, String password);
+    public boolean addCharacter(Character character);
+    public Character getCharacter(String charactername);
+
+    /*
+
+    public void addCharacter(User user, Character character);
     public void createObject(Objects objects);
     public void addObject(User user, Objects objects);
     public void addPokemon(Pokemons pokemons);
@@ -22,4 +26,6 @@ public interface Manager {
     public LinkedList<Objects> getObjects();
     public LinkedList<Objects> getObjectsPersonatge(Character character);
     public Map levelup(Character character);
+
+     */
 }

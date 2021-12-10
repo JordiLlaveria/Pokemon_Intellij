@@ -3,6 +3,7 @@ package edu.upc.dsa.services;
 import edu.upc.dsa.Manager;
 import edu.upc.dsa.ManagerImpl;
 import edu.upc.dsa.models.*;
+import edu.upc.dsa.models.Character;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -13,7 +14,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 
-@Api(value ="/endpoint", description = "Endpoint to Track Service")
+@Api(value ="/endpoint", description = "Endpoint to Pokemon Service")
 @Path("/endpoint")
 public class Server {
     private Manager manager;
@@ -76,6 +77,60 @@ public class Server {
         return Response.status(200).entity(entity).build();
     }
     */
+
+
+
+    @GET
+    @ApiOperation(value = "get character", notes = "asdasd")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Successful", response = Character.class),
+            @ApiResponse(code = 404, message = "Not found")
+    })
+    @Path("/character/{name}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getCharacter(@PathParam("name") String name){
+        if(name!=null){
+            Character character = this.manager.getCharacter(name);
+            if (character!=null){
+                return Response.status(201).entity(character).build();
+            }
+            else{
+                return Response.status(500).build();
+            }
+        }
+        else{
+            return Response.status(500).build();
+        }
+    }
+
+
+
+    @POST
+    @ApiOperation(value = "Create new character", notes = "asdasd")
+    @ApiResponses(value = {
+            @ApiResponse(code = 201, message = "Successful", response = Character.class),
+            @ApiResponse(code = 500, message = "Error")
+    })
+
+    @Path("/character")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response newCharacter(Character character) {
+        if(character.getName()!=null && character.getPokemon1_name()!=null){
+            boolean characterAdded = this.manager.addCharacter(character);
+            if(characterAdded){
+                return Response.status(201).entity(character).build();
+            }
+            else{
+                return Response.status(500).entity(character).build();
+            }
+        }
+        else{
+            return Response.status(500).entity(character).build();
+        }
+    }
+
+
+
     @POST
     @ApiOperation(value = "Register operation", notes = "asdasd")
     @ApiResponses(value = {
@@ -85,10 +140,10 @@ public class Server {
 
     @Path("/user")
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response Register(User u) {
+    public Response register(User u) {
         if (u.getCharactername()!=null && u.getEmail()!=null && u.getPassword()!= null && u.getName()!=null){
             boolean userRegistered = this.manager.registerUser(u);
-            if(userRegistered == true) {
+            if(userRegistered) {
                 return Response.status(201).entity(u).build();
             }
             else{
@@ -112,14 +167,13 @@ public class Server {
     @Consumes(MediaType.APPLICATION_JSON)
     public Response login(Credentials c) {
         if (c.getUsername()!= null && c.getPassword()!=null){
-            boolean userlogged = this.manager.loginUser(c.getUsername(), c.getPassword());
-            if(userlogged){
-                return Response.status(201).entity(c).build();
+            User userlogged = this.manager.loginUser(c.getUsername(), c.getPassword());
+            if(userlogged!=null){
+                return Response.status(201).entity(userlogged).build();
             }
             else{
                 return Response.status(404).build();
             }
-
         }
         else{
             return Response.status(500).build();

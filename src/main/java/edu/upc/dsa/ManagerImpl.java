@@ -49,7 +49,7 @@ public class ManagerImpl implements Manager {
     }
 
     @Override
-    public boolean loginUser(String name, String password) {
+    public User loginUser(String name, String password) {
         int i=0;
         boolean trobat=false; //bool
         while ((i<userList.size())&&(trobat == false)){
@@ -60,38 +60,59 @@ public class ManagerImpl implements Manager {
                 i++;
             }
         }
-        return trobat;
+        if(trobat){
+            return userList.get(i);
+        }
+        else{
+            return null;
+        }
     }
 
     @Override
-    public Character searchCharacter(User user) {
+    public boolean addCharacter(Character character) {
         int i=0;
-        int trobat =0;
-        Character characterbuscat=null;
-        while (i<characterList.size()&&(trobat == 0)){
-            if (characterList.get(i).getName()==user.getCharactername())
-            {
-                characterbuscat= characterList.get(i);
-                trobat++;
+        boolean trobat = false;
+        while ((i<characterList.size())&&(trobat == false)){
+            if (characterList.get(i).getName().equals(character.getName())){
+                trobat = true;
             }
-            i++;
+            else {
+                i++;
+            }
         }
-        return characterbuscat;
+        if(trobat == false){
+            characterList.add(character);
+            return true;
+        }
+        else{
+            return false;
+        }
     }
-    /*
+
     @Override
-    public void addCharacter(User user, Character character) {
+    public Character getCharacter(String name) {
         int i=0;
-        int trobat = 0;
-        while ((i<userList.size())&&(trobat == 0)){
-            if (userList.get(i).getName().equals(user.getName())){
-                userList.get(i).setCharacter(character);
-                trobat = 1;
+        boolean trobat = false;
+
+        while (i<characterList.size()&&(trobat == false)){
+            if (characterList.get(i).getName().equals(name))
+            {
+                trobat = true;
             }
-            i++;
+            else {
+                i++;
+            }
+        }
+        if(trobat) {
+            return characterList.get(i);
+        }
+        else{
+            return null;
         }
     }
-    */
+
+    /*
+
 
     @Override
     public void createObject(Objects objects) {
@@ -213,4 +234,6 @@ public class ManagerImpl implements Manager {
     public Map levelup(Character character) {
         return null;
     }
+
+     */
 }
