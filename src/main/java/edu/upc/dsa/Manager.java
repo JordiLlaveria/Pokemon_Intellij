@@ -7,8 +7,8 @@ import edu.upc.dsa.models.Objects;
 import java.util.LinkedList;
 
 public interface Manager {
-    public void registerUser(User user);
-    public User loginUser(String name, String password);
+    public boolean registerUser(User user);
+    public boolean loginUser(String name, String password);
     public Character searchCharacter(User user);
     //public void addCharacter(User user, Character character);
     public void createObject(Objects objects);

@@ -28,33 +28,39 @@ public class ManagerImpl implements Manager {
     LinkedList<edu.upc.dsa.models.Map> mapList = new LinkedList<edu.upc.dsa.models.Map>();
 
     @Override
-    public void registerUser(User user) {
+    public boolean registerUser(User user) {
         int i=0;
-        int trobat=0;
-        while ((i<userList.size())&&(trobat == 0)){
+        boolean trobat=false;
+        while ((i<userList.size())&&(trobat == false)){
             if (userList.get(i).getName().equals(user.getName())){
-                trobat=1;
-            }
-            i++;
-        }
-        if (trobat==0){this.userList.add(user);}
-        else{}
-    }
-
-    @Override
-    public User loginUser(String name, String password) {
-        int i=0;
-        int trobat=0; //bool
-        while ((i<userList.size())&&(trobat == 0)){
-            if (userList.get(i).getName().equals(name) && userList.get(i).getPassword().equals(password)){
-                trobat=1;
+                trobat=true;
             }
             else {
                 i++;
             }
         }
-        if (trobat==1){return userList.get(i);}
-        else{return null;}
+        if (trobat==false){
+            this.userList.add(user);
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    @Override
+    public boolean loginUser(String name, String password) {
+        int i=0;
+        boolean trobat=false; //bool
+        while ((i<userList.size())&&(trobat == false)){
+            if (userList.get(i).getName().equals(name) && userList.get(i).getPassword().equals(password)){
+                trobat=true;
+            }
+            else {
+                i++;
+            }
+        }
+        return trobat;
     }
 
     @Override
@@ -63,7 +69,7 @@ public class ManagerImpl implements Manager {
         int trobat =0;
         Character characterbuscat=null;
         while (i<characterList.size()&&(trobat == 0)){
-            if (characterList.get(i).getName()==user.getCharacter_name())
+            if (characterList.get(i).getName()==user.getCharactername())
             {
                 characterbuscat= characterList.get(i);
                 trobat++;

@@ -1,26 +1,23 @@
 package edu.upc.dsa.models;
 
-import edu.upc.dsa.Manager;
-import edu.upc.dsa.ManagerImpl;
-
 public class User {
     //private String id;
     private String name;
     private String password;
     private String email;
-    private String character_name;
+    private String charactername;
     //private Character character;
 
     public User(){
 
     }
-    public User(String name, String password, String email, String character_name){
+    public User(String name, String password, String email, String charactername){
         this();
         //setId(id);
         setName(name);
         setPassword(password);
         setEmail(email);
-        setCharacter_name(character_name);
+        setCharactername(charactername);
     }
     public User(String username, String password){
         this();
@@ -42,8 +39,8 @@ public class User {
 
     //public Character getCharacter(){return m.searchCharacter(this,this.character_name);}
 
-    public void setCharacter_name(String c){this.character_name =c;}
-    public String getCharacter_name(){return this.character_name;}
+    public void setCharactername(String c){this.charactername =c;}
+    public String getCharactername(){return this.charactername;}
     /*
     public int compareTo(User c)
     {
