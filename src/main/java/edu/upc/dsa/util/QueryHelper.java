@@ -5,6 +5,7 @@ public class QueryHelper {
     public static String createQueryINSERT(Object entity) {
 
         StringBuffer sb = new StringBuffer("INSERT INTO ");
+        sb.append("pokemon.");
         sb.append(entity.getClass().getSimpleName()).append(" ");
         sb.append("(");
 
@@ -59,8 +60,8 @@ public class QueryHelper {
 
     public static String createQueryDELETE(Object entity){
         StringBuffer sb = new StringBuffer();
-        sb.append("DELETE FROM ").append(entity.getClass().getSimpleName());
-        sb.append(" WHERE ID = ?");
+        sb.append("DELETE FROM ").append("pokemon.").append(entity.getClass().getSimpleName());
+        sb.append(" WHERE Name = ?");
 
         return sb.toString();
     }
@@ -84,7 +85,7 @@ public class QueryHelper {
             i++;
         }
 
-        sb.append("WHERE ID = ?");
+        sb.append("WHERE Name = ?");
 
         return sb.toString();
     }

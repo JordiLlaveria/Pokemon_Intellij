@@ -81,15 +81,17 @@ public class SessionImpl implements edu.upc.dsa.Session {
         String insertQuery = QueryHelper.createQueryUPDATE(object);
 
         PreparedStatement pstm = null;
-
+        String name=null;
         try {
             pstm = conn.prepareStatement(insertQuery);
             int i = 1;
 
             for (String field: ObjectHelper.getFields(object)) {
+                if (field=="name")
+                    name=(String)ObjectHelper.getter(object, field);
                 pstm.setObject(i++, ObjectHelper.getter(object, field));
             }
-            pstm.setObject(i, 2);
+            pstm.setObject(i, name);
 
             pstm.executeQuery();
             close();
@@ -100,7 +102,7 @@ public class SessionImpl implements edu.upc.dsa.Session {
 
     }
 
-    public void delete(Object object) {
+    public void delete(Object object, String name) {
         String insertQuery = QueryHelper.createQueryDELETE(object);
 
         PreparedStatement pstm = null;
@@ -108,7 +110,7 @@ public class SessionImpl implements edu.upc.dsa.Session {
         try {
             pstm = conn.prepareStatement(insertQuery);
 
-            pstm.setObject(1, 2);
+            pstm.setObject(1, name);
 
             pstm.executeQuery();
             close();

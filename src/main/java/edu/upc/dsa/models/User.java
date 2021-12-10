@@ -1,6 +1,7 @@
 package edu.upc.dsa.models;
 
 import edu.upc.dsa.Manager;
+import edu.upc.dsa.ManagerImpl;
 
 public class User {
     //private String id;
@@ -39,17 +40,14 @@ public class User {
     public void setEmail(String email){this.email=email;}
     public String getEmail(){return this.email;}
 
-    //public void setCharacter(Character c){this.character=c;}
-    //public Character getCharacter(){return this.character;}
+    //public Character getCharacter(){return m.searchCharacter(this,this.character_name);}
 
     public void setCharacter_name(String c){this.character_name =c;}
     public String getCharacter_name(){return this.character_name;}
-
     /*
     public int compareTo(User c)
     {
-        Character cuser = new Character();
-        int res = (int) (this.cuser..getPoints()-c.getCharacter().getPoints());
+        int res = (int) (this.getCharacter().getPoints()-c.getCharacter().getPoints());
         return res;
     }
     */

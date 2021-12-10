@@ -2,11 +2,11 @@ package edu.upc.dsa.models;
 
 import java.util.Comparator;
 
-public class Ranking implements Comparator<User> {
+public class Ranking implements Comparator<Character> {
 
-    public int compare(User u1, User u2){
+    public int compare(Character c1, Character c2){
 
-        return (int)(u1.getCharacter().getPoints() - u2.getCharacter().getPoints());
+        return (int)(c1.getPoints() - c2.getPoints());
     }
 
 }

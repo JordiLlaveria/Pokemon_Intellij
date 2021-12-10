@@ -1,13 +1,13 @@
 package edu.upc.dsa.models;
 
-public class Object {
+public class Objects {
     private String name;
     private Double price;
     private String type;
     private String description;
 
-    public Object(){}
-    public Object(String name, Double price, String type, String description){
+    public Objects(){}
+    public Objects(String name, Double price, String type, String description){
         this();
         setName(name);
         setPrice(price);
