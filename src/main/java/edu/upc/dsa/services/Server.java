@@ -8,10 +8,7 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.GenericEntity;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -89,7 +86,7 @@ public class Server {
     })
 
     @Path("/user")
-    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
     public Response Register(User u) {
         if (u.getCharacter()!=null && u.getEmail()!=null && u.getPassword()!= null && u.getName()!=null){
             this.manager.registerUser(u);
@@ -107,10 +104,10 @@ public class Server {
     })
 
     @Path("/login")
-    @Produces(MediaType.APPLICATION_JSON)
-    public Response Login(String username, String pwd) {
-        if (username!= null && pwd!=null){
-            User user = this.manager.loginUser(username, pwd);
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response Login(User u) {
+        if (u.getName()!= null && u.getPassword()!=null){
+            User user = this.manager.loginUser(u.getName(), u.getPassword());
             return Response.status(201).entity(user).build();
         }
         else{
