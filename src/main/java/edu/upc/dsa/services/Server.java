@@ -24,8 +24,10 @@ public class Server {
     private Manager manager;
     public Server(){
         this.manager = ManagerImpl.getInstance();
+        manager.registerUser(new User("Joana","hola","joana@email.com","tijuana"));
 
     }
+    /*
     @GET
     @ApiOperation(value = "get list of objects", notes = "asdasd")
     @ApiResponses(value = {
@@ -96,19 +98,21 @@ public class Server {
             return Response.status(500).entity(u.getName()).build();
         }
     }
+    */
     @POST
     @ApiOperation(value = "Login operation", notes = "asdasd")
     @ApiResponses(value = {
-            @ApiResponse(code = 201, message = "Successful", response = User.class),
+            @ApiResponse(code = 201, message = "Successful", response = Credentials.class),
             @ApiResponse(code = 404, message = "Not found")
     })
 
     @Path("/login")
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response Login(User u) {
-        if (u.getName()!= null && u.getPassword()!=null){
-            User user = this.manager.loginUser(u.getName(), u.getPassword());
-            return Response.status(201).entity(user).build();
+    public Response login(Credentials u) {
+        //punt parada
+        if (u.getUsername()!= null && u.getPassword()!=null){
+            User user = this.manager.loginUser(u.getUsername(), u.getPassword());
+            return Response.status(201).entity(u).build();
         }
         else{
             return Response.status(404).build();

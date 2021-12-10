@@ -15,7 +15,7 @@ public class ManagerImpl implements edu.upc.dsa.Manager {
     private ManagerImpl(){}
     public static ManagerImpl getInstance(){
         if (instance==null){
-            instance= ManagerImpl.getInstance();
+            instance = new ManagerImpl();
         }
         return instance;
     }
@@ -43,7 +43,7 @@ public class ManagerImpl implements edu.upc.dsa.Manager {
     @Override
     public User loginUser(String name, String password) {
         int i=0;
-        int trobat=0;
+        int trobat=0; //bool
         while ((i<userList.size())&&(trobat == 0)){
             if (userList.get(i).getName().equals(name) && userList.get(i).getPassword().equals(password)){
                 trobat=1;

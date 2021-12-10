@@ -8,7 +8,9 @@ public class User {
     private String character_name;
     private Character character;
 
-    public User(){}
+    public User(){
+
+    }
     public User(String name, String password, String email, String character_name){
         this();
         //setId(id);
