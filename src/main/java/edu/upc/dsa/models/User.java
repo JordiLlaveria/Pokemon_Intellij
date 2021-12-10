@@ -1,12 +1,14 @@
 package edu.upc.dsa.models;
 
+import edu.upc.dsa.Manager;
+
 public class User {
     //private String id;
     private String name;
     private String password;
     private String email;
     private String character_name;
-    private Character character;
+    //private Character character;
 
     public User(){}
     public User(String name, String password, String email, String character_name){
@@ -35,15 +37,18 @@ public class User {
     public void setEmail(String email){this.email=email;}
     public String getEmail(){return this.email;}
 
-    public void setCharacter(Character c){this.character=c;}
-    public Character getCharacter(){return this.character;}
+    //public void setCharacter(Character c){this.character=c;}
+    //public Character getCharacter(){return this.character;}
 
     public void setCharacter_name(String c){this.character_name =c;}
     public String getCharacter_name(){return this.character_name;}
 
+    /*
     public int compareTo(User c)
     {
-        int res = (int) (this.getCharacter().getPoints()-c.getCharacter().getPoints());
+        Character cuser = new Character();
+        int res = (int) (this.cuser..getPoints()-c.getCharacter().getPoints());
         return res;
     }
+    */
 }

@@ -22,6 +22,7 @@ public class ManagerImpl implements edu.upc.dsa.Manager {
 
     final static Logger logger = Logger.getLogger(ManagerImpl.class);
     LinkedList<User> userList = new LinkedList<User>();
+    LinkedList<Character> characterList = new LinkedList<Character>();
     LinkedList<Pokemons> pokemonsList = new LinkedList<Pokemons>();
     LinkedList<Object> objectList = new LinkedList<Object>();
     LinkedList<edu.upc.dsa.models.Map> mapList = new LinkedList<edu.upc.dsa.models.Map>();

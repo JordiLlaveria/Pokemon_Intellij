@@ -130,19 +130,25 @@ public class SessionImpl implements edu.upc.dsa.Session {
             ResultSetMetaData rsmd = rs.getMetaData();
             int columnsNumber = rsmd.getColumnCount();
             while (rs.next()) {
+                o = object.getClass().newInstance();
                 int i=2;
-                //o = Object.clone();
                 while (i<columnsNumber+1) {
                     Object e = rs.getObject(i);
-                    ObjectHelper.setter(object,rsmd.getColumnLabel(i),e);
+                    ObjectHelper.setter(o,rsmd.getColumnLabel(i),e);
                     i++;
                 }
-                objects.add(object);
+                objects.add(o);
             }
             close();
             return objects;
 
         } catch (SQLException e) {
+            e.printStackTrace();
+            return objects;
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+            return objects;
+        } catch (IllegalAccessException e) {
             e.printStackTrace();
             return objects;
         }
