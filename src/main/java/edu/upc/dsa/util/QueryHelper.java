@@ -18,13 +18,6 @@ public class QueryHelper {
             sb.append(", ").append(fields[i]);
             i++;
         }
-        /*
-        for (String field: fields) {
-            sb.append(", ").append(field);
-        }
-
-         */
-
         sb.append(") VALUES (?");
         i=1;
         while (i<fields.length)
@@ -32,15 +25,7 @@ public class QueryHelper {
             sb.append(", ?");
             i++;
         }
-        /*
-        for (String field: fields) {
-            sb.append(", ?");
-        }
-
-         */
-
         sb.append(")");
-
         return sb.toString();
     }
 
@@ -53,7 +38,7 @@ public class QueryHelper {
     }
     public static String createQuerySELECTALL(Class theclass) {
         StringBuffer sb = new StringBuffer();
-        sb.append("SELECT * FROM ").append(theclass.getSimpleName());
+        sb.append("SELECT * FROM ").append("pokemon.").append(theclass.getSimpleName());
 
         return sb.toString();
     }
@@ -84,9 +69,7 @@ public class QueryHelper {
             }
             i++;
         }
-
         sb.append("WHERE Name = ?");
-
         return sb.toString();
     }
 }

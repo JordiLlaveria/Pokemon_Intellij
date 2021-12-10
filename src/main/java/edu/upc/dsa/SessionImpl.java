@@ -49,9 +49,10 @@ public class SessionImpl implements edu.upc.dsa.Session {
         }
     }
 
-    public Object get(Object object, String name) {
-        String selectQuery = QueryHelper.createQuerySELECT(object.getClass());
+    public Object get(Class theClass, String name) {
+        String selectQuery = QueryHelper.createQuerySELECT(theClass);
         PreparedStatement pstm = null;
+        Object o = null;
 
         try {
             pstm = conn.prepareStatement(selectQuery);
@@ -61,17 +62,24 @@ public class SessionImpl implements edu.upc.dsa.Session {
             int columnsNumber = rsmd.getColumnCount();
             while (rs.next()) {
                 int i=1;
+                o = theClass.newInstance();
                 while (i<columnsNumber+1) {
                     Object e = rs.getObject(i);
                     if (e!=null)
-                        ObjectHelper.setter(object,rsmd.getColumnLabel(i),e);
+                        ObjectHelper.setter(o,rsmd.getColumnLabel(i),e);
                     i++;
                 }
             }
             close();
-            return rs;
+            return o;
 
         } catch (SQLException e) {
+            e.printStackTrace();
+            return e;
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+            return e;
+        } catch (IllegalAccessException e) {
             e.printStackTrace();
             return e;
         }
@@ -120,10 +128,10 @@ public class SessionImpl implements edu.upc.dsa.Session {
         }
     }
 
-    public List<Object> findAll(Object object) {
-        String selectQuery = QueryHelper.createQuerySELECTALL(object.getClass());
+    public LinkedList<Object> findAll(Class theClass) {
+        String selectQuery = QueryHelper.createQuerySELECTALL(theClass);
         Statement pstm = null;
-        List<Object> objects = new LinkedList<Object>();
+        LinkedList<Object> objects = new LinkedList<Object>();
         Object o;
 
         try {
@@ -132,11 +140,12 @@ public class SessionImpl implements edu.upc.dsa.Session {
             ResultSetMetaData rsmd = rs.getMetaData();
             int columnsNumber = rsmd.getColumnCount();
             while (rs.next()) {
-                o = object.getClass().newInstance();
-                int i=2;
+                o = theClass.newInstance();
+                int i=1;
                 while (i<columnsNumber+1) {
                     Object e = rs.getObject(i);
-                    ObjectHelper.setter(o,rsmd.getColumnLabel(i),e);
+                    if (e!=null)
+                        ObjectHelper.setter(o,rsmd.getColumnLabel(i),e);
                     i++;
                 }
                 objects.add(o);

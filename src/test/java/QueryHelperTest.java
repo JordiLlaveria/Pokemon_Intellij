@@ -7,6 +7,9 @@ import edu.upc.dsa.models.Objects;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.LinkedList;
+import java.util.List;
+
 public class QueryHelperTest {
     ManagerImpl manager;
     FactorySession s;
@@ -61,41 +64,36 @@ public class QueryHelperTest {
 
     @Test
     public void testSelectUser(){
-        User u = new User();
         Session sess = s.openSession();
-        sess.get(u,"Jordi");
+        Object u = sess.get(User.class,"Jordi");
     }
 
     @Test
     public void testSelectCharacter(){
-        Character c = new Character();
         Session sess = s.openSession();
-        sess.get(c,"James");
+        Object c = sess.get(Character.class,"James");
     }
 
     @Test
     public void testSelectPokemon(){
-        Pokemons p = new Pokemons();
         Session sess = s.openSession();
-        sess.get(p,"Squirtle");
+        Object p = sess.get(Pokemons.class,"Squirtle");
     }
 
     @Test
     public void testSelectObject(){
-        Objects o = new Objects();
         Session sess = s.openSession();
-        //sess.get(o,"Pokeball");
+        Object o = sess.get(Objects.class,"Pokeball");
     }
 
     @Test
     public void testSelectEnemy(){
-        Enemy e = new Enemy();
         Session sess = s.openSession();
-        //sess.get(e,"Malo1");
+        Object e = sess.get(Enemy.class,"Malo1");
     }
     @Test
     public void testUpdate(){
-        User u = new User("Jordi","1234","jordi.llaveria@estudiantat.upc.edu","Pablito");
+        User u = new User("Jordi","1234","jordi.llaveria@estudiantat.upc.edu","James");
         FactorySession s = new FactorySession();
         Session sess = s.openSession();
         sess.update(u);
@@ -103,17 +101,23 @@ public class QueryHelperTest {
 
     @Test
     public void testDelete(){
-        User u = new User("Pablo","1234","jordi.llaveria@estudiantat.upc.edu","Pablito");
+        User u = new User("Pablo","1234","jordi.llaveria@estudiantat.upc.edu","James");
         FactorySession s = new FactorySession();
         Session sess = s.openSession();
         sess.delete(u, u.getName());
     }
     @Test
-    public void testSelectall(){
-        //Employee e = new Employee();
+    public void testSelectallPokemons(){
         FactorySession s = new FactorySession();
         Session sess = s.openSession();
-        //List<Object> objects = sess.findAll(e);
+        LinkedList<Pokemons> pokemons = sess.findAll(Pokemons.class);
+    }
+
+    @Test
+    public void testSelectallUsers(){
+        FactorySession s = new FactorySession();
+        Session sess = s.openSession();
+        LinkedList<User> users = sess.findAll(User.class);
     }
     @Test
     public void testQueryUPDATE(){
