@@ -11,7 +11,8 @@ public interface Manager {
     public User loginUser(String name, String password);
     public boolean addCharacter(Character character);
     public Character getCharacter(String charactername);
-
+    public boolean updateCharacter(Character character);
+    public LinkedList<Objects> getObjects();
     /*
 
     public void addCharacter(User user, Character character);
@@ -23,7 +24,6 @@ public interface Manager {
     public LinkedList<Character> getRanking();
     public LinkedList<Pokemons> getPokemons();
     public LinkedList<Pokemons> getPokemonsCharacter(Character character);
-    public LinkedList<Objects> getObjects();
     public LinkedList<Objects> getObjectsPersonatge(Character character);
     public Map levelup(Character character);
 

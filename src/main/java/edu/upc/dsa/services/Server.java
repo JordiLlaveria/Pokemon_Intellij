@@ -10,8 +10,10 @@ import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 
 import javax.ws.rs.*;
+import javax.ws.rs.core.GenericEntity;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.util.List;
 
 
 @Api(value ="/endpoint", description = "Endpoint to Pokemon Service")
@@ -24,19 +26,7 @@ public class Server {
 
     }
     /*
-    @GET
-    @ApiOperation(value = "get list of objects", notes = "asdasd")
-    @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Successful", response = Object.class, responseContainer = "List"),
-            @ApiResponse(code = 500, message = "Error")
-    })
-    @Path("/objects")
-    @Produces(MediaType.APPLICATION_JSON)
-    public Response getObjects(){
 
-        GenericEntity<List<Object>> entity = null;
-        return Response.status(200).entity(entity).build();
-    }
     @GET
     @ApiOperation(value = "get list of pokemons", notes = "asdasd")
     @ApiResponses(value = {
@@ -79,7 +69,7 @@ public class Server {
     */
 
 
-
+    // PETICIÓ OBTENIR CARACTER SEGONS EL NOM
     @GET
     @ApiOperation(value = "get character", notes = "asdasd")
     @ApiResponses(value = {
@@ -103,8 +93,7 @@ public class Server {
         }
     }
 
-
-
+    //PETICIÓ REGISTRAR-SE CREAR CARACTER
     @POST
     @ApiOperation(value = "Create new character", notes = "asdasd")
     @ApiResponses(value = {
@@ -130,7 +119,7 @@ public class Server {
     }
 
 
-
+    //PETICIÓ REGISTRAR-SE
     @POST
     @ApiOperation(value = "Register operation", notes = "asdasd")
     @ApiResponses(value = {
@@ -155,6 +144,7 @@ public class Server {
         }
     }
 
+    //PETICIÓ INICIAR SESSIÓ
     @POST
     @ApiOperation(value = "Login operation", notes = "asdasd")
     @ApiResponses(value = {
@@ -162,7 +152,6 @@ public class Server {
             @ApiResponse(code = 404, message = "Not found"),
             @ApiResponse(code = 500, message = "Error")
     })
-
     @Path("/login")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response login(Credentials c) {
@@ -178,6 +167,60 @@ public class Server {
         else{
             return Response.status(500).build();
         }
+    }
+
+    // PETICIÓ BOTIGA COMPRAR
+    @POST
+    @ApiOperation(value = "Buy an object", notes = "asdasd")
+    @ApiResponses(value = {
+            @ApiResponse(code = 201, message = "Successful", response = Character.class),
+            @ApiResponse(code = 500, message = "Not enough money",response = Character.class),
+            @ApiResponse(code = 400, message = "User Not Found"),
+            @ApiResponse(code = 501, message = "Not enough space",response = Character.class)
+    })
+
+    @Path("/Store/Shopping")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response buyObject(Objects item,Character character) {
+        if(character.getName()!=null && character.getMoney()!=null){
+            Character ch= manager.getCharacter(character.getName());
+            if (ch.getMoney()>=item.getPrice()){
+                ch.setMoney(ch.getMoney()-item.getPrice());
+                if(ch.getObject1_name()==null){
+                    ch.setObject1_name(item.getName());
+                    manager.updateCharacter(ch);
+                    return Response.status(201).entity(ch).build();}
+                else if(ch.getObject2_name()==null){
+                    ch.setObject2_name(item.getName());
+                    manager.updateCharacter(ch);
+                    return Response.status(201).entity(ch).build();}
+                else if(ch.getObject3_name()==null){
+                    ch.setObject3_name(item.getName());
+                    manager.updateCharacter(ch);
+                    return Response.status(201).entity(ch).build();}
+                else { return Response.status(501).entity(character).build();}
+            }
+            else {
+                return Response.status(500).entity(ch).build();}
+        }
+        else {
+            return Response.status(400).entity(character).build();}
+    }
+
+    // PETICIÓ BOTIGA MOSTRAR OBJECTES
+    @GET
+    @ApiOperation(value = "Show List of Products to buy", notes = "asdasd")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Successful", response = Object.class, responseContainer = "List"),
+            @ApiResponse(code = 500, message = "Error")
+    })
+    @Path("/Store/ShowProducts")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getObjects(){
+        try {
+        GenericEntity<List<Objects>> entity =  new GenericEntity<List<Objects>>(manager.getObjects()) {};
+        return Response.status(200).entity(entity).build();
+        }catch(Exception e){return Response.status(500).build();}
     }
 }
 

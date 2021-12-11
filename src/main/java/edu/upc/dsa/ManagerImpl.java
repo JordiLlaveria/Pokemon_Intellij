@@ -36,7 +36,7 @@ public class ManagerImpl implements Manager {
                 trobat=true;
             }
             else {
-                i++;
+                i=i+1;
             }
         }
         if (trobat==false){
@@ -57,7 +57,7 @@ public class ManagerImpl implements Manager {
                 trobat=true;
             }
             else {
-                i++;
+                i=i+1;
             }
         }
         if(trobat){
@@ -77,7 +77,7 @@ public class ManagerImpl implements Manager {
                 trobat = true;
             }
             else {
-                i++;
+                i=i+1;
             }
         }
         if(trobat == false){
@@ -100,7 +100,7 @@ public class ManagerImpl implements Manager {
                 trobat = true;
             }
             else {
-                i++;
+                i=i+1;
             }
         }
         if(trobat) {
@@ -109,6 +109,29 @@ public class ManagerImpl implements Manager {
         else{
             return null;
         }
+    }
+    @Override
+    public boolean updateCharacter(Character character) {
+        int i=0;
+        boolean trobat = false;
+        while ((i<characterList.size())&&(trobat == false)){
+            if (characterList.get(i).getName().equals(character.getName())){
+                trobat = true;
+            }
+            else {
+                i=i+1;
+            }
+        }
+        if(trobat == true){
+            characterList.remove(i);
+            characterList.add(i,character);
+            return true;
+        }
+        else{ return false;}
+    }
+    @Override
+    public LinkedList<Objects> getObjects() {
+        return this.objectsList;
     }
 
     /*
@@ -197,10 +220,7 @@ public class ManagerImpl implements Manager {
         else{return null;}
     }
 
-    @Override
-    public LinkedList<Objects> getObjects() {
-        return this.objectsList;
-    }
+
 
     @Override
     public LinkedList<Objects> getObjectsPersonatge(Character character) {
