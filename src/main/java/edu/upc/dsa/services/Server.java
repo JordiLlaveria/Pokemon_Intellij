@@ -158,7 +158,7 @@ public class Server {
     @POST
     @ApiOperation(value = "Login operation", notes = "asdasd")
     @ApiResponses(value = {
-            @ApiResponse(code = 201, message = "Successful", response = Credentials.class),
+            @ApiResponse(code = 201, message = "Successful", response = User.class),
             @ApiResponse(code = 404, message = "Not found"),
             @ApiResponse(code = 500, message = "Error")
     })
