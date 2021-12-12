@@ -23,6 +23,7 @@ public class Server {
     public Server(){
         this.manager = ManagerImpl.getInstance();
         manager.registerUser(new User("Joana","hola","joana@email.com","tijuana"));
+        manager.addCharacter(new Character("tijuana",135.,500.,"Charmander","Squirtle","Bulbasaur","Potion","Pokeball","Superball"));
 
     }
     /*
@@ -168,6 +169,7 @@ public class Server {
             return Response.status(500).build();
         }
     }
+    /*
 
     // PETICIÓ BOTIGA COMPRAR
     @POST
@@ -222,5 +224,7 @@ public class Server {
         return Response.status(200).entity(entity).build();
         }catch(Exception e){return Response.status(500).build();}
     }
+
+     */
 }
 
