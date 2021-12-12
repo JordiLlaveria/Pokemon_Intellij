@@ -4,7 +4,7 @@ public class Character {
     private String name;
     private Double money;
     private Double points;
-    //private String avatar;
+    private String avatar;
     private String pokemon1_name;
     private String pokemon2_name;
     private String pokemon3_name;
@@ -15,7 +15,7 @@ public class Character {
     //LinkedList<Object> objects = new LinkedList<Object>();
 
     public Character(){}
-    public Character(String name, Double money, Double points, String p1_name, String p2_name, String p3_name, String o1_name, String o2_name, String o3_name){
+    public Character(String name, String avatar, Double money, Double points, String p1_name, String p2_name, String p3_name, String o1_name, String o2_name, String o3_name){
         this();
         setName(name);
         setMoney(money);
@@ -26,6 +26,7 @@ public class Character {
         setObject1_name(o1_name);
         setObject2_name(o2_name);
         setObject3_name(o3_name);
+        setAvatar(avatar);
         //setPokemons(pokemons);
         //setObjects(objects);
     }
@@ -72,6 +73,16 @@ public class Character {
         else if (object3_name==null)
             object3_name= objects.getName();
     }
+
+    public String getAvatar(){
+        return this.avatar;
+    }
+
+    public void setAvatar(String avatar){
+        this.avatar = avatar;
+    }
+
+
     /*
     public int compareTo(Character c)
     {

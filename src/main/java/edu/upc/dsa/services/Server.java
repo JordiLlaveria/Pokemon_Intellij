@@ -23,7 +23,7 @@ public class Server {
     public Server(){
         this.manager = ManagerImpl.getInstance();
         manager.registerUser(new User("Joana","hola","joana@email.com","tijuana"));
-        manager.addCharacter(new Character("tijuana",135.,500.,"Charmander","Squirtle","Bulbasaur","Potion","Pokeball","Superball"));
+        manager.addCharacter(new Character("tijuana","may",135.,500.,"Charmander","Squirtle","Bulbasaur","Potion","Pokeball","Superball"));
 
     }
     /*
