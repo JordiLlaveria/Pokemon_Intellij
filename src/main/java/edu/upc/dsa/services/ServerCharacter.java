@@ -26,12 +26,8 @@ public class ServerCharacter {
 
     public ServerCharacter() {
         this.manager = ManagerImpl.getInstance();
-        //manager.registerUser(new User("Joana", "hola", "joana@email.com", "tijuana"));
-        //manager.addCharacter(new Character("tijuana", "may", 135., 500., "Charmander", "Squirtle", "Bulbasaur", "Potion", "Pokeball", "Superball"));
-
     }
 
-    //Obtenir user BBDD
     @GET
     @ApiOperation(value = "get character BBDD", notes = "asdasd")
     @ApiResponses(value = {
@@ -59,7 +55,6 @@ public class ServerCharacter {
         }
     }
 
-    //Insert user BBDD
     @POST
     @ApiOperation(value = "insert character BBDD", notes = "asdasd")
     @ApiResponses(value = {
@@ -73,7 +68,6 @@ public class ServerCharacter {
             FactorySession s = new FactorySession();
             Session sess = s.openSession();
             sess.save(c);
-            //Character character = this.manager.getCharacter(name);
             if (c!=null){
                 return Response.status(201).entity(c).build();
             }
@@ -99,7 +93,6 @@ public class ServerCharacter {
             FactorySession s = new FactorySession();
             Session sess = s.openSession();
             sess.update(c);
-            //Character character = this.manager.getCharacter(name);
             if (c!=null){
                 return Response.status(201).entity(c).build();
             }
@@ -126,7 +119,6 @@ public class ServerCharacter {
             FactorySession s = new FactorySession();
             Session sess = s.openSession();
             sess.delete(c, name);
-            //Character character = this.manager.getCharacter(name);
             if (name!=null){
                 return Response.status(201).build();
             }
@@ -154,7 +146,6 @@ public class ServerCharacter {
             Session sess = s.openSession();
             characters = sess.findAll(Character.class);
             GenericEntity<LinkedList<Character>> entity = new GenericEntity<LinkedList<Character>>(characters) {};
-            //Character character = this.manager.getCharacter(name);
             if (entity!=null){
                 return Response.status(201).entity(entity).build();
             }

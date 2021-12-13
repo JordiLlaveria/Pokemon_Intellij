@@ -25,12 +25,8 @@ public class ServerObjects {
 
     public ServerObjects() {
         this.manager = ManagerImpl.getInstance();
-        //manager.registerUser(new User("Joana", "hola", "joana@email.com", "tijuana"));
-        //manager.addCharacter(new Character("tijuana", "may", 135., 500., "Charmander", "Squirtle", "Bulbasaur", "Potion", "Pokeball", "Superball"));
-
     }
 
-    //Obtenir user BBDD
     @GET
     @ApiOperation(value = "get object BBDD", notes = "asdasd")
     @ApiResponses(value = {
@@ -45,7 +41,6 @@ public class ServerObjects {
             Session sess = s.openSession();
             Object u = null;
             u = sess.get(Objects.class,name);
-            //Character character = this.manager.getCharacter(name);
             if (u!=null){
                 return Response.status(201).entity(u).build();
             }
@@ -58,7 +53,6 @@ public class ServerObjects {
         }
     }
 
-    //Insert user BBDD
     @POST
     @ApiOperation(value = "insert object BBDD", notes = "asdasd")
     @ApiResponses(value = {
@@ -72,7 +66,6 @@ public class ServerObjects {
             FactorySession s = new FactorySession();
             Session sess = s.openSession();
             sess.save(o);
-            //Character character = this.manager.getCharacter(name);
             if (o!=null){
                 return Response.status(201).entity(o).build();
             }
@@ -98,7 +91,6 @@ public class ServerObjects {
             FactorySession s = new FactorySession();
             Session sess = s.openSession();
             sess.update(o);
-            //Character character = this.manager.getCharacter(name);
             if (o!=null){
                 return Response.status(201).entity(o).build();
             }
@@ -125,7 +117,6 @@ public class ServerObjects {
             FactorySession s = new FactorySession();
             Session sess = s.openSession();
             sess.delete(u, name);
-            //Character character = this.manager.getCharacter(name);
             if (name!=null){
                 return Response.status(201).build();
             }
@@ -153,7 +144,6 @@ public class ServerObjects {
             Session sess = s.openSession();
             objects = sess.findAll(Objects.class);
             GenericEntity<LinkedList<Objects>> entity = new GenericEntity<LinkedList<Objects>>(objects) {};
-            //Character character = this.manager.getCharacter(name);
             if (entity!=null){
                 return Response.status(201).entity(entity).build();
             }

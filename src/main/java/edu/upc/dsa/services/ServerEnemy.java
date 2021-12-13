@@ -24,12 +24,8 @@ public class ServerEnemy {
 
     public ServerEnemy() {
         this.manager = ManagerImpl.getInstance();
-        //manager.registerUser(new User("Joana", "hola", "joana@email.com", "tijuana"));
-        //manager.addCharacter(new Character("tijuana", "may", 135., 500., "Charmander", "Squirtle", "Bulbasaur", "Potion", "Pokeball", "Superball"));
-
     }
 
-    //Obtenir user BBDD
     @GET
     @ApiOperation(value = "get enemy BBDD", notes = "asdasd")
     @ApiResponses(value = {
@@ -56,7 +52,6 @@ public class ServerEnemy {
         }
     }
 
-    //Insert user BBDD
     @POST
     @ApiOperation(value = "insert enemy BBDD", notes = "asdasd")
     @ApiResponses(value = {
@@ -95,7 +90,6 @@ public class ServerEnemy {
             FactorySession s = new FactorySession();
             Session sess = s.openSession();
             sess.update(e);
-            //Character character = this.manager.getCharacter(name);
             if (e!=null){
                 return Response.status(201).entity(e).build();
             }
@@ -122,7 +116,6 @@ public class ServerEnemy {
             FactorySession s = new FactorySession();
             Session sess = s.openSession();
             sess.delete(e, name);
-            //Character character = this.manager.getCharacter(name);
             if (name!=null){
                 return Response.status(201).build();
             }
@@ -150,7 +143,6 @@ public class ServerEnemy {
             Session sess = s.openSession();
             enemies = sess.findAll(Enemy.class);
             GenericEntity<LinkedList<Enemy>> entity = new GenericEntity<LinkedList<Enemy>>(enemies) {};
-            //Character character = this.manager.getCharacter(name);
             if (entity!=null){
                 return Response.status(201).entity(entity).build();
             }

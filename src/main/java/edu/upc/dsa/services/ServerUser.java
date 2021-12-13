@@ -25,12 +25,9 @@ public class ServerUser {
 
     public ServerUser() {
         this.manager = ManagerImpl.getInstance();
-        //manager.registerUser(new User("Joana", "hola", "joana@email.com", "tijuana"));
-        //manager.addCharacter(new Character("tijuana", "may", 135., 500., "Charmander", "Squirtle", "Bulbasaur", "Potion", "Pokeball", "Superball"));
 
     }
 
-    //Obtenir user BBDD
     @GET
     @ApiOperation(value = "get user BBDD", notes = "asdasd")
     @ApiResponses(value = {
@@ -57,7 +54,6 @@ public class ServerUser {
         }
     }
 
-    //Insert user BBDD
     @POST
     @ApiOperation(value = "insert user BBDD", notes = "asdasd")
     @ApiResponses(value = {
@@ -71,7 +67,6 @@ public class ServerUser {
             FactorySession s = new FactorySession();
             Session sess = s.openSession();
             sess.save(u);
-            //Character character = this.manager.getCharacter(name);
             if (u!=null){
                 return Response.status(201).entity(u).build();
             }
@@ -97,7 +92,6 @@ public class ServerUser {
             FactorySession s = new FactorySession();
             Session sess = s.openSession();
             sess.update(u);
-            //Character character = this.manager.getCharacter(name);
             if (u!=null){
                 return Response.status(201).entity(u).build();
             }
@@ -124,7 +118,6 @@ public class ServerUser {
             FactorySession s = new FactorySession();
             Session sess = s.openSession();
             sess.delete(u, name);
-            //Character character = this.manager.getCharacter(name);
             if (name!=null){
                 return Response.status(201).build();
             }
@@ -152,7 +145,6 @@ public class ServerUser {
             Session sess = s.openSession();
             users = sess.findAll(User.class);
             GenericEntity<LinkedList<User>> entity = new GenericEntity<LinkedList<User>>(users) {};
-            //Character character = this.manager.getCharacter(name);
             if (entity!=null){
                 return Response.status(201).entity(entity).build();
             }
