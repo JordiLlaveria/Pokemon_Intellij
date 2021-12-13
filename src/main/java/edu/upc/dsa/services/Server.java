@@ -1,7 +1,9 @@
 package edu.upc.dsa.services;
 
+import edu.upc.dsa.FactorySession;
 import edu.upc.dsa.Manager;
 import edu.upc.dsa.ManagerImpl;
+import edu.upc.dsa.Session;
 import edu.upc.dsa.models.*;
 import edu.upc.dsa.models.Character;
 import io.swagger.annotations.Api;
@@ -23,6 +25,7 @@ public class Server {
     public Server(){
         this.manager = ManagerImpl.getInstance();
         manager.registerUser(new User("Joana","hola","joana@email.com","tijuana"));
+        manager.addCharacter(new Character("tijuana","may",135.,500.,"Charmander","Squirtle","Bulbasaur","Potion","Pokeball","Superball"));
 
     }
     /*
@@ -68,7 +71,6 @@ public class Server {
     }
     */
 
-/*
     // PETICIÓ OBTENIR CARACTER SEGONS EL NOM
     @GET
     @ApiOperation(value = "get character", notes = "asdasd")
@@ -104,7 +106,7 @@ public class Server {
     @Path("/character")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response newCharacter(Character character) {
-        if(character.getName()!=null && character.getPokemon1_name()!=null){
+        if(character.getName()!=null && character.getPokemon1name()!=null){
             boolean characterAdded = this.manager.addCharacter(character);
             if(characterAdded){
                 return Response.status(201).entity(character).build();
@@ -168,6 +170,7 @@ public class Server {
             return Response.status(500).build();
         }
     }
+    /*
 
     // PETICIÓ BOTIGA COMPRAR
     @POST
@@ -221,6 +224,9 @@ public class Server {
         GenericEntity<List<Objects>> entity =  new GenericEntity<List<Objects>>(manager.getObjects()) {};
         return Response.status(200).entity(entity).build();
         }catch(Exception e){return Response.status(500).build();}
-    }*/
+    }
+
+     */
+
 }
 
