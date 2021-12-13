@@ -68,7 +68,7 @@ public class Server {
     }
     */
 
-
+/*
     // PETICIÓ OBTENIR CARACTER SEGONS EL NOM
     @GET
     @ApiOperation(value = "get character", notes = "asdasd")
@@ -221,6 +221,6 @@ public class Server {
         GenericEntity<List<Objects>> entity =  new GenericEntity<List<Objects>>(manager.getObjects()) {};
         return Response.status(200).entity(entity).build();
         }catch(Exception e){return Response.status(500).build();}
-    }
+    }*/
 }
 
