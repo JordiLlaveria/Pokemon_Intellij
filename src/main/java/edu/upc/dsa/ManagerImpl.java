@@ -72,12 +72,13 @@ public class ManagerImpl implements Manager {
     public boolean addCharacter(Character character) {
         int i=0;
         boolean trobat = false;
-        while ((i<characterList.size())&&(trobat == false)){
-            if (characterList.get(i).getName().equals(character.getName())){
-                trobat = true;
-            }
-            else {
-                i=i+1;
+        if(characterList.size()==0) {
+            while ((i < characterList.size()) && (trobat == false)) {
+                if (characterList.get(i).getName().equals(character.getName())) {
+                    trobat = true;
+                } else {
+                    i = i + 1;
+                }
             }
         }
         if(trobat == false){
@@ -131,6 +132,8 @@ public class ManagerImpl implements Manager {
     }
     @Override
     public LinkedList<Objects> getObjects() {
+        objectsList.add(new Objects("Potion", 100.00, "Healing", "Heals 100 hp"));
+        objectsList.add(new Objects("PokeBall", 200.00, "Catching", "Can catch a Pokemon"));
         return this.objectsList;
     }
 
