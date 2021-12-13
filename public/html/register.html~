@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Register</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../javascripts/register.js"></script>
+    <link rel ="stylesheet" href ="css/registerStile.css">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Odibee+Sans&display=swap" rel="stylesheet">
+
+</head>
+<style>
+    * {
+    box-sizing: border-box;
+    }
+
+    .column {
+    float: left;
+    width: 33.33%;
+    padding: 5px;
+    }
+
+    /* Clearfix (clear floats) */
+    .row::after {
+    content: "";
+    clear: both;
+    display: table;
+    }
+</style>
+<script>
+    function selectCharacter(String id) {
+        var checkBox = document.getElementById("myCheck");
+        var text = document.getElementById(id);
+        if (checkBox.checked == true){
+            text.style.display = "block";
+        } else {
+            text.style.display = "none";
+        }
+    }
+</script>
+<body>
+<form class="form">
+
+    <h1>Register</h1>
+    <div class="container">
+
+        <div class="input-container">
+            <div class="box"><input type="text" placeholder="Username" id="username" required></div>
+        </div>
+
+        <div class="input-container">
+            <div class="box"><input type="text" placeholder="Email" id="email" required></div>
+        </div>
+
+        <div class="input-container">
+            <div class="box"><input type="password" placeholder="Password" id="password" required></div>
+        </div>
+
+        <div class="input-container">
+            <div class="box"><input type="password" placeholder="Repeat password" id="password2" required></div>
+        </div>
+        <div class="row">
+            <div class="column">
+                <img alt="Character 1" src="public/pictures/rojo1.jpg" width="100" height="200"/>
+                <input type="radio" id="character1" name="character" value="Red"> Red
+
+            </div>
+            <div class="column">
+                <img alt="Character 2" src="public/pictures/noia1.jpg" width="100" height="200"/>
+                <input type="radio" id="character2" name="character" value="May"> May
+            </div>
+            <div class="column">
+                <img alt="Character 3" src="pictures/teamrocket1.jpg" width="100" height="200"/>
+                <input type="radio" id="character3" name="character" value="James"> James
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="column">
+                <img alt="Pokémon 1" src="pictures/bulbasaur.jpg" width="100" height="200"/>
+                <input type="radio" id="pokemon1" name="pokemons" value="Bulbasaur"> Bulbasaur
+            </div>
+            <div class="column">
+                <img alt="Pokémon 2" src="pictures/charmander.png" width="100" height="200"/>
+                <input type="radio" id="pokemon2" name="pokemons" value="Charmander"> Charmander
+            </div>
+            <div class="column">
+                <img alt="Pokémon 3" src="pictures/squirtle.jpg" width="100" height="200"/>
+                <input type="radio" id="pokemon3" name="pokemons" value="squirtle"> Squirtle
+            </div>
+        </div>
+        <input type="submit" value="Register" class="button" id="btnRegister">
+        <p>Have already an account?<a class="link" href="login.html"> Iniciar sesión</a></p>
+    </div>
+</form>
+</body>
+</html>
