@@ -4,7 +4,8 @@ public class Character {
     private String name;
     private Double money;
     private Double points;
-    //private String avatar;
+
+    private String avatar;
     private String pokemon1name;
     private String pokemon2name;
     private String pokemon3name;
@@ -15,17 +16,20 @@ public class Character {
     //LinkedList<Object> objects = new LinkedList<Object>();
 
     public Character(){}
-    public Character(String name, Double money, Double points, String p1name, String p2name, String p3name, String o1name, String o2name, String o3name){
+
+    public Character(String name, String avatar, Double money, Double points, String p1_name, String p2_name, String p3_name, String o1_name, String o2_name, String o3_name){
         this();
         setName(name);
         setMoney(money);
         setPoints(points);
-        setPokemon1name(p1name);
-        setPokemon2name(p2name);
-        setPokemon3name(p3name);
-        setObject1name(o1name);
-        setObject2name(o2name);
-        setObject3name(o3name);
+
+        setPokemon1name(p1_name);
+        setPokemon2name(p2_name);
+        setPokemon3name(p3_name);
+        setObject1name(o1_name);
+        setObject2name(o2_name);
+        setObject3name(o3_name);
+        setAvatar(avatar);
         //setPokemons(pokemons);
         //setObjects(objects);
     }
@@ -72,6 +76,12 @@ public class Character {
         else if (object3name==null)
             object3name= objects.getName();
     }
+
+    public String getAvatar(){return this.avatar;}
+
+    public void setAvatar(String avatar){this.avatar = avatar;}
+
+
     /*
     public int compareTo(Character c)
     {

@@ -28,64 +28,114 @@ public class ManagerImpl implements Manager {
     LinkedList<edu.upc.dsa.models.Map> mapList = new LinkedList<edu.upc.dsa.models.Map>();
 
     @Override
-    public void registerUser(User user) {
+    public boolean registerUser(User user) {
         int i=0;
-        int trobat=0;
-        while ((i<userList.size())&&(trobat == 0)){
+        boolean trobat=false;
+        while ((i<userList.size())&&(trobat == false)){
             if (userList.get(i).getName().equals(user.getName())){
-                trobat=1;
+                trobat=true;
             }
-            i++;
+            else {
+                i=i+1;
+            }
         }
-        if (trobat==0){this.userList.add(user);}
-        else{}
+        if (trobat==false){
+            this.userList.add(user);
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 
     @Override
     public User loginUser(String name, String password) {
         int i=0;
-        int trobat=0; //bool
-        while ((i<userList.size())&&(trobat == 0)){
+        boolean trobat=false; //bool
+        while ((i<userList.size())&&(trobat == false)){
             if (userList.get(i).getName().equals(name) && userList.get(i).getPassword().equals(password)){
-                trobat=1;
+                trobat=true;
             }
             else {
-                i++;
+                i=i+1;
             }
         }
-        if (trobat==1){return userList.get(i);}
-        else{return null;}
+        if(trobat){
+            return userList.get(i);
+        }
+        else{
+            return null;
+        }
     }
 
     @Override
-    public Character searchCharacter(User user) {
+    public boolean addCharacter(Character character) {
         int i=0;
-        int trobat =0;
-        Character characterbuscat=null;
-        while (i<characterList.size()&&(trobat == 0)){
-            if (characterList.get(i).getName()==user.getCharactername())
-            {
-                characterbuscat= characterList.get(i);
-                trobat++;
+        boolean trobat = false;
+        while ((i<characterList.size())&&(trobat == false)){
+            if (characterList.get(i).getName().equals(character.getName())){
+                trobat = true;
             }
-            i++;
+            else {
+                i=i+1;
+            }
         }
-        return characterbuscat;
+        if(trobat == false){
+            characterList.add(character);
+            return true;
+        }
+        else{
+            return false;
+        }
     }
-    /*
+
     @Override
-    public void addCharacter(User user, Character character) {
+    public Character getCharacter(String name) {
         int i=0;
-        int trobat = 0;
-        while ((i<userList.size())&&(trobat == 0)){
-            if (userList.get(i).getName().equals(user.getName())){
-                userList.get(i).setCharacter(character);
-                trobat = 1;
+        boolean trobat = false;
+
+        while (i<characterList.size()&&(trobat == false)){
+            if (characterList.get(i).getName().equals(name))
+            {
+                trobat = true;
             }
-            i++;
+            else {
+                i=i+1;
+            }
+        }
+        if(trobat) {
+            return characterList.get(i);
+        }
+        else{
+            return null;
         }
     }
-    */
+    @Override
+    public boolean updateCharacter(Character character) {
+        int i=0;
+        boolean trobat = false;
+        while ((i<characterList.size())&&(trobat == false)){
+            if (characterList.get(i).getName().equals(character.getName())){
+                trobat = true;
+            }
+            else {
+                i=i+1;
+            }
+        }
+        if(trobat == true){
+            characterList.remove(i);
+            characterList.add(i,character);
+            return true;
+        }
+        else{ return false;}
+    }
+    @Override
+    public LinkedList<Objects> getObjects() {
+        return this.objectsList;
+    }
+
+    /*
+
 
     @Override
     public void createObject(Objects objects) {
@@ -170,10 +220,7 @@ public class ManagerImpl implements Manager {
         else{return null;}
     }
 
-    @Override
-    public LinkedList<Objects> getObjects() {
-        return this.objectsList;
-    }
+
 
     @Override
     public LinkedList<Objects> getObjectsPersonatge(Character character) {
@@ -207,4 +254,6 @@ public class ManagerImpl implements Manager {
     public Map levelup(Character character) {
         return null;
     }
+
+     */
 }

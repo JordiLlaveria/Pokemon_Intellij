@@ -7,10 +7,15 @@ import edu.upc.dsa.models.Objects;
 import java.util.LinkedList;
 
 public interface Manager {
-    public void registerUser(User user);
+    public boolean registerUser(User user);
     public User loginUser(String name, String password);
-    public Character searchCharacter(User user);
-    //public void addCharacter(User user, Character character);
+    public boolean addCharacter(Character character);
+    public Character getCharacter(String charactername);
+    public boolean updateCharacter(Character character);
+    public LinkedList<Objects> getObjects();
+    /*
+
+    public void addCharacter(User user, Character character);
     public void createObject(Objects objects);
     public void addObject(User user, Objects objects);
     public void addPokemon(Pokemons pokemons);
@@ -19,7 +24,8 @@ public interface Manager {
     public LinkedList<Character> getRanking();
     public LinkedList<Pokemons> getPokemons();
     public LinkedList<Pokemons> getPokemonsCharacter(Character character);
-    public LinkedList<Objects> getObjects();
     public LinkedList<Objects> getObjectsPersonatge(Character character);
     public Map levelup(Character character);
+
+     */
 }

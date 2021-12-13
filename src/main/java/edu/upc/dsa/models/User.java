@@ -1,8 +1,5 @@
 package edu.upc.dsa.models;
 
-import edu.upc.dsa.Manager;
-import edu.upc.dsa.ManagerImpl;
-
 public class User {
     //private String id;
     private String name;
