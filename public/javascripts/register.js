@@ -31,15 +31,22 @@ $(document).ready(function(){
                     'Accept': 'application/json',
                     'Content-Type': 'application/json'
                 },
+                //New User
                 url: BASE_URI.concat("/auth/user"),
                 type: "POST",
-                data: JSON.stringify({"username": username, "password": password, "email":email, "character":character}),
+                data: JSON.stringify({"character":character, "password": password, "email":email, "username": username}),
+                dataType:'json',
+
+                //New character
+                type: "POST",
+                data: JSON.stringify({"character":character,"pokemons":pokemon})
                 dataType:'json',
 
                 success: function(data) {
                 alert("Welcome to Pokemon world");
                 console.log("Registered");
                 window.location.hred = "login.html";
+
                 }
                 error: function(error){
                 message = '"error"'

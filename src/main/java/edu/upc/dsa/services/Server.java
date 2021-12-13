@@ -28,7 +28,7 @@ public class Server {
         manager.addCharacter(new Character("tijuana","may",135.,500.,"Charmander","Squirtle","Bulbasaur","Potion","Pokeball","Superball"));
 
     }
-
+    /*
 
     @GET
     @ApiOperation(value = "get list of pokemons", notes = "asdasd")
@@ -170,7 +170,7 @@ public class Server {
             return Response.status(500).build();
         }
     }
-
+    /*
 
     // PETICIÓ BOTIGA COMPRAR
     @POST
@@ -226,7 +226,7 @@ public class Server {
         }catch(Exception e){return Response.status(500).build();}
     }
 
-
+     */
 
 }
 
