@@ -63,7 +63,7 @@ public class ManagerImpl implements Manager {
         int trobat =0;
         Character characterbuscat=null;
         while (i<characterList.size()&&(trobat == 0)){
-            if (characterList.get(i).getName()==user.getCharacter_name())
+            if (characterList.get(i).getName()==user.getCharactername())
             {
                 characterbuscat= characterList.get(i);
                 trobat++;
@@ -159,7 +159,7 @@ public class ManagerImpl implements Manager {
             int j=0;
             while (i<pokemonsList.size())
             {
-                if (pokemonsList.get(j).getName()==searchCharacter(userList.get(i)).getPokemon1_name()||pokemonsList.get(j).getName()==searchCharacter(userList.get(i)).getPokemon2_name()||pokemonsList.get(j).getName()==searchCharacter(userList.get(i)).getPokemon3_name())
+                if (pokemonsList.get(j).getName()==searchCharacter(userList.get(i)).getPokemon1name()||pokemonsList.get(j).getName()==searchCharacter(userList.get(i)).getPokemon2name()||pokemonsList.get(j).getName()==searchCharacter(userList.get(i)).getPokemon3name())
                 {
                     pokemons.add(pokemonsList.get(j));
                 }
@@ -192,7 +192,7 @@ public class ManagerImpl implements Manager {
             int j=0;
             while (i< objectsList.size())
             {
-                if (objectsList.get(j).getName()==searchCharacter(userList.get(i)).getObject1_name()|| objectsList.get(j).getName()==searchCharacter(userList.get(i)).getObject2_name()|| objectsList.get(j).getName()==searchCharacter(userList.get(i)).getObject3_name())
+                if (objectsList.get(j).getName()==searchCharacter(userList.get(i)).getObject1name()|| objectsList.get(j).getName()==searchCharacter(userList.get(i)).getObject2name()|| objectsList.get(j).getName()==searchCharacter(userList.get(i)).getObject3name())
                 {
                     objects.add(objectsList.get(j));
                 }
