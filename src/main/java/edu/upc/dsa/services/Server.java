@@ -100,12 +100,15 @@ public class Server {
     @ApiOperation(value = "Create new character", notes = "asdasd")
     @ApiResponses(value = {
             @ApiResponse(code = 201, message = "Successful", response = Character.class),
-            @ApiResponse(code = 500, message = "Error")
+            @ApiResponse(code = 500, message = "Error"),
+            @ApiResponse(code = 502, message = "Error, null Character")
+
     })
 
     @Path("/character")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response newCharacter(Character character) {
+
         if(character.getName()!=null && character.getPokemon1name()!=null){
             boolean characterAdded = this.manager.addCharacter(character);
             if(characterAdded){
@@ -116,7 +119,7 @@ public class Server {
             }
         }
         else{
-            return Response.status(500).entity(character).build();
+            return Response.status(502).entity(character).build();
         }
     }
 
@@ -170,7 +173,7 @@ public class Server {
             return Response.status(500).build();
         }
     }
-    /*
+
 
     // PETICIÓ BOTIGA COMPRAR
     @POST
@@ -184,21 +187,24 @@ public class Server {
 
     @Path("/Store/Shopping")
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response buyObject(Objects item,Character character) {
-        if(character.getName()!=null && character.getMoney()!=null){
+    public Response buyObject(ObjectWithCharacter objectWithCharacter) {
+        Character character = objectWithCharacter.getCharacter();
+        Objects item = objectWithCharacter.getObject();
+
+        if(character.getName()!=null){
             Character ch= manager.getCharacter(character.getName());
             if (ch.getMoney()>=item.getPrice()){
                 ch.setMoney(ch.getMoney()-item.getPrice());
-                if(ch.getObject1_name()==null){
-                    ch.setObject1_name(item.getName());
+                if(ch.getObject1name()==null){
+                    ch.setObject1name(item.getName());
                     manager.updateCharacter(ch);
                     return Response.status(201).entity(ch).build();}
-                else if(ch.getObject2_name()==null){
-                    ch.setObject2_name(item.getName());
+                else if(ch.getObject2name()==null){
+                    ch.setObject2name(item.getName());
                     manager.updateCharacter(ch);
                     return Response.status(201).entity(ch).build();}
-                else if(ch.getObject3_name()==null){
-                    ch.setObject3_name(item.getName());
+                else if(ch.getObject3name()==null){
+                    ch.setObject3name(item.getName());
                     manager.updateCharacter(ch);
                     return Response.status(201).entity(ch).build();}
                 else { return Response.status(501).entity(character).build();}
@@ -226,7 +232,7 @@ public class Server {
         }catch(Exception e){return Response.status(500).build();}
     }
 
-     */
+
 
 }
 
