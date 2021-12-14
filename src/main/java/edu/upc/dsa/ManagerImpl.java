@@ -2,11 +2,9 @@ package edu.upc.dsa;
 
 import edu.upc.dsa.models.*;
 import edu.upc.dsa.models.Character;
-import edu.upc.dsa.models.Map;
 import edu.upc.dsa.models.Objects;
 import org.apache.log4j.Logger;
 
-import java.util.Collections;
 import java.util.LinkedList;
 
 public class ManagerImpl implements Manager {
