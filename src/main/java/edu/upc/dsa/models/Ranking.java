@@ -8,5 +8,4 @@ public class Ranking implements Comparator<Character> {
 
         return (int)(c1.getPoints() - c2.getPoints());
     }
-
 }

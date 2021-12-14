@@ -14,7 +14,7 @@ import java.net.URI;
 
 public class Main {
     static final Logger logger = Logger.getLogger(Main.class);
-    public static final String BASE_URI = "http://localhost:8080/dsaApp/";
+    public static final String BASE_URI = "http://147.83.7.204:8080/dsaApp/";
     /**
      * Starts Grizzly HTTP server exposing JAX-RS resources defined in this application.
      * @return Grizzly HTTP server.
@@ -28,7 +28,7 @@ public class Main {
         rc.register(io.swagger.jaxrs.listing.SwaggerSerializers.class);
 
         BeanConfig beanConfig = new BeanConfig();
-        beanConfig.setHost("localhost:8080");
+        beanConfig.setHost("147.83.7.204:8080");
         beanConfig.setBasePath("/dsaApp");
         beanConfig.setContact("support@example.com");
         beanConfig.setDescription("REST API for Pokemon Project");
