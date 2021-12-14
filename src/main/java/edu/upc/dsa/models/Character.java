@@ -4,7 +4,7 @@ public class Character {
     private String name;
     private Double money;
     private Double points;
-
+    private String map;
     private String avatar;
     private String pokemon1name;
     private String pokemon2name;
@@ -17,7 +17,7 @@ public class Character {
 
     public Character(){}
 
-    public Character(String name, String avatar, Double money, Double points, String p1_name, String p2_name, String p3_name, String o1_name, String o2_name, String o3_name){
+    public Character(String name, String avatar, String map, Double money, Double points, String p1_name, String p2_name, String p3_name, String o1_name, String o2_name, String o3_name){
         this();
         setName(name);
         setMoney(money);
@@ -30,6 +30,7 @@ public class Character {
         setObject2name(o2_name);
         setObject3name(o3_name);
         setAvatar(avatar);
+        setMap(map);
         //setPokemons(pokemons);
         //setObjects(objects);
     }
@@ -81,6 +82,13 @@ public class Character {
 
     public void setAvatar(String avatar){this.avatar = avatar;}
 
+    public String getMap(){
+        return this.map;
+    }
+
+    public void setMap(String map) {
+        this.map = map;
+    }
 
     /*
     public int compareTo(Character c)
