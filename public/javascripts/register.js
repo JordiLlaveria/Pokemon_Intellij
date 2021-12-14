@@ -1,4 +1,4 @@
-var BASE_URI = "http://localhost:8080/dsaApp"
+
 $(document).ready(function(){
     myStorage = window.localStorage;
     $("#btnRegister").click(function(e){
@@ -9,6 +9,8 @@ $(document).ready(function(){
         var email = $('#email').val();
         var character = $('#character').val();
         var pokemon = $('#pokemons').val();
+        var radioCharacter = document.getElementsByName("character"); //Check that the user choosed a character
+        var radioPokemon = document.getElementsByName("pokemons"); //Check that the user choosed a pokemon
 
         if (password != password2){ //Check if the passwords match
             alert("Password doesn't match")
@@ -17,12 +19,12 @@ $(document).ready(function(){
             alert("Please fill all the spaces")
 
         }
-        var radioCharacter = document.getElementsByName("character"); //Check that the user choosed a character
-        if(!(radioCharacter[0].checked || radioCharacter[1].checked || radioCharacter[2].checked)) {
+
+        else if(!(radioCharacter[0].checked || radioCharacter[1].checked || radioCharacter[2].checked)) {
             alert("Please select your favorite character")
         }
-        var radioPokemon = document.getElementsByName("pokemons"); //Check that the user choosed a pokemon
-        if(!(radioPokemon[0].checked || radioPokemon[1].checked || radioPokemon[2].checked)) {
+
+        else if(!(radioPokemon[0].checked || radioPokemon[1].checked || radioPokemon[2].checked)) {
             alert("Please select your favorite pokemon")
        }
        else {
@@ -32,7 +34,7 @@ $(document).ready(function(){
                     'Content-Type': 'application/json'
                 },
                 //New User
-                url: BASE_URI.concat("/user"),
+                url: "/dsaApp/endpoint/user"),
                 type: "POST",
                 data: JSON.stringify({"character":character, "password": password, "email":email, "username": username}),
                 //User user = new user(username,password,email,character);
