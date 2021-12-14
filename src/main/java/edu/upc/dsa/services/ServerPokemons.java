@@ -15,7 +15,6 @@ import javax.ws.rs.core.GenericEntity;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.LinkedList;
-import java.util.List;
 
 
 @Api(value ="/pokemon", description = "Endpoint to Pokemon BBDD")
@@ -30,7 +29,7 @@ public class ServerPokemons {
     @GET
     @ApiOperation(value = "get pokemon BBDD", notes = "asdasd")
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Successful", response = Pokemons.class),
+            @ApiResponse(code = 200, message = "Successful", response = pokemons.class),
             @ApiResponse(code = 404, message = "Not found")
     })
     @Path("/select/{pokemonname}")
@@ -40,7 +39,7 @@ public class ServerPokemons {
             FactorySession s = new FactorySession();
             Session sess = s.openSession();
             Object u = null;
-            u = sess.get(Pokemons.class,name);
+            u = sess.get(pokemons.class,name);
             if (u!=null){
                 return Response.status(201).entity(u).build();
             }
@@ -56,12 +55,12 @@ public class ServerPokemons {
     @POST
     @ApiOperation(value = "insert pokemon BBDD", notes = "asdasd")
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Successful", response = Pokemons.class),
+            @ApiResponse(code = 200, message = "Successful", response = pokemons.class),
             @ApiResponse(code = 404, message = "Not found")
     })
     @Path("/insert")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response insertPokemonBBDD(Pokemons p){
+    public Response insertPokemonBBDD(pokemons p){
         if(p!=null){
             FactorySession s = new FactorySession();
             Session sess = s.openSession();
@@ -81,12 +80,12 @@ public class ServerPokemons {
     @PUT
     @ApiOperation(value = "update pokemon BBDD", notes = "asdasd")
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Successful", response = Pokemons.class),
+            @ApiResponse(code = 200, message = "Successful", response = pokemons.class),
             @ApiResponse(code = 404, message = "Not found")
     })
     @Path("/update")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response updatePokemonBBDD(Pokemons p){
+    public Response updatePokemonBBDD(pokemons p){
         if(p!=null){
             FactorySession s = new FactorySession();
             Session sess = s.openSession();
@@ -106,14 +105,14 @@ public class ServerPokemons {
     @PUT
     @ApiOperation(value = "delete pokemon BBDD", notes = "asdasd")
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Successful", response = Pokemons.class),
+            @ApiResponse(code = 200, message = "Successful", response = pokemons.class),
             @ApiResponse(code = 404, message = "Not found")
     })
     @Path("/delete/{pokemonname}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response deletePokemonBBDD(@PathParam ("pokemonname") String name){
         if(name!=null){
-            Pokemons p = new Pokemons();
+            pokemons p = new pokemons();
             FactorySession s = new FactorySession();
             Session sess = s.openSession();
             sess.delete(p, name);
@@ -132,18 +131,18 @@ public class ServerPokemons {
     @GET
     @ApiOperation(value = "get all pokemons BBDD", notes = "asdasd")
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Successful", response = Pokemons.class, responseContainer="LinkedList"),
+            @ApiResponse(code = 200, message = "Successful", response = pokemons.class, responseContainer="LinkedList"),
             @ApiResponse(code = 404, message = "Not found")
     })
     @Path("/selectall")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getAllPokemonsBBDD(){
-        LinkedList<Pokemons> pokemons = null;
+        LinkedList<pokemons> pokemons = null;
         if(pokemons==null){
             FactorySession s = new FactorySession();
             Session sess = s.openSession();
-            pokemons = sess.findAll(Pokemons.class);
-            GenericEntity<LinkedList<Pokemons>> entity = new GenericEntity<LinkedList<Pokemons>>(pokemons) {};
+            pokemons = sess.findAll(edu.upc.dsa.models.pokemons.class);
+            GenericEntity<LinkedList<edu.upc.dsa.models.pokemons>> entity = new GenericEntity<LinkedList<edu.upc.dsa.models.pokemons>>(pokemons) {};
             if (entity!=null){
                 return Response.status(201).entity(entity).build();
             }

@@ -4,11 +4,11 @@ import java.util.LinkedList;
 
 public class Store {
 
-    LinkedList<Objects> products = new LinkedList<Objects>();
-    public Store(LinkedList<Objects> products){
+    LinkedList<objects> products = new LinkedList<objects>();
+    public Store(LinkedList<objects> products){
         this.products=products;}
 
-    public void setProducts(LinkedList<Objects> objects){this.products=products;}
-    public LinkedList<Objects> getProducts(){return this.products;}
+    public void setProducts(LinkedList<objects> objects){this.products=products;}
+    public LinkedList<objects> getProducts(){return this.products;}
 
 }

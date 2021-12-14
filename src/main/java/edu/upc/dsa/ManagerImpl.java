@@ -1,8 +1,8 @@
 package edu.upc.dsa;
 
 import edu.upc.dsa.models.*;
-import edu.upc.dsa.models.Character;
-import edu.upc.dsa.models.Objects;
+import edu.upc.dsa.models.character;
+import edu.upc.dsa.models.objects;
 import org.apache.log4j.Logger;
 
 import java.util.LinkedList;
@@ -19,14 +19,14 @@ public class ManagerImpl implements Manager {
     }
 
     final static Logger logger = Logger.getLogger(ManagerImpl.class);
-    LinkedList<User> userList = new LinkedList<User>();
-    LinkedList<Character> characterList = new LinkedList<Character>();
-    LinkedList<Pokemons> pokemonsList = new LinkedList<Pokemons>();
-    LinkedList<Objects> objectsList = new LinkedList<Objects>();
+    LinkedList<user> userList = new LinkedList<user>();
+    LinkedList<character> characterList = new LinkedList<character>();
+    LinkedList<pokemons> pokemonsList = new LinkedList<pokemons>();
+    LinkedList<objects> objectsList = new LinkedList<objects>();
     LinkedList<edu.upc.dsa.models.Map> mapList = new LinkedList<edu.upc.dsa.models.Map>();
 
     @Override
-    public boolean registerUser(User user) {
+    public boolean registerUser(user user) {
         int i=0;
         boolean trobat=false;
         while ((i<userList.size())&&(trobat == false)){
@@ -47,7 +47,7 @@ public class ManagerImpl implements Manager {
     }
 
     @Override
-    public User loginUser(String name, String password) {
+    public user loginUser(String name, String password) {
         int i=0;
         boolean trobat=false; //bool
         while ((i<userList.size())&&(trobat == false)){
@@ -67,7 +67,7 @@ public class ManagerImpl implements Manager {
     }
 
     @Override
-    public boolean addCharacter(Character character) {
+    public boolean addCharacter(character character) {
         int i=0;
         boolean trobat = false;
         if(characterList.size()==0) {
@@ -89,7 +89,7 @@ public class ManagerImpl implements Manager {
     }
 
     @Override
-    public Character getCharacter(String name) {
+    public character getCharacter(String name) {
         int i=0;
         boolean trobat = false;
 
@@ -110,7 +110,7 @@ public class ManagerImpl implements Manager {
         }
     }
     @Override
-    public boolean updateCharacter(Character character) {
+    public boolean updateCharacter(character character) {
         int i=0;
         boolean trobat = false;
         while ((i<characterList.size())&&(trobat == false)){
@@ -129,9 +129,9 @@ public class ManagerImpl implements Manager {
         else{ return false;}
     }
     @Override
-    public LinkedList<Objects> getObjects() {
-        objectsList.add(new Objects("Potion", 100.00, "Healing", "Heals 100 hp"));
-        objectsList.add(new Objects("PokeBall", 200.00, "Catching", "Can catch a Pokemon"));
+    public LinkedList<objects> getObjects() {
+        objectsList.add(new objects("Potion", 100.00, "Healing", "Heals 100 hp"));
+        objectsList.add(new objects("PokeBall", 200.00, "Catching", "Can catch a Pokemon"));
         return this.objectsList;
     }
 

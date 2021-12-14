@@ -15,7 +15,6 @@ import javax.ws.rs.core.GenericEntity;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.LinkedList;
-import java.util.List;
 
 
 @Api(value ="/user", description = "Endpoint to Pokemon BBDD")
@@ -31,7 +30,7 @@ public class ServerUser {
     @GET
     @ApiOperation(value = "get user BBDD", notes = "asdasd")
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Successful", response = User.class),
+            @ApiResponse(code = 200, message = "Successful", response = user.class),
             @ApiResponse(code = 404, message = "Not found")
     })
     @Path("/select/{username}")
@@ -41,7 +40,7 @@ public class ServerUser {
             FactorySession s = new FactorySession();
             Session sess = s.openSession();
             Object u = null;
-            u = sess.get(User.class,name);
+            u = sess.get(user.class,name);
             if (u!=null){
                 return Response.status(201).entity(u).build();
             }
@@ -57,12 +56,12 @@ public class ServerUser {
     @POST
     @ApiOperation(value = "insert user BBDD", notes = "asdasd")
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Successful", response = User.class),
+            @ApiResponse(code = 200, message = "Successful", response = user.class),
             @ApiResponse(code = 404, message = "Not found")
     })
     @Path("/insert")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response insertUserBBDD(User u){
+    public Response insertUserBBDD(user u){
         if(u!=null){
             FactorySession s = new FactorySession();
             Session sess = s.openSession();
@@ -82,12 +81,12 @@ public class ServerUser {
     @PUT
     @ApiOperation(value = "update user BBDD", notes = "asdasd")
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Successful", response = User.class),
+            @ApiResponse(code = 200, message = "Successful", response = user.class),
             @ApiResponse(code = 404, message = "Not found")
     })
     @Path("/update")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response updateUserBBDD(User u){
+    public Response updateUserBBDD(user u){
         if(u!=null){
             FactorySession s = new FactorySession();
             Session sess = s.openSession();
@@ -107,14 +106,14 @@ public class ServerUser {
     @PUT
     @ApiOperation(value = "delete user BBDD", notes = "asdasd")
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Successful", response = User.class),
+            @ApiResponse(code = 200, message = "Successful", response = user.class),
             @ApiResponse(code = 404, message = "Not found")
     })
     @Path("/delete/{username}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response deleteObjectBBDD(@PathParam ("username") String name){
         if(name!=null){
-            User u = new User();
+            user u = new user();
             FactorySession s = new FactorySession();
             Session sess = s.openSession();
             sess.delete(u, name);
@@ -133,18 +132,18 @@ public class ServerUser {
     @GET
     @ApiOperation(value = "get all users BBDD", notes = "asdasd")
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Successful", response = User.class, responseContainer="LinkedList"),
+            @ApiResponse(code = 200, message = "Successful", response = user.class, responseContainer="LinkedList"),
             @ApiResponse(code = 404, message = "Not found")
     })
     @Path("/selectall")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getAllUsersBBDD(){
-        LinkedList<User> users = null;
+        LinkedList<user> users = null;
         if(users==null){
             FactorySession s = new FactorySession();
             Session sess = s.openSession();
-            users = sess.findAll(User.class);
-            GenericEntity<LinkedList<User>> entity = new GenericEntity<LinkedList<User>>(users) {};
+            users = sess.findAll(user.class);
+            GenericEntity<LinkedList<user>> entity = new GenericEntity<LinkedList<user>>(users) {};
             if (entity!=null){
                 return Response.status(201).entity(entity).build();
             }

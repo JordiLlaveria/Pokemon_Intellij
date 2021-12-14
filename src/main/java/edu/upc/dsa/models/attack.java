@@ -1,12 +1,12 @@
 package edu.upc.dsa.models;
 
-public class Attack {
+public class attack {
     private String name;
     private String type;
     private Double damage;
 
-    public Attack(){}
-    public Attack(String name, String type, Double damage){
+    public attack(){}
+    public attack(String name, String type, Double damage){
         this();
         setName(name);
         setType(type);

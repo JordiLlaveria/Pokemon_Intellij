@@ -1,11 +1,9 @@
 package edu.upc.dsa.services;
 
-import edu.upc.dsa.FactorySession;
 import edu.upc.dsa.Manager;
 import edu.upc.dsa.ManagerImpl;
-import edu.upc.dsa.Session;
 import edu.upc.dsa.models.*;
-import edu.upc.dsa.models.Character;
+import edu.upc.dsa.models.character;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -24,8 +22,8 @@ public class Server {
     private Manager manager;
     public Server(){
         this.manager = ManagerImpl.getInstance();
-        manager.registerUser(new User("Joana","hola","joana@email.com","tijuana"));
-        manager.addCharacter(new Character("tijuana","may","level4",135.,500.,"Charmander","Squirtle","Bulbasaur","Potion","Pokeball","Superball"));
+        manager.registerUser(new user("Joana","hola","joana@email.com","tijuana"));
+        manager.addCharacter(new character("tijuana","may","level4",135.,500.,"Charmander","Squirtle","Bulbasaur","Potion","Pokeball","Superball"));
 
     }
     /*
@@ -75,14 +73,14 @@ public class Server {
     @GET
     @ApiOperation(value = "get character", notes = "asdasd")
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Successful", response = Character.class),
+            @ApiResponse(code = 200, message = "Successful", response = character.class),
             @ApiResponse(code = 404, message = "Not found")
     })
     @Path("/character/{name}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getCharacter(@PathParam("name") String name){
         if(name!=null){
-            Character character = this.manager.getCharacter(name);
+            character character = this.manager.getCharacter(name);
             if (character!=null){
                 return Response.status(201).entity(character).build();
             }
@@ -99,7 +97,7 @@ public class Server {
     @POST
     @ApiOperation(value = "Create new character", notes = "asdasd")
     @ApiResponses(value = {
-            @ApiResponse(code = 201, message = "Successful", response = Character.class),
+            @ApiResponse(code = 201, message = "Successful", response = character.class),
             @ApiResponse(code = 500, message = "Error"),
             @ApiResponse(code = 502, message = "Error, null Character")
 
@@ -107,7 +105,7 @@ public class Server {
 
     @Path("/character")
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response newCharacter(Character character) {
+    public Response newCharacter(character character) {
 
         if(character.getName()!=null && character.getPokemon1name()!=null){
             boolean characterAdded = this.manager.addCharacter(character);
@@ -128,13 +126,13 @@ public class Server {
     @POST
     @ApiOperation(value = "Register operation", notes = "asdasd")
     @ApiResponses(value = {
-            @ApiResponse(code = 201, message = "Successful", response = User.class),
+            @ApiResponse(code = 201, message = "Successful", response = user.class),
             @ApiResponse(code = 500, message = "Error")
     })
 
     @Path("/user")
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response register(User u) {
+    public Response register(user u) {
         if (u.getCharactername()!=null && u.getEmail()!=null && u.getPassword()!= null && u.getName()!=null){
             boolean userRegistered = this.manager.registerUser(u);
             if(userRegistered) {
@@ -153,7 +151,7 @@ public class Server {
     @POST
     @ApiOperation(value = "Login operation", notes = "asdasd")
     @ApiResponses(value = {
-            @ApiResponse(code = 201, message = "Successful", response = User.class),
+            @ApiResponse(code = 201, message = "Successful", response = user.class),
             @ApiResponse(code = 404, message = "Not found"),
             @ApiResponse(code = 500, message = "Error")
     })
@@ -162,7 +160,7 @@ public class Server {
     public Response login(Credentials c) {
         System.out.println("logiiiin"+c.getUsername());
         if (c.getUsername()!= null && c.getPassword()!=null){
-            User userlogged = this.manager.loginUser(c.getUsername(), c.getPassword());
+            user userlogged = this.manager.loginUser(c.getUsername(), c.getPassword());
             if(userlogged!=null){
                 return Response.status(201).entity(userlogged).build();
             }
@@ -180,20 +178,20 @@ public class Server {
     @POST
     @ApiOperation(value = "Buy an object", notes = "asdasd")
     @ApiResponses(value = {
-            @ApiResponse(code = 201, message = "Successful", response = Character.class),
-            @ApiResponse(code = 500, message = "Not enough money",response = Character.class),
+            @ApiResponse(code = 201, message = "Successful", response = character.class),
+            @ApiResponse(code = 500, message = "Not enough money",response = character.class),
             @ApiResponse(code = 400, message = "User Not Found"),
-            @ApiResponse(code = 501, message = "Not enough space",response = Character.class)
+            @ApiResponse(code = 501, message = "Not enough space",response = character.class)
     })
 
     @Path("/Store/Shopping")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response buyObject(ObjectWithCharacter objectWithCharacter) {
-        Character character = objectWithCharacter.getCharacter();
-        Objects item = objectWithCharacter.getObject();
+        character character = objectWithCharacter.getCharacter();
+        objects item = objectWithCharacter.getObject();
 
         if(character.getName()!=null){
-            Character ch= manager.getCharacter(character.getName());
+            edu.upc.dsa.models.character ch= manager.getCharacter(character.getName());
             if (ch.getMoney()>=item.getPrice()){
                 ch.setMoney(ch.getMoney()-item.getPrice());
                 if(ch.getObject1name()==null){
@@ -228,7 +226,7 @@ public class Server {
     @Produces(MediaType.APPLICATION_JSON)
     public Response getObjects(){
         try {
-        GenericEntity<List<Objects>> entity =  new GenericEntity<List<Objects>>(manager.getObjects()) {};
+        GenericEntity<List<objects>> entity =  new GenericEntity<List<objects>>(manager.getObjects()) {};
         return Response.status(200).entity(entity).build();
         }catch(Exception e){return Response.status(500).build();}
     }

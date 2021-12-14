@@ -29,7 +29,7 @@ public class ServerEnemy {
     @GET
     @ApiOperation(value = "get enemy BBDD", notes = "asdasd")
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Successful", response = Enemy.class),
+            @ApiResponse(code = 200, message = "Successful", response = enemy.class),
             @ApiResponse(code = 404, message = "Not found")
     })
     @Path("/select/{enemyname}")
@@ -39,7 +39,7 @@ public class ServerEnemy {
             FactorySession s = new FactorySession();
             Session sess = s.openSession();
             Object u = null;
-            u = sess.get(Enemy.class,name);
+            u = sess.get(enemy.class,name);
             if (u!=null){
                 return Response.status(201).entity(u).build();
             }
@@ -55,12 +55,12 @@ public class ServerEnemy {
     @POST
     @ApiOperation(value = "insert enemy BBDD", notes = "asdasd")
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Successful", response = Enemy.class),
+            @ApiResponse(code = 200, message = "Successful", response = enemy.class),
             @ApiResponse(code = 404, message = "Not found")
     })
     @Path("/insert")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response insertEnemyBBDD(Enemy e){
+    public Response insertEnemyBBDD(enemy e){
         if(e!=null){
             FactorySession s = new FactorySession();
             Session sess = s.openSession();
@@ -80,12 +80,12 @@ public class ServerEnemy {
     @PUT
     @ApiOperation(value = "update enemy BBDD", notes = "asdasd")
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Successful", response = Enemy.class),
+            @ApiResponse(code = 200, message = "Successful", response = enemy.class),
             @ApiResponse(code = 404, message = "Not found")
     })
     @Path("/update")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response updateEnemyBBDD(Enemy e){
+    public Response updateEnemyBBDD(enemy e){
         if(e!=null){
             FactorySession s = new FactorySession();
             Session sess = s.openSession();
@@ -105,14 +105,14 @@ public class ServerEnemy {
     @PUT
     @ApiOperation(value = "delete enemy BBDD", notes = "asdasd")
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Successful", response = Enemy.class),
+            @ApiResponse(code = 200, message = "Successful", response = enemy.class),
             @ApiResponse(code = 404, message = "Not found")
     })
     @Path("/delete/{enemyname}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response deleteEnemyBBDD(@PathParam ("enemyname") String name){
         if(name!=null){
-            Enemy e = new Enemy();
+            enemy e = new enemy();
             FactorySession s = new FactorySession();
             Session sess = s.openSession();
             sess.delete(e, name);
@@ -131,18 +131,18 @@ public class ServerEnemy {
     @GET
     @ApiOperation(value = "get all enemies BBDD", notes = "asdasd")
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Successful", response = Enemy.class, responseContainer="LinkedList"),
+            @ApiResponse(code = 200, message = "Successful", response = enemy.class, responseContainer="LinkedList"),
             @ApiResponse(code = 404, message = "Not found")
     })
     @Path("/selectall")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getAllEnemiesBBDD(){
-        LinkedList<Enemy> enemies = null;
+        LinkedList<enemy> enemies = null;
         if(enemies==null){
             FactorySession s = new FactorySession();
             Session sess = s.openSession();
-            enemies = sess.findAll(Enemy.class);
-            GenericEntity<LinkedList<Enemy>> entity = new GenericEntity<LinkedList<Enemy>>(enemies) {};
+            enemies = sess.findAll(enemy.class);
+            GenericEntity<LinkedList<enemy>> entity = new GenericEntity<LinkedList<enemy>>(enemies) {};
             if (entity!=null){
                 return Response.status(201).entity(entity).build();
             }
