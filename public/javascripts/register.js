@@ -32,9 +32,11 @@ $(document).ready(function(){
                     'Content-Type': 'application/json'
                 },
                 //New User
-                url: BASE_URI.concat("/auth/user"),
+                url: BASE_URI.concat("/user"),
                 type: "POST",
                 data: JSON.stringify({"character":character, "password": password, "email":email, "username": username}),
+                //User user = new user(username,password,email,character);
+                //data: JSON.stringify(user),
                 dataType:'json',
 
                 //New character

@@ -1,0 +1,23 @@
+body {
+    font-family: 'verdana', cursive;
+    margin: 0;
+    background-color: lightblue;
+}
+h1 {
+    color: black;
+    text-align: center;
+    font-size: 40px;
+}
+p.{
+    color: red;
+    text-align: center;
+}
+*{
+    font-family: 'verdana', cursive;
+    font-size: 15px;
+}
+.input-container{
+    font-family: 'verdana', cursive;
+    font-size: 15px;
+    text-align: center;
+}

@@ -13,7 +13,7 @@ $(document).ready(function(){
             $ajax({
                 headers: {'Accept': 'application/json',
                 'Content-Type': 'application/json'},
-                url: BASE_URI.concat("/auth/login"),
+                url: BASE_URI.concat("/login"),
                 type: "POST",
                 data: JSON.stringify({"username": username, "password": password}),
                 dataType: 'json',
@@ -23,9 +23,9 @@ $(document).ready(function(){
                     myStorage.setItem("password", data.password);
                     window.location.href = "home.html"; //Anem a la pagina principal
                 }
-                error: function(error){ //preguntar dema
-                    alert("Error: wrong username/password");
-                }
+                //error: function(error){ //preguntar dema
+                    //alert("Error: wrong username/password");
+                //}
             })
 
         }
