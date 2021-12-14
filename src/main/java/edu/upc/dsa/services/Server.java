@@ -160,6 +160,7 @@ public class Server {
     @Path("/login")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response login(Credentials c) {
+        System.out.println("logiiiin"+c.getUsername());
         if (c.getUsername()!= null && c.getPassword()!=null){
             User userlogged = this.manager.loginUser(c.getUsername(), c.getPassword());
             if(userlogged!=null){
