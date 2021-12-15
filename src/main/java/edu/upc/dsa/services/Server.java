@@ -1,9 +1,7 @@
 package edu.upc.dsa.services;
 
-import edu.upc.dsa.FactorySession;
 import edu.upc.dsa.Manager;
 import edu.upc.dsa.ManagerImpl;
-import edu.upc.dsa.Session;
 import edu.upc.dsa.models.*;
 import edu.upc.dsa.models.Character;
 import io.swagger.annotations.Api;

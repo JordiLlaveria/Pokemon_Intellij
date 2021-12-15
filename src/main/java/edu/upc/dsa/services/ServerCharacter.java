@@ -4,7 +4,6 @@ import edu.upc.dsa.FactorySession;
 import edu.upc.dsa.Manager;
 import edu.upc.dsa.ManagerImpl;
 import edu.upc.dsa.Session;
-import edu.upc.dsa.models.*;
 import edu.upc.dsa.models.Character;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -16,7 +15,6 @@ import javax.ws.rs.core.GenericEntity;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.LinkedList;
-import java.util.List;
 
 
 @Api(value ="/character", description = "Endpoint to Pokemon BBDD")
@@ -140,12 +138,12 @@ public class ServerCharacter {
     @Path("/selectall")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getAllCharacterBBDD(){
-        LinkedList<Character> characters = null;
-        if(characters==null){
+        LinkedList<Character> Characters = null;
+        if(Characters ==null){
             FactorySession s = new FactorySession();
             Session sess = s.openSession();
-            characters = sess.findAll(Character.class);
-            GenericEntity<LinkedList<Character>> entity = new GenericEntity<LinkedList<Character>>(characters) {};
+            Characters = sess.findAll(Character.class);
+            GenericEntity<LinkedList<Character>> entity = new GenericEntity<LinkedList<Character>>(Characters) {};
             if (entity!=null){
                 return Response.status(201).entity(entity).build();
             }

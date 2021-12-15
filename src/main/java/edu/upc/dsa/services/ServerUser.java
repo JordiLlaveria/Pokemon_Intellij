@@ -15,7 +15,6 @@ import javax.ws.rs.core.GenericEntity;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.LinkedList;
-import java.util.List;
 
 
 @Api(value ="/user", description = "Endpoint to Pokemon BBDD")
@@ -139,12 +138,12 @@ public class ServerUser {
     @Path("/selectall")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getAllUsersBBDD(){
-        LinkedList<User> users = null;
-        if(users==null){
+        LinkedList<User> Users = null;
+        if(Users ==null){
             FactorySession s = new FactorySession();
             Session sess = s.openSession();
-            users = sess.findAll(User.class);
-            GenericEntity<LinkedList<User>> entity = new GenericEntity<LinkedList<User>>(users) {};
+            Users = sess.findAll(User.class);
+            GenericEntity<LinkedList<User>> entity = new GenericEntity<LinkedList<User>>(Users) {};
             if (entity!=null){
                 return Response.status(201).entity(entity).build();
             }
