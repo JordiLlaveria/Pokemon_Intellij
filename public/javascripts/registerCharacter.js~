@@ -22,7 +22,7 @@ $(document).ready(function(){
                 //New User
                 url: "/dsaApp/endpoint/character",
                 type: "POST",
-                data: JSON.stringify({"name":character, "pokemon": pokemon}),
+                data: JSON.stringify({"name":character, "pokemon": pokemons}),
                 //User user = new user(username,password,email,character);
                 //data: JSON.stringify(user),
                 dataType:'json',

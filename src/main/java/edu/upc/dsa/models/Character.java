@@ -16,6 +16,10 @@ public class Character {
     //LinkedList<Object> objects = new LinkedList<Object>();
 
     public Character(){}
+    public Character(String name, String pokemon){
+        setName(name);
+        setPokemon1name(pokemon);
+    }
 
     public Character(String name, String avatar, String map, Double money, Double points, String p1_name, String p2_name, String p3_name, String o1_name, String o2_name, String o3_name){
         this();

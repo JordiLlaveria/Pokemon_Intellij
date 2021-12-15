@@ -23,19 +23,19 @@ $(document).ready(function(){
                     'Content-Type': 'application/json'
                 },
                 //New User
-                url: "/dsaApp/endpoint/user"),
+                url: "/dsaApp/endpoint/user",
                 type: "POST",
-                data: JSON.stringify({"username":username, "password": password, "email":email, "nickname": nickname}),
-                //User user = new user(username,password,email,character);
-                //data: JSON.stringify(user),
+                data: JSON.stringify({"name":username, "password": password, "email":email, "charactername": nickname}),
                 dataType:'json',
 
                 success: function(data) {
                     alert("Welcome to Pokemon world");
                     console.log("Registered");
-                    window.location.hred = "login.html";
+                    //myStorage.setItem("username", data.username);
+                    //myStorage.setItem("password", data.password);
+                    window.location.href = "character.html";
 
-                }
+                },
                 error: function(error){
                     message = '"error"'
                     console.log("Error",error);
