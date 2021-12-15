@@ -43,7 +43,7 @@ public class QueryHelper {
     public static String createQuerySELECTALL(Class theclass) {
         StringBuffer sb = new StringBuffer();
         String nametable = theclass.getSimpleName().substring(0,1).toLowerCase() + theclass.getClass().getSimpleName().substring(1);
-        sb.append("SELECT * FROM ").append("pokemon.").append(theclass);
+        sb.append("SELECT * FROM ").append("pokemon.").append(nametable);
 
         return sb.toString();
     }
