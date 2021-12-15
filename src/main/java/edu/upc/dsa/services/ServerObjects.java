@@ -29,7 +29,7 @@ public class ServerObjects {
     @GET
     @ApiOperation(value = "get object BBDD", notes = "asdasd")
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Successful", response = objects.class),
+            @ApiResponse(code = 200, message = "Successful", response = Objects.class),
             @ApiResponse(code = 404, message = "Not found")
     })
     @Path("/select/{objectname}")
@@ -39,7 +39,7 @@ public class ServerObjects {
             FactorySession s = new FactorySession();
             Session sess = s.openSession();
             Object u = null;
-            u = sess.get(objects.class,name);
+            u = sess.get(Objects.class,name);
             if (u!=null){
                 return Response.status(201).entity(u).build();
             }
@@ -55,12 +55,12 @@ public class ServerObjects {
     @POST
     @ApiOperation(value = "insert object BBDD", notes = "asdasd")
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Successful", response = objects.class),
+            @ApiResponse(code = 200, message = "Successful", response = Objects.class),
             @ApiResponse(code = 404, message = "Not found")
     })
     @Path("/insert")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response insertObjectBBDD(objects o){
+    public Response insertObjectBBDD(Objects o){
         if(o!=null){
             FactorySession s = new FactorySession();
             Session sess = s.openSession();
@@ -80,12 +80,12 @@ public class ServerObjects {
     @PUT
     @ApiOperation(value = "update object BBDD", notes = "asdasd")
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Successful", response = objects.class),
+            @ApiResponse(code = 200, message = "Successful", response = Objects.class),
             @ApiResponse(code = 404, message = "Not found")
     })
     @Path("/update")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response updateObjectBBDD(objects o){
+    public Response updateObjectBBDD(Objects o){
         if(o!=null){
             FactorySession s = new FactorySession();
             Session sess = s.openSession();
@@ -105,14 +105,14 @@ public class ServerObjects {
     @PUT
     @ApiOperation(value = "delete object BBDD", notes = "asdasd")
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Successful", response = objects.class),
+            @ApiResponse(code = 200, message = "Successful", response = Objects.class),
             @ApiResponse(code = 404, message = "Not found")
     })
     @Path("/delete/{objectname}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response deleteObjectBBDD(@PathParam ("objectname") String name){
         if(name!=null){
-            objects u = new objects();
+            Objects u = new Objects();
             FactorySession s = new FactorySession();
             Session sess = s.openSession();
             sess.delete(u, name);
@@ -131,18 +131,18 @@ public class ServerObjects {
     @GET
     @ApiOperation(value = "get all objects BBDD", notes = "asdasd")
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Successful", response = objects.class, responseContainer="LinkedList"),
+            @ApiResponse(code = 200, message = "Successful", response = Objects.class, responseContainer="LinkedList"),
             @ApiResponse(code = 404, message = "Not found")
     })
     @Path("/selectall")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getAllObjectsBBDD(){
-        LinkedList<objects> objects = null;
+        LinkedList<Objects> objects = null;
         if(objects==null){
             FactorySession s = new FactorySession();
             Session sess = s.openSession();
-            objects = sess.findAll(edu.upc.dsa.models.objects.class);
-            GenericEntity<LinkedList<edu.upc.dsa.models.objects>> entity = new GenericEntity<LinkedList<edu.upc.dsa.models.objects>>(objects) {};
+            objects = sess.findAll(Objects.class);
+            GenericEntity<LinkedList<Objects>> entity = new GenericEntity<LinkedList<Objects>>(objects) {};
             if (entity!=null){
                 return Response.status(201).entity(entity).build();
             }

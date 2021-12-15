@@ -1,12 +1,15 @@
 package edu.upc.dsa.util;
 
+import java.util.Locale;
+
 public class QueryHelper {
 
     public static String createQueryINSERT(Object entity) {
 
         StringBuffer sb = new StringBuffer("INSERT INTO ");
         sb.append("pokemon.");
-        sb.append(entity.getClass().getSimpleName()).append(" ");
+        String nametable = entity.getClass().getSimpleName().substring(0,1).toLowerCase() + entity.getClass().getSimpleName().substring(1);
+        sb.append(nametable).append(" ");
         sb.append("(");
 
         String [] fields = ObjectHelper.getFields(entity);
@@ -31,21 +34,24 @@ public class QueryHelper {
 
     public static String createQuerySELECT(Class theclass) {
         StringBuffer sb = new StringBuffer();
-        sb.append("SELECT * FROM ").append("pokemon.").append(theclass.getSimpleName());
+        String nametable = theclass.getClass().getSimpleName().substring(0,1).toLowerCase() + theclass.getClass().getSimpleName().substring(1);
+        sb.append("SELECT * FROM ").append("pokemon.").append(nametable);
         sb.append(" WHERE name = ?");
 
         return sb.toString();
     }
     public static String createQuerySELECTALL(Class theclass) {
         StringBuffer sb = new StringBuffer();
-        sb.append("SELECT * FROM ").append("pokemon.").append(theclass.getSimpleName());
+        String nametable = theclass.getSimpleName().substring(0,1).toLowerCase() + theclass.getClass().getSimpleName().substring(1);
+        sb.append("SELECT * FROM ").append("pokemon.").append(theclass);
 
         return sb.toString();
     }
 
     public static String createQueryDELETE(Object entity){
         StringBuffer sb = new StringBuffer();
-        sb.append("DELETE FROM ").append("pokemon.").append(entity.getClass().getSimpleName());
+        String nametable = entity.getClass().getSimpleName().substring(0,1).toLowerCase() + entity.getClass().getSimpleName().substring(1);
+        sb.append("DELETE FROM ").append("pokemon.").append(nametable);
         sb.append(" WHERE name = ?");
 
         return sb.toString();
@@ -53,7 +59,8 @@ public class QueryHelper {
 
     public static String createQueryUPDATE(Object entity){
         StringBuffer sb = new StringBuffer("UPDATE ");
-        sb.append(entity.getClass().getSimpleName()).append(" ");
+        String nametable = entity.getClass().getSimpleName().substring(0,1).toLowerCase() + entity.getClass().getSimpleName().substring(1);
+        sb.append(nametable).append(" ");
         sb.append("SET ");
 
         String [] fields = ObjectHelper.getFields(entity);

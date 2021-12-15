@@ -4,7 +4,7 @@ import edu.upc.dsa.FactorySession;
 import edu.upc.dsa.Manager;
 import edu.upc.dsa.ManagerImpl;
 import edu.upc.dsa.Session;
-import edu.upc.dsa.models.character;
+import edu.upc.dsa.models.Character;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -29,7 +29,7 @@ public class ServerCharacter {
     @GET
     @ApiOperation(value = "get character BBDD", notes = "asdasd")
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Successful", response = character.class),
+            @ApiResponse(code = 200, message = "Successful", response = Character.class),
             @ApiResponse(code = 404, message = "Not found")
     })
     @Path("/select/{charactername}")
@@ -39,7 +39,7 @@ public class ServerCharacter {
             FactorySession s = new FactorySession();
             Session sess = s.openSession();
             Object u = null;
-            u = sess.get(character.class,name);
+            u = sess.get(Character.class,name);
             //Character character = this.manager.getCharacter(name);
             if (u!=null){
                 return Response.status(201).entity(u).build();
@@ -56,12 +56,12 @@ public class ServerCharacter {
     @POST
     @ApiOperation(value = "insert character BBDD", notes = "asdasd")
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Successful", response = character.class),
+            @ApiResponse(code = 200, message = "Successful", response = Character.class),
             @ApiResponse(code = 404, message = "Not found")
     })
     @Path("/insert")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response insertObjectBBDD(character c){
+    public Response insertObjectBBDD(Character c){
         if(c!=null){
             FactorySession s = new FactorySession();
             Session sess = s.openSession();
@@ -81,12 +81,12 @@ public class ServerCharacter {
     @PUT
     @ApiOperation(value = "update character BBDD", notes = "asdasd")
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Successful", response = character.class),
+            @ApiResponse(code = 200, message = "Successful", response = Character.class),
             @ApiResponse(code = 404, message = "Not found")
     })
     @Path("/update")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response updateUserBBDD(character c){
+    public Response updateUserBBDD(Character c){
         if(c!=null){
             FactorySession s = new FactorySession();
             Session sess = s.openSession();
@@ -106,14 +106,14 @@ public class ServerCharacter {
     @PUT
     @ApiOperation(value = "delete character BBDD", notes = "asdasd")
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Successful", response = character.class),
+            @ApiResponse(code = 200, message = "Successful", response = Character.class),
             @ApiResponse(code = 404, message = "Not found")
     })
     @Path("/delete/{charactername}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response deleteUserBBDD(@PathParam ("charactername") String name){
         if(name!=null){
-            character c = new character();
+            Character c = new Character();
             FactorySession s = new FactorySession();
             Session sess = s.openSession();
             sess.delete(c, name);
@@ -132,18 +132,18 @@ public class ServerCharacter {
     @GET
     @ApiOperation(value = "get all characters BBDD", notes = "asdasd")
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Successful", response = character.class, responseContainer="LinkedList"),
+            @ApiResponse(code = 200, message = "Successful", response = Character.class, responseContainer="LinkedList"),
             @ApiResponse(code = 404, message = "Not found")
     })
     @Path("/selectall")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getAllCharacterBBDD(){
-        LinkedList<character> characters = null;
-        if(characters==null){
+        LinkedList<Character> Characters = null;
+        if(Characters ==null){
             FactorySession s = new FactorySession();
             Session sess = s.openSession();
-            characters = sess.findAll(character.class);
-            GenericEntity<LinkedList<character>> entity = new GenericEntity<LinkedList<character>>(characters) {};
+            Characters = sess.findAll(Character.class);
+            GenericEntity<LinkedList<Character>> entity = new GenericEntity<LinkedList<Character>>(Characters) {};
             if (entity!=null){
                 return Response.status(201).entity(entity).build();
             }

@@ -1,6 +1,6 @@
 package edu.upc.dsa.models;
 
-public class user {
+public class User {
     //private String id;
     private String name;
     private String password;
@@ -8,10 +8,10 @@ public class user {
     private String charactername;
     //private Character character;
 
-    public user(){
+    public User(){
 
     }
-    public user(String name, String password, String email, String charactername){
+    public User(String name, String password, String email, String charactername){
         this();
         //setId(id);
         setName(name);
@@ -19,7 +19,7 @@ public class user {
         setEmail(email);
         setCharactername(charactername);
     }
-    public user(String username, String password){
+    public User(String username, String password){
         this();
         setName(username);
         setPassword(password);

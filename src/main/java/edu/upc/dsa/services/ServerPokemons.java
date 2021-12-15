@@ -29,7 +29,7 @@ public class ServerPokemons {
     @GET
     @ApiOperation(value = "get pokemon BBDD", notes = "asdasd")
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Successful", response = pokemons.class),
+            @ApiResponse(code = 200, message = "Successful", response = Pokemons.class),
             @ApiResponse(code = 404, message = "Not found")
     })
     @Path("/select/{pokemonname}")
@@ -39,7 +39,7 @@ public class ServerPokemons {
             FactorySession s = new FactorySession();
             Session sess = s.openSession();
             Object u = null;
-            u = sess.get(pokemons.class,name);
+            u = sess.get(Pokemons.class,name);
             if (u!=null){
                 return Response.status(201).entity(u).build();
             }
@@ -55,12 +55,12 @@ public class ServerPokemons {
     @POST
     @ApiOperation(value = "insert pokemon BBDD", notes = "asdasd")
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Successful", response = pokemons.class),
+            @ApiResponse(code = 200, message = "Successful", response = Pokemons.class),
             @ApiResponse(code = 404, message = "Not found")
     })
     @Path("/insert")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response insertPokemonBBDD(pokemons p){
+    public Response insertPokemonBBDD(Pokemons p){
         if(p!=null){
             FactorySession s = new FactorySession();
             Session sess = s.openSession();
@@ -80,12 +80,12 @@ public class ServerPokemons {
     @PUT
     @ApiOperation(value = "update pokemon BBDD", notes = "asdasd")
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Successful", response = pokemons.class),
+            @ApiResponse(code = 200, message = "Successful", response = Pokemons.class),
             @ApiResponse(code = 404, message = "Not found")
     })
     @Path("/update")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response updatePokemonBBDD(pokemons p){
+    public Response updatePokemonBBDD(Pokemons p){
         if(p!=null){
             FactorySession s = new FactorySession();
             Session sess = s.openSession();
@@ -105,14 +105,14 @@ public class ServerPokemons {
     @PUT
     @ApiOperation(value = "delete pokemon BBDD", notes = "asdasd")
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Successful", response = pokemons.class),
+            @ApiResponse(code = 200, message = "Successful", response = Pokemons.class),
             @ApiResponse(code = 404, message = "Not found")
     })
     @Path("/delete/{pokemonname}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response deletePokemonBBDD(@PathParam ("pokemonname") String name){
         if(name!=null){
-            pokemons p = new pokemons();
+            Pokemons p = new Pokemons();
             FactorySession s = new FactorySession();
             Session sess = s.openSession();
             sess.delete(p, name);
@@ -131,18 +131,18 @@ public class ServerPokemons {
     @GET
     @ApiOperation(value = "get all pokemons BBDD", notes = "asdasd")
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Successful", response = pokemons.class, responseContainer="LinkedList"),
+            @ApiResponse(code = 200, message = "Successful", response = Pokemons.class, responseContainer="LinkedList"),
             @ApiResponse(code = 404, message = "Not found")
     })
     @Path("/selectall")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getAllPokemonsBBDD(){
-        LinkedList<pokemons> pokemons = null;
+        LinkedList<Pokemons> pokemons = null;
         if(pokemons==null){
             FactorySession s = new FactorySession();
             Session sess = s.openSession();
-            pokemons = sess.findAll(edu.upc.dsa.models.pokemons.class);
-            GenericEntity<LinkedList<edu.upc.dsa.models.pokemons>> entity = new GenericEntity<LinkedList<edu.upc.dsa.models.pokemons>>(pokemons) {};
+            pokemons = sess.findAll(Pokemons.class);
+            GenericEntity<LinkedList<Pokemons>> entity = new GenericEntity<LinkedList<Pokemons>>(pokemons) {};
             if (entity!=null){
                 return Response.status(201).entity(entity).build();
             }

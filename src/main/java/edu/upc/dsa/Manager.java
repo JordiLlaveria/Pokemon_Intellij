@@ -1,18 +1,18 @@
 package edu.upc.dsa;
 
 import edu.upc.dsa.models.*;
-import edu.upc.dsa.models.character;
-import edu.upc.dsa.models.objects;
+import edu.upc.dsa.models.Character;
+import edu.upc.dsa.models.Objects;
 
 import java.util.LinkedList;
 
 public interface Manager {
-    public boolean registerUser(user user);
-    public user loginUser(String name, String password);
-    public boolean addCharacter(character character);
-    public character getCharacter(String charactername);
-    public boolean updateCharacter(character character);
-    public LinkedList<objects> getObjects();
+    public boolean registerUser(User user);
+    public User loginUser(String name, String password);
+    public boolean addCharacter(Character character);
+    public Character getCharacter(String charactername);
+    public boolean updateCharacter(Character character);
+    public LinkedList<Objects> getObjects();
     /*
 
     public void addCharacter(User user, Character character);

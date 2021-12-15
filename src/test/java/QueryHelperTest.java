@@ -2,8 +2,8 @@ import edu.upc.dsa.FactorySession;
 import edu.upc.dsa.ManagerImpl;
 import edu.upc.dsa.Session;
 import edu.upc.dsa.models.*;
-import edu.upc.dsa.models.character;
-import edu.upc.dsa.models.objects;
+import edu.upc.dsa.models.Character;
+import edu.upc.dsa.models.Objects;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -33,30 +33,30 @@ public class QueryHelperTest {
     }
     @Test
     public void testInsertCharacterandUser(){
-        character c = new character("Pablito","Red","level2", 200.0,20.0,null,null,null,null,null,null);
+        Character c = new Character("Pablito","Red","level2", 200.0,20.0,null,null,null,null,null,null);
         Session sess = s.openSession();
         sess.save(c);
-        user u = new user("Pablo", "12345", "pablo@gmail.com","Pablito");
+        User u = new User("Pablo", "12345", "pablo@gmail.com","Pablito");
         sess = s.openSession();
         sess.save(u);
     }
 
     @Test
     public void testInsertUser(){
-        user u = new user("Pablo", "12345", "pablo@gmail.com","Pablito");
+        User u = new User("Pablo", "12345", "pablo@gmail.com","Pablito");
         Session sess = s.openSession();
         sess = s.openSession();
         sess.save(u);
     }
     @Test
     public void testInsertPokemon(){
-        pokemons p = new pokemons("Eevee","Normal",1.0,20.0,20.0,0.5,0.5,null,null);
+        Pokemons p = new Pokemons("Eevee","Normal",1.0,20.0,20.0,0.5,0.5,null,null);
         Session sess = s.openSession();
         sess.save(p);
     }
     @Test
     public void testInsertObject(){
-        objects o = new objects("Superpotion",125.0,"Potion","Heals 100HP");
+        Objects o = new Objects("Superpotion",125.0,"Potion","Heals 100HP");
         Session sess = s.openSession();
         sess.save(o);
     }
@@ -64,35 +64,35 @@ public class QueryHelperTest {
     @Test
     public void testSelectUser(){
         Session sess = s.openSession();
-        Object u = sess.get(user.class,"Jordi");
+        Object u = sess.get(User.class,"Jordi");
     }
 
     @Test
     public void testSelectCharacter(){
         Session sess = s.openSession();
-        Object c = sess.get(character.class,"James");
+        Object c = sess.get(Character.class,"James");
     }
 
     @Test
     public void testSelectPokemon(){
         Session sess = s.openSession();
-        Object p = sess.get(pokemons.class,"Squirtle");
+        Object p = sess.get(Pokemons.class,"Squirtle");
     }
 
     @Test
     public void testSelectObject(){
         Session sess = s.openSession();
-        Object o = sess.get(objects.class,"Pokeball");
+        Object o = sess.get(Objects.class,"Pokeball");
     }
 
     @Test
     public void testSelectEnemy(){
         Session sess = s.openSession();
-        Object e = sess.get(enemy.class,"Malo1");
+        Object e = sess.get(Enemy.class,"Malo1");
     }
     @Test
     public void testUpdate(){
-        user u = new user("Jordi","1234","jordi.llaveria@estudiantat.upc.edu","James");
+        User u = new User("Jordi","1234","jordi.llaveria@estudiantat.upc.edu","James");
         FactorySession s = new FactorySession();
         Session sess = s.openSession();
         sess.update(u);
@@ -100,7 +100,7 @@ public class QueryHelperTest {
 
     @Test
     public void testDelete(){
-        user u = new user("Pablo","1234","jordi.llaveria@estudiantat.upc.edu","James");
+        User u = new User("Pablo","1234","jordi.llaveria@estudiantat.upc.edu","James");
         FactorySession s = new FactorySession();
         Session sess = s.openSession();
         sess.delete(u, u.getName());
@@ -109,14 +109,14 @@ public class QueryHelperTest {
     public void testSelectallPokemons(){
         FactorySession s = new FactorySession();
         Session sess = s.openSession();
-        LinkedList<pokemons> pokemons = sess.findAll(edu.upc.dsa.models.pokemons.class);
+        LinkedList<Pokemons> pokemons = sess.findAll(Pokemons.class);
     }
 
     @Test
     public void testSelectallUsers(){
         FactorySession s = new FactorySession();
         Session sess = s.openSession();
-        LinkedList<user> users = sess.findAll(user.class);
+        LinkedList<User> Users = sess.findAll(User.class);
     }
     @Test
     public void testQueryUPDATE(){

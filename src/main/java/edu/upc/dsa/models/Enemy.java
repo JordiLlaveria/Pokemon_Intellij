@@ -1,13 +1,13 @@
 package edu.upc.dsa.models;
 
-public class enemy {
+public class Enemy {
     String name;
     String message;
     String pokemonname;
     //Pokemons pokemons;
 
-    public enemy(){}
-    public enemy(String name, String message, String pokemonname){
+    public Enemy(){}
+    public Enemy(String name, String message, String pokemonname){
         this();
         setName(name);
         setMessage(message);

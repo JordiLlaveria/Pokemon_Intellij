@@ -2,7 +2,7 @@ package edu.upc.dsa.models;
 
 import java.util.LinkedList;
 
-public class pokemons {
+public class Pokemons {
     private String name;
     private String type;
     private Double level;
@@ -15,8 +15,8 @@ public class pokemons {
     private String attack1name;
     private String attack2name;
 
-    public pokemons(){};
-    public pokemons(String name, String type, Double level, Double maxHealth, Double actualHealth, Double probCapture, Double probAppear, String attack1name, String attack2name){
+    public Pokemons(){};
+    public Pokemons(String name, String type, Double level, Double maxHealth, Double actualHealth, Double probCapture, Double probAppear, String attack1name, String attack2name){
         this.name=name;
         this.type=type;
         this.level=level;

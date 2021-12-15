@@ -1,6 +1,6 @@
 package edu.upc.dsa.models;
 
-public class character {
+public class Character {
     private String name;
     private Double money;
     private Double points;
@@ -15,9 +15,9 @@ public class character {
     //LinkedList<Pokemons> pokemons = new LinkedList<Pokemons>();
     //LinkedList<Object> objects = new LinkedList<Object>();
 
-    public character(){}
+    public Character(){}
 
-    public character(String name, String avatar, String map, Double money, Double points, String p1_name, String p2_name, String p3_name, String o1_name, String o2_name, String o3_name){
+    public Character(String name, String avatar, String map, Double money, Double points, String p1_name, String p2_name, String p3_name, String o1_name, String o2_name, String o3_name){
         this();
         setName(name);
         setMoney(money);
@@ -69,7 +69,7 @@ public class character {
     public void setObject3name(String o){this.object3name=o;}
     public String getObject3name(){return this.object3name;}
 
-    public void addObject(objects objects){
+    public void addObject(Objects objects){
         if (object1name==null)
             object1name= objects.getName();
         else if (object2name==null)

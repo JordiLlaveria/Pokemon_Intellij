@@ -30,7 +30,7 @@ public class ServerUser {
     @GET
     @ApiOperation(value = "get user BBDD", notes = "asdasd")
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Successful", response = user.class),
+            @ApiResponse(code = 200, message = "Successful", response = User.class),
             @ApiResponse(code = 404, message = "Not found")
     })
     @Path("/select/{username}")
@@ -40,7 +40,7 @@ public class ServerUser {
             FactorySession s = new FactorySession();
             Session sess = s.openSession();
             Object u = null;
-            u = sess.get(user.class,name);
+            u = sess.get(User.class,name);
             if (u!=null){
                 return Response.status(201).entity(u).build();
             }
@@ -56,12 +56,12 @@ public class ServerUser {
     @POST
     @ApiOperation(value = "insert user BBDD", notes = "asdasd")
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Successful", response = user.class),
+            @ApiResponse(code = 200, message = "Successful", response = User.class),
             @ApiResponse(code = 404, message = "Not found")
     })
     @Path("/insert")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response insertUserBBDD(user u){
+    public Response insertUserBBDD(User u){
         if(u!=null){
             FactorySession s = new FactorySession();
             Session sess = s.openSession();
@@ -81,12 +81,12 @@ public class ServerUser {
     @PUT
     @ApiOperation(value = "update user BBDD", notes = "asdasd")
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Successful", response = user.class),
+            @ApiResponse(code = 200, message = "Successful", response = User.class),
             @ApiResponse(code = 404, message = "Not found")
     })
     @Path("/update")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response updateUserBBDD(user u){
+    public Response updateUserBBDD(User u){
         if(u!=null){
             FactorySession s = new FactorySession();
             Session sess = s.openSession();
@@ -106,14 +106,14 @@ public class ServerUser {
     @PUT
     @ApiOperation(value = "delete user BBDD", notes = "asdasd")
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Successful", response = user.class),
+            @ApiResponse(code = 200, message = "Successful", response = User.class),
             @ApiResponse(code = 404, message = "Not found")
     })
     @Path("/delete/{username}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response deleteObjectBBDD(@PathParam ("username") String name){
         if(name!=null){
-            user u = new user();
+            User u = new User();
             FactorySession s = new FactorySession();
             Session sess = s.openSession();
             sess.delete(u, name);
@@ -132,18 +132,18 @@ public class ServerUser {
     @GET
     @ApiOperation(value = "get all users BBDD", notes = "asdasd")
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Successful", response = user.class, responseContainer="LinkedList"),
+            @ApiResponse(code = 200, message = "Successful", response = User.class, responseContainer="LinkedList"),
             @ApiResponse(code = 404, message = "Not found")
     })
     @Path("/selectall")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getAllUsersBBDD(){
-        LinkedList<user> users = null;
-        if(users==null){
+        LinkedList<User> Users = null;
+        if(Users ==null){
             FactorySession s = new FactorySession();
             Session sess = s.openSession();
-            users = sess.findAll(user.class);
-            GenericEntity<LinkedList<user>> entity = new GenericEntity<LinkedList<user>>(users) {};
+            Users = sess.findAll(User.class);
+            GenericEntity<LinkedList<User>> entity = new GenericEntity<LinkedList<User>>(Users) {};
             if (entity!=null){
                 return Response.status(201).entity(entity).build();
             }
