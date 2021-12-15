@@ -102,7 +102,6 @@ public class Server {
             @ApiResponse(code = 201, message = "Successful", response = Character.class),
             @ApiResponse(code = 500, message = "Error"),
             @ApiResponse(code = 502, message = "Error, null Character")
-
     })
 
     @Path("/character")
@@ -160,7 +159,6 @@ public class Server {
     @Path("/login")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response login(Credentials c) {
-        System.out.println("logiiiin"+c.getUsername());
         if (c.getUsername()!= null && c.getPassword()!=null){
             User userlogged = this.manager.loginUser(c.getUsername(), c.getPassword());
             if(userlogged!=null){

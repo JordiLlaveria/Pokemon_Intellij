@@ -30,7 +30,6 @@ $(document).ready(function(){
                 //data: JSON.stringify(user),
                 dataType:'json',
 
-
                 success: function(data) {
                     alert("Welcome to Pokemon world");
                     console.log("Registered");
