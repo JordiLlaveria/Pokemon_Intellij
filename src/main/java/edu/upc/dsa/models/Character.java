@@ -2,6 +2,7 @@ package edu.upc.dsa.models;
 
 public class Character {
     private String name;
+    private String username;
     private Double money;
     private Double points;
     private String map;
@@ -17,9 +18,10 @@ public class Character {
 
     public Character(){}
 
-    public Character(String name, String avatar, String map, Double money, Double points, String p1_name, String p2_name, String p3_name, String o1_name, String o2_name, String o3_name){
+    public Character(String name, String username, String avatar, String map, Double money, Double points, String p1_name, String p2_name, String p3_name, String o1_name, String o2_name, String o3_name){
         this();
         setName(name);
+        setUsername(username);
         setMoney(money);
         setPoints(points);
 
@@ -88,6 +90,13 @@ public class Character {
 
     public void setMap(String map) {
         this.map = map;
+    }
+
+    public String getUsername(){
+        return this.username;
+    }
+    public void setUsername(String username){
+        this.username = username;
     }
 
     /*
