@@ -62,6 +62,12 @@ public class QueryHelperTest {
     }
 
     @Test
+    public void testMap(){
+        Map m = new Map();
+
+    }
+
+    @Test
     public void testSelectUser(){
         Session sess = s.openSession();
         Object u = sess.get(User.class,"Jordi");
