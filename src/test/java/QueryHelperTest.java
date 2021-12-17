@@ -63,7 +63,9 @@ public class QueryHelperTest {
 
     @Test
     public void testMap(){
-        Map m = new Map();
+        Map m = new Map("level1",1.0);
+        Session sess = s.openSession();
+        sess.save(m);
 
     }
 

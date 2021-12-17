@@ -34,7 +34,7 @@ public class ServerCharacter {
     })
     @Path("/select/{charactername}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getObjectBBDD(@PathParam("charactername") String name){
+    public Response getCharacterBBDD(@PathParam("charactername") String name){
         if(name!=null){
             FactorySession s = new FactorySession();
             Session sess = s.openSession();

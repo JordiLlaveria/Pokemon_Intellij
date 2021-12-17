@@ -64,6 +64,12 @@ public class ManagerImpl implements Manager {
     public User loginUser(String name, String password) {
         int i=0;
         boolean trobat=false; //bool
+        FactorySession s = new FactorySession();
+        Session sess = s.openSession();
+        User u = null;
+        u = (User) sess.get(User.class,name);
+        return u;
+        /*
         while ((i<userList.size())&&(trobat == false)){
             if (userList.get(i).getName().equals(name) && userList.get(i).getPassword().equals(password)){
                 trobat=true;
@@ -78,6 +84,7 @@ public class ManagerImpl implements Manager {
         else{
             return null;
         }
+        */
     }
 
     @Override
@@ -119,9 +126,14 @@ public class ManagerImpl implements Manager {
 
     @Override
     public Character getCharacter(String name) {
-        int i=0;
-        boolean trobat = false;
-
+        //int i=0;
+        //boolean trobat = false;
+        FactorySession s = new FactorySession();
+        Session sess = s.openSession();
+        Character c = null;
+        c = (Character) sess.get(Character.class,name);
+        return c;
+        /*
         while (i<characterList.size()&&(trobat == false)){
             if (characterList.get(i).getName().equals(name))
             {
@@ -137,6 +149,7 @@ public class ManagerImpl implements Manager {
         else{
             return null;
         }
+        */
     }
     @Override
     public boolean updateCharacter(Character character) {
