@@ -32,7 +32,7 @@ public class ManagerImpl implements Manager {
         Session sess = s.openSession();
         Object u = null;
         u = sess.get(User.class,user.getName());
-        if(u!=null) {
+        if(u==null) {
             sess = s.openSession();
             sess.save(user);
             return true;
@@ -84,6 +84,19 @@ public class ManagerImpl implements Manager {
     public boolean addCharacter(Character character) {
         int i=0;
         boolean trobat = false;
+        FactorySession s = new FactorySession();
+        Session sess = s.openSession();
+        Object c = null;
+        c = sess.get(Character.class,character.getName());
+        if(c==null) {
+            sess = s.openSession();
+            sess.save(character);
+            return true;
+        }
+        else{
+            return false;
+        }
+        /*
         if(characterList.size()==0) {
             while ((i < characterList.size()) && (trobat == false)) {
                 if (characterList.get(i).getName().equals(character.getName())) {
@@ -100,6 +113,8 @@ public class ManagerImpl implements Manager {
         else{
             return false;
         }
+
+         */
     }
 
     @Override
