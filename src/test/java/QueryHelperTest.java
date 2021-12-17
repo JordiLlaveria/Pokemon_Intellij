@@ -116,7 +116,7 @@ public class QueryHelperTest {
     public void testSelectallUsers(){
         FactorySession s = new FactorySession();
         Session sess = s.openSession();
-        LinkedList<User> users = sess.findAll(User.class);
+        LinkedList<User> Users = sess.findAll(User.class);
     }
     @Test
     public void testQueryUPDATE(){

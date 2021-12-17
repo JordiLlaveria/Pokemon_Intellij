@@ -1,9 +1,7 @@
 package edu.upc.dsa.services;
 
-import edu.upc.dsa.FactorySession;
 import edu.upc.dsa.Manager;
 import edu.upc.dsa.ManagerImpl;
-import edu.upc.dsa.Session;
 import edu.upc.dsa.models.*;
 import edu.upc.dsa.models.Character;
 import io.swagger.annotations.Api;
@@ -102,7 +100,6 @@ public class Server {
             @ApiResponse(code = 201, message = "Successful", response = Character.class),
             @ApiResponse(code = 500, message = "Error"),
             @ApiResponse(code = 502, message = "Error, null Character")
-
     })
 
     @Path("/character")
