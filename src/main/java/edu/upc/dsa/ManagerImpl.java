@@ -28,7 +28,19 @@ public class ManagerImpl implements Manager {
     @Override
     public boolean registerUser(User user) {
         int i=0;
-        boolean trobat=false;
+        FactorySession s = new FactorySession();
+        Session sess = s.openSession();
+        Object u = null;
+        u = sess.get(User.class,user.getName());
+        if(u!=null) {
+            sess = s.openSession();
+            sess.save(user);
+            return true;
+        }
+        else{
+            return false;
+        }
+        /*
         while ((i<userList.size())&&(trobat == false)){
             if (userList.get(i).getName().equals(user.getName())){
                 trobat=true;
@@ -44,6 +56,8 @@ public class ManagerImpl implements Manager {
         else{
             return false;
         }
+
+         */
     }
 
     @Override
