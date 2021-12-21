@@ -1,7 +1,9 @@
 package edu.upc.dsa.services;
 
+import edu.upc.dsa.FactorySession;
 import edu.upc.dsa.Manager;
 import edu.upc.dsa.ManagerImpl;
+import edu.upc.dsa.Session;
 import edu.upc.dsa.models.*;
 import edu.upc.dsa.models.Character;
 import io.swagger.annotations.Api;
@@ -171,6 +173,23 @@ public class Server {
         }
     }
 
+    @PUT
+    @ApiOperation(value = "update user BBDD", notes = "asdasd")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Successful", response = User.class),
+            @ApiResponse(code = 404, message = "Not found")
+    })
+    @Path("/updateuser")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response update(User u){
+        if(u!=null){
+            this.manager.updateUser(u);
+            return Response.status(201).entity(u).build();
+        }
+        else{
+            return Response.status(404).build();
+        }
+    }
 
     // PETICIÓ BOTIGA COMPRAR
     @POST

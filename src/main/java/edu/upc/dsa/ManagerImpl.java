@@ -88,6 +88,15 @@ public class ManagerImpl implements Manager {
     }
 
     @Override
+    public boolean updateUser(User user) {
+        FactorySession s = new FactorySession();
+        Session sess = s.openSession();
+        sess.update(user);
+        return true;
+    }
+
+
+    @Override
     public boolean addCharacter(Character character) {
         int i=0;
         boolean trobat = false;
