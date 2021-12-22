@@ -5,7 +5,10 @@ import edu.upc.dsa.models.Character;
 import edu.upc.dsa.models.Objects;
 import org.apache.log4j.Logger;
 
+import javax.ws.rs.core.GenericEntity;
+import javax.ws.rs.core.Response;
 import java.util.LinkedList;
+import java.util.List;
 
 public class ManagerImpl implements Manager {
 
@@ -40,24 +43,7 @@ public class ManagerImpl implements Manager {
         else{
             return false;
         }
-        /*
-        while ((i<userList.size())&&(trobat == false)){
-            if (userList.get(i).getName().equals(user.getName())){
-                trobat=true;
-            }
-            else {
-                i=i+1;
-            }
-        }
-        if (trobat==false){
-            this.userList.add(user);
-            return true;
-        }
-        else{
-            return false;
-        }
 
-         */
     }
 
     @Override
@@ -69,22 +55,7 @@ public class ManagerImpl implements Manager {
         User u = null;
         u = (User) sess.get(User.class,name);
         return u;
-        /*
-        while ((i<userList.size())&&(trobat == false)){
-            if (userList.get(i).getName().equals(name) && userList.get(i).getPassword().equals(password)){
-                trobat=true;
-            }
-            else {
-                i=i+1;
-            }
-        }
-        if(trobat){
-            return userList.get(i);
-        }
-        else{
-            return null;
-        }
-        */
+
     }
 
     @Override
@@ -112,25 +83,7 @@ public class ManagerImpl implements Manager {
         else{
             return false;
         }
-        /*
-        if(characterList.size()==0) {
-            while ((i < characterList.size()) && (trobat == false)) {
-                if (characterList.get(i).getName().equals(character.getName())) {
-                    trobat = true;
-                } else {
-                    i = i + 1;
-                }
-            }
-        }
-        if(trobat == false){
-            characterList.add(character);
-            return true;
-        }
-        else{
-            return false;
-        }
 
-         */
     }
 
     @Override
@@ -142,23 +95,7 @@ public class ManagerImpl implements Manager {
         Character c = null;
         c = (Character) sess.get(Character.class,name);
         return c;
-        /*
-        while (i<characterList.size()&&(trobat == false)){
-            if (characterList.get(i).getName().equals(name))
-            {
-                trobat = true;
-            }
-            else {
-                i=i+1;
-            }
-        }
-        if(trobat) {
-            return characterList.get(i);
-        }
-        else{
-            return null;
-        }
-        */
+
     }
     @Override
     public boolean updateCharacter(Character character) {
@@ -204,6 +141,17 @@ public class ManagerImpl implements Manager {
         }
         return u;
     }
+
+    @Override
+    public List<Pokemons> getPokemons() {
+        LinkedList<Pokemons> pokemons = null;
+        FactorySession s = new FactorySession();
+        Session sess = s.openSession();
+        pokemons = sess.findAll(Pokemons.class);
+        return pokemons;
+    }
+
+
 
     /*
 

@@ -28,7 +28,6 @@ public class Server {
         //manager.addCharacter(new Character("tijuana","Joana","may","level4",135.,500.,"Charmander","Squirtle","Bulbasaur","Potion","Pokeball","Superball"));
 
     }
-    /*
 
     @GET
     @ApiOperation(value = "get list of pokemons", notes = "asdasd")
@@ -39,10 +38,20 @@ public class Server {
     @Path("/pokemons")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getPokemons(){
-        List <Pokemons> pokemons = this.manager.getPokemons();
-        GenericEntity<List<Pokemons>> entity = new GenericEntity<List<Pokemons>>(pokemons) {};
-        return Response.status(200).entity(entity).build();
+        List<Pokemons> pokemons = this.manager.getPokemons();
+        if(pokemons.size()!=0) {
+            GenericEntity<List<Pokemons>> entity = new GenericEntity<List<Pokemons>>(pokemons) {
+            };
+            return Response.status(200).entity(entity).build();
+        }
+        else{
+            return Response.status(500).build();
+        }
     }
+
+    /*
+
+
     @GET
     @ApiOperation(value = "get list of maps", notes = "asdasd")
     @ApiResponses(value = {

@@ -5,6 +5,7 @@ import edu.upc.dsa.models.Character;
 import edu.upc.dsa.models.Objects;
 
 import java.util.LinkedList;
+import java.util.List;
 
 public interface Manager {
     public boolean registerUser(User user);
@@ -15,6 +16,7 @@ public interface Manager {
     public boolean updateCharacter(Character character);
     public LinkedList<Objects> getObjects();
     public User deleteUser(String username);
+    public List<Pokemons> getPokemons();
     /*
 
     public void addCharacter(User user, Character character);
