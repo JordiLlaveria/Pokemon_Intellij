@@ -186,6 +186,25 @@ public class ManagerImpl implements Manager {
         return this.objectsList;
     }
 
+    public User deleteUser(String username){
+
+        FactorySession s = new FactorySession();
+        Session sess = s.openSession();
+
+        User u = null;
+        u = (User) sess.get(User.class,username);
+
+        if(u!=null){
+            User user = new User();
+            Character character = new Character();
+            sess = s.openSession();
+            sess.delete(character,u.getCharactername());
+            sess = s.openSession();
+            sess.delete(user, username);
+        }
+        return u;
+    }
+
     /*
 
 

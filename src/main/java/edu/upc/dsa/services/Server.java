@@ -248,6 +248,31 @@ public class Server {
         }catch(Exception e){return Response.status(500).build();}
     }
 
+    @PUT
+    @ApiOperation(value = "delete user BBDD", notes = "asdasd")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Successful", response = User.class),
+            @ApiResponse(code = 404, message = "Not found"),
+            @ApiResponse(code = 500, message = "Error")
+    })
+    @Path("/delete/{username}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response deleteUser(@PathParam ("username") String name){
+        if(name!=null){
+            User user = manager.deleteUser(name);
+            if(user != null){
+                return Response.status(200).entity(user).build();
+            }
+            else{
+                return Response.status(404).build();
+            }
+        }
+        else{
+            return Response.status(500).build();
+        }
+
+    }
+
 
 
 }

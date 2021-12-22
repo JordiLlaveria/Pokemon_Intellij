@@ -14,6 +14,7 @@ public interface Manager {
     public Character getCharacter(String charactername);
     public boolean updateCharacter(Character character);
     public LinkedList<Objects> getObjects();
+    public User deleteUser(String username);
     /*
 
     public void addCharacter(User user, Character character);
