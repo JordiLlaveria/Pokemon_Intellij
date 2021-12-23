@@ -8,13 +8,13 @@ import java.util.LinkedList;
 import java.util.List;
 
 public interface Manager {
-    public boolean registerUser(User user);
+    public int registerUser(User user);
     public User loginUser(String name, String password);
-    public boolean updateUser(User user);
-    public boolean addCharacter(Character character);
+    public int updateUser(User user);
+    public int addCharacter(Character character);
     public Character getCharacter(String charactername);
-    public boolean updateCharacter(Character character);
-    public LinkedList<Objects> getObjects();
+    public int updateCharacter(Character character); // FALTA IMPLEMENTAR EN BBDD
+    public LinkedList<Objects> getObjects(); // TEMPORAL
     public User deleteUser(String username);
     public List<Pokemons> getPokemons();
     /*

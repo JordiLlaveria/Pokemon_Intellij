@@ -29,126 +29,124 @@ public class ManagerImpl implements Manager {
     LinkedList<edu.upc.dsa.models.Map> mapList = new LinkedList<edu.upc.dsa.models.Map>();
 
     @Override
-    public boolean registerUser(User user) {
-        int i=0;
-        FactorySession s = new FactorySession();
-        Session sess = s.openSession();
-        Object u = null;
-        u = sess.get(User.class,user.getName());
-        if(u==null) {
-            sess = s.openSession();
-            sess.save(user);
-            return true;
-        }
-        else{
-            return false;
-        }
-
+    public int registerUser(User user) {
+        try{
+            FactorySession s = new FactorySession();
+            Session sess = s.openSession();
+            Object u = null;
+            u = sess.get(User.class,user.getName());
+            if(u==null) {
+                sess = s.openSession();
+                sess.save(user);
+                return 0; //registro correcto
+            }
+            else { return -1;} //usuario ya existente
+        }catch(Exception e){return -2;} // no se ha podido conectar con la BBDD
     }
 
     @Override
     public User loginUser(String name, String password) {
-        int i=0;
-        boolean trobat=false; //bool
-        FactorySession s = new FactorySession();
-        Session sess = s.openSession();
-        User u = null;
-        u = (User) sess.get(User.class,name);
-        return u;
-
+        try {
+            FactorySession s = new FactorySession();
+            Session sess = s.openSession();
+            User u = null;
+            u = (User) sess.get(User.class,name);
+            return u; // se ha podido iniciar sesión correctamente
+        }catch(Exception e) {return null;} // no se ha podido conectar con la BBDD
     }
 
     @Override
-    public boolean updateUser(User user) {
-        FactorySession s = new FactorySession();
-        Session sess = s.openSession();
-        sess.update(user);
-        return true;
+    public int updateUser(User user) {
+        try {
+            FactorySession s = new FactorySession();
+            Session sess = s.openSession();
+            sess.update(user);
+            return 0; // modificación correcta
+        }catch(Exception e) {return -2;} //no se ha podido conectar con la BBDD
     }
 
-
     @Override
-    public boolean addCharacter(Character character) {
-        int i=0;
-        boolean trobat = false;
-        FactorySession s = new FactorySession();
-        Session sess = s.openSession();
-        Object c = null;
-        c = sess.get(Character.class,character.getName());
-        if(c==null) {
-            sess = s.openSession();
-            sess.save(character);
-            return true;
-        }
-        else{
-            return false;
-        }
-
+    public int addCharacter(Character character) {
+        try{
+            FactorySession s = new FactorySession();
+            Session sess = s.openSession();
+            Object c = null;
+            c = sess.get(Character.class,character.getName());
+            if(c==null) {
+                sess = s.openSession();
+                sess.save(character);
+                return 0; // caracter añadido correctamente
+            }
+            else{ return -1; } // caracter ya existente
+        }catch(Exception e) {return -2;} // no se ha podido conectar con la BBDD
     }
 
     @Override
     public Character getCharacter(String name) {
-        //int i=0;
-        //boolean trobat = false;
-        FactorySession s = new FactorySession();
-        Session sess = s.openSession();
-        Character c = null;
-        c = (Character) sess.get(Character.class,name);
-        return c;
+        try{
+            FactorySession s = new FactorySession();
+            Session sess = s.openSession();
+            Character c = null;
+            c = (Character) sess.get(Character.class,name);
+            return c;
+        }catch (Exception e){return null;}
+    }
 
-    }
     @Override
-    public boolean updateCharacter(Character character) {
-        int i=0;
-        boolean trobat = false;
-        while ((i<characterList.size())&&(trobat == false)){
-            if (characterList.get(i).getName().equals(character.getName())){
-                trobat = true;
+    public int updateCharacter(Character character) {
+        // FALTA IMPLEMENTAR EN LA BBDD
+        try {
+            int i = 0;
+            boolean trobat = false;
+            while ((i < characterList.size()) && (trobat == false)) {
+                if (characterList.get(i).getName().equals(character.getName())) {
+                    trobat = true;}
+                else { i = i + 1;}
             }
-            else {
-                i=i+1;
-            }
-        }
-        if(trobat == true){
-            characterList.remove(i);
-            characterList.add(i,character);
-            return true;
-        }
-        else{ return false;}
+            if (trobat == true) {
+                characterList.remove(i);
+                characterList.add(i, character);
+                return 0;}
+            else { return -1;}
+        }catch (Exception e){ return -3;}
     }
-    @Override
+
+    @Override //TEMPORAL
     public LinkedList<Objects> getObjects() {
         objectsList.add(new Objects("Potion", 100.00, "Healing", "Heals 100 hp"));
         objectsList.add(new Objects("PokeBall", 200.00, "Catching", "Can catch a Pokemon"));
         return this.objectsList;
     }
 
-    public User deleteUser(String username){
+    public User deleteUser(String username) {
+        try {
+            FactorySession s = new FactorySession();
+            Session sess = s.openSession();
 
-        FactorySession s = new FactorySession();
-        Session sess = s.openSession();
+            User u = null;
+            u = (User) sess.get(User.class, username);
 
-        User u = null;
-        u = (User) sess.get(User.class,username);
-
-        if(u!=null){
-            User user = new User();
-            Character character = new Character();
-            sess = s.openSession();
-            sess.delete(character,u.getCharactername());
-            sess = s.openSession();
-            sess.delete(user, username);
-        }
-        return u;
+            if (u != null) {
+                User user = new User();
+                Character character = new Character();
+                sess = s.openSession();
+                sess.delete(character, u.getCharactername());
+                sess = s.openSession();
+                sess.delete(user, username);
+            }
+            return u;
+        }catch(Exception e) {return null;} // error usuario no encontrado
     }
 
     @Override
     public List<Pokemons> getPokemons() {
+        try{
         LinkedList<Pokemons> pokemons = null;
         FactorySession s = new FactorySession();
         Session sess = s.openSession();
         pokemons = sess.findAll(Pokemons.class);
         return pokemons;
+        }catch(Exception e) {return null;} //error lista vacia
     }
 
 
