@@ -93,15 +93,11 @@ public class Server {
         if(name!=null){
             Character character = this.manager.getCharacter(name);
             if (character!=null){
-                return Response.status(201).entity(character).build();
-            }
+                return Response.status(201).entity(character).build();}
             else{
-                return Response.status(500).build();
-            }
-        }
+                return Response.status(500).build();}}
         else{
-            return Response.status(500).build();
-        }
+            return Response.status(500).build();}
     }
 
     //PETICIÓ REGISTRAR-SE CREAR CARACTER
@@ -118,17 +114,13 @@ public class Server {
     public Response newCharacter(Character character) {
 
         if(character.getName()!=null && character.getPokemon1name()!=null){
-            boolean characterAdded = this.manager.addCharacter(character);
-            if(characterAdded){
-                return Response.status(201).entity(character).build();
-            }
+            int characterAdded = this.manager.addCharacter(character);
+            if(characterAdded==0){
+                return Response.status(201).entity(character).build();}
             else{
-                return Response.status(500).entity(character).build();
-            }
-        }
+                return Response.status(500).entity(character).build();}}
         else{
-            return Response.status(502).entity(character).build();
-        }
+            return Response.status(502).entity(character).build();}
     }
 
 
@@ -144,13 +136,11 @@ public class Server {
     @Consumes(MediaType.APPLICATION_JSON)
     public Response register(User u) {
         if (u.getCharactername()!=null && u.getEmail()!=null && u.getPassword()!= null && u.getName()!=null){
-            boolean userRegistered = this.manager.registerUser(u);
-            if(userRegistered) {
-                return Response.status(201).entity(u).build();
-            }
+            int userRegistered = this.manager.registerUser(u);
+            if(userRegistered==0) {
+                return Response.status(201).entity(u).build();}
             else{
-                return Response.status(500).entity(u).build();
-            }
+                return Response.status(500).entity(u).build();}
         }
         else{
             return Response.status(500).entity(u).build();
