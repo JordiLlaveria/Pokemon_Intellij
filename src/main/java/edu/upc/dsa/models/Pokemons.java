@@ -17,16 +17,16 @@ public class Pokemons {
 
     public Pokemons(){};
     public Pokemons(String name, String type, Double level, Double maxHealth, Double actualHealth, Double probCapture, Double probAppear, String attack1name, String attack2name){
-        this.name=name;
-        this.type=type;
-        this.level=level;
-        //this.attackList = attackList;
-        this.maxHealth=maxHealth;
-        this.actualHealth=actualHealth;
-        this.probCapture=probCapture;
-        this.probAppear=probAppear;
-        this.attack1name=attack1name;
-        this.attack2name=attack2name;
+        this();
+        setName(name);
+        setType(type);
+        setLevel(level);
+        setMaxHealth(maxHealth);
+        setActualHealth(actualHealth);
+        setProbCapture(probCapture);
+        setProbAppear(probAppear);
+        setAttack1name(attack1name);
+        setAttack2name(attack2name);
     }
     public void setName(String name){this.name=name;}
     public void setType(String type){this.type=type;}
@@ -44,7 +44,6 @@ public class Pokemons {
     public Double getLevel(){return this.level;}
     public Double getMaxHealth(){return this.maxHealth;}
     public Double getActualHealth(){return this.actualHealth;}
-    //public LinkedList<Attack> getAtackList(){return this.attackList;}
     public Double getProbCapture() {return probCapture;}
     public Double getProbAppear() {return probAppear;}
     public String getAttack1name(){return this.attack1name;}
