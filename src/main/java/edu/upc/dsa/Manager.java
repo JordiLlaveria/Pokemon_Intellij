@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface Manager {
     public int registerUser(User user);
-    public User loginUser(String name, String password);
+    public User login(String name);
     public int updateUser(User user);
     public int addCharacter(Character character);
     public Character getCharacter(String charactername);
