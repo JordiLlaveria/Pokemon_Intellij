@@ -47,7 +47,7 @@ public class ManagerImpl implements Manager {
     }
 
     @Override
-    public User loginUser(String name, String password) {
+    public User login(String name) {
         try {
             FactorySession s = new FactorySession();
             Session sess = s.openSession();

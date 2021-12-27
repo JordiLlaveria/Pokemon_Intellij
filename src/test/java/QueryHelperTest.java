@@ -48,12 +48,15 @@ public class QueryHelperTest {
         sess = s.openSession();
         sess.save(u);
     }
+    /*
     @Test
     public void testInsertPokemon(){
         Pokemons p = new Pokemons("Eevee","Normal",1.0,20.0,20.0,0.5,0.5,null,null);
         Session sess = s.openSession();
         sess.save(p);
     }
+
+     */
     @Test
     public void testInsertObject(){
         Objects o = new Objects("Superpotion",125.0,"Potion","Heals 100HP");

@@ -179,7 +179,7 @@ public class Server {
     @Consumes(MediaType.APPLICATION_JSON)
     public Response login(Credentials c) {
         if (c.getUsername()!= null && c.getPassword()!=null){
-            User userlogged = this.manager.loginUser(c.getUsername(), c.getPassword());
+            User userlogged = this.manager.login(c.getUsername());
             if(userlogged!=null){
                 return Response.status(201).entity(userlogged).build();
             }
