@@ -49,6 +49,26 @@ public class Server {
         }
     }
 
+    @GET
+    @ApiOperation(value = "get ranking of characters", notes = "asdasd")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Successful", response = Character.class, responseContainer = "List"),
+            @ApiResponse(code = 500, message = "Error")
+    })
+    @Path("/ranking")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getRanking(){
+        List<Character> characterList = this.manager.getRanking();
+        if(characterList.size()!=0) {
+            GenericEntity<List<Character>> entity = new GenericEntity<List<Character>>(characterList) {
+            };
+            return Response.status(200).entity(entity).build();
+        }
+        else{
+            return Response.status(500).build();
+        }
+    }
+
     /*
 
 

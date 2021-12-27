@@ -7,6 +7,8 @@ import org.apache.log4j.Logger;
 
 import javax.ws.rs.core.GenericEntity;
 import javax.ws.rs.core.Response;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -147,6 +149,20 @@ public class ManagerImpl implements Manager {
         pokemons = sess.findAll(Pokemons.class);
         return pokemons;
         }catch(Exception e) {return null;} //error lista vacia
+    }
+
+    @Override
+    public List<Character> getRanking() {
+        LinkedList<Character> characters = null;
+
+        FactorySession s = new FactorySession();
+        Session sess = s.openSession();
+
+        characters = sess.findAll(Character.class);
+
+        Collections.sort(characters, new Ranking());
+
+        return characters;
     }
 
 

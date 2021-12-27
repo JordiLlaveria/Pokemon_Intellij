@@ -17,6 +17,7 @@ public interface Manager {
     public LinkedList<Objects> getObjects(); // TEMPORAL
     public User deleteUser(String username);
     public List<Pokemons> getPokemons();
+    public List<Character> getRanking();
     /*
 
     public void addCharacter(User user, Character character);
