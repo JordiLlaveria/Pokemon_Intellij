@@ -1,6 +1,5 @@
 
 $(document).ready(function(){
-    myStorage = window.localStorage;
     $("#btnRegister").click(function(e){
         e.preventDefault();
         var username = $('#username').val();
@@ -23,7 +22,7 @@ $(document).ready(function(){
                     'Content-Type': 'application/json'
                 },
                 //New User
-                url: "/dsaApp/endpoint/user",
+                url: "http://localhost:8080/dsaApp/endpoint/user",
                 type: "POST",
                 data: JSON.stringify({"name":username, "password": password, "email":email, "charactername": nickname}),
                 dataType:'json',
@@ -33,6 +32,8 @@ $(document).ready(function(){
                     console.log("Registered");
                     //myStorage.setItem("username", data.username);
                     //myStorage.setItem("password", data.password);
+                    localStorage.setItem("username",username);
+                    localStorage.setItem("charactername",nickname);
                     window.location.href = "character.html";
 
                 },
