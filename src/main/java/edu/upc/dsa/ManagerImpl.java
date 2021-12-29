@@ -115,9 +115,13 @@ public class ManagerImpl implements Manager {
 
     @Override //TEMPORAL
     public LinkedList<Objects> getObjects() {
-        objectsList.add(new Objects("Potion", 100.00, "Healing", "Heals 100 hp"));
-        objectsList.add(new Objects("PokeBall", 200.00, "Catching", "Can catch a Pokemon"));
-        return this.objectsList;
+        try{
+        LinkedList<Objects> objects = null;
+        FactorySession s = new FactorySession();
+        Session sess = s.openSession();
+        objects = sess.findAll(Objects.class);
+        return objects;}
+        catch (Exception e){return null;}
     }
 
     public User deleteUser(String username) {
