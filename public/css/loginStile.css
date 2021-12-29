@@ -1,7 +1,7 @@
 body {
     font-family: 'verdana', cursive;
     margin: 0;
-    background-color: lightblue;
+    background-color: white;
 }
 * {
     box-sizing: border-box;
@@ -37,15 +37,21 @@ border: 2px solid #5878ca;
 
 input[type="text"],
 input[type="password"]{
-background: #99ffcc;
+    background-color: #C8C8C8;
     font-size: 20px;
     width: 82%;
     padding: 10px;
     border: none;
 }
+input,select,textarea{
+    color: black;
+}
+input::placeholder{
+    color: #E8E8E8;
+}
 
-.input-contenedor{
-    margin-bottom: 15px;
+.credentials{
+    margin: auto;
 }
 
 .button{
