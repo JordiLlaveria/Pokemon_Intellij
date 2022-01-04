@@ -30,11 +30,9 @@ $(document).ready(function(){
                 success: function(data) {
                     alert("Welcome to Pokemon world");
                     console.log("Registered");
-                    //myStorage.setItem("username", data.username);
-                    //myStorage.setItem("password", data.password);
                     localStorage.setItem("username",username);
                     localStorage.setItem("charactername",nickname);
-                    window.location.href = "character.html";
+                    window.location.href = "avatarChoice.html";
 
                 },
                 error: function(error){
