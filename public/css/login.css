@@ -23,7 +23,7 @@ html, body{
 .login{
   position: relative;
   top: 50%;
-	width: 250px;
+  width: 250px;
   display: table;
   margin: -150px auto 0 auto;
   background: #FF0000; // No encontrado
@@ -35,9 +35,9 @@ html, body{
   width: 100%;
   display: block;
   background: #FF0000;
-  padding: 15px;
+  padding: 0px;
   color: #fff;
-  font-size: 20px;
+  font-size: 30px;
 
   &:after{
     content: "";
@@ -53,8 +53,12 @@ html, body{
     position: absolute;
   }
 }
-
+.form {
+text-align: center;
+background-color:rgba(255,255,255,0.9);
+}
 .input{
+  text-align:center;
   position: relative;
   width: 90%;
   margin: 15px auto;
@@ -87,6 +91,7 @@ html, body{
 }
 
 .submit{
+  text-align:center;
   width: 45px;
   height: 45px;
   display: block;
@@ -99,9 +104,22 @@ html, body{
   font-size: 24px;
   cursor: pointer;
   box-shadow: 0px 0px 0px 7px #fff;
-  transition: 0.2s ease-out;
+
+
+  -moz-transition: all 2.3s ease-in-out;
+  -webkit-transition: all 2.3s ease-in-out;
+  -o-transition: all 2.3s ease-in-out;
+  -ms-transition: all 2.3s ease-in-out;
+  transition: all 2.3s ease-in-out;
 
   &:hover, &:focus{
+
+    -moz-transform: rotateY(-360deg);
+    -webkit-transform: rotateY(-360deg);
+    o-transform: rotateY(-360deg);
+    -ms-transform: rotateY(-360deg);
+    transform: rotateY(-360deg);
+
     background: #FF7052;
     color: #fff;
     outline: 0;
@@ -135,4 +153,44 @@ html, body{
     margin-left: -10px;
 
   }
+}
+.flip-container {
+    perspective: 1000;
+    margin-left: 500px;
+}
+    /* flip the pane when hovered */
+.flip-container:hover .flipper, .flip-container.hover .flipper {
+        transform: rotateY(180deg);
+}
+
+.flip-container, .front, .back {
+
+    width: 320px;
+    height: 80px;
+}
+
+/* flip speed goes here */
+.flipper {
+    transition: 0.6s;
+    transform-style: preserve-3d;
+
+    position: relative;
+}
+
+/* hide back of pane during swap */
+.front, .back {
+    backface-visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* front pane, placed above back */
+.front {
+    z-index: 2;
+}
+
+/* back, initially hidden pane */
+.back {
+    transform: rotateY(180deg);
 }
