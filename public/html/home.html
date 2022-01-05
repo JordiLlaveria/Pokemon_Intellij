@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../javascripts/home.js"></script>
+</head>
+<style>
+    * {
+    box-sizing: border-box;
+    }
+
+    .column {
+    float: left;
+    width: 30%;
+    padding: 5px;
+    }
+
+    /* Clearfix (clear floats) */
+    .row::after {
+    content: "";
+    clear: both;
+    display: table;
+    }
+</style>
+<body>
+    <div class="row">
+        <img src="../pictures/pokeball.png" id="avatar" width="120" height="120" style="float:left">
+        <h1 id="charactername" style="font-size:70px;"> Profile</h1>
+    </div>
+    <div class="row">
+        <div class="column">
+            <h2>POKÉMONS:</h2>
+            <div class="row">
+                <img src="../pictures/pokeball.png" id="pokemon1img" width="50" height="50" style="float:left">
+                <p id="pokemon1">name</p>
+            </div>
+            <div class="row">
+                <img src="../pictures/pokeball.png" id="pokemon2img" width="50" height="50" style="float:left">
+                <p id="pokemon2">name</p>
+            </div>
+            <div class="row">
+                <img src="../pictures/pokeball.png" id="pokemon3img" width="50" height="50" style="float:left">
+                <p id="pokemon3">name</p>
+            </div>
+        </div>
+        <div class="column">
+            <div class="row">
+                <p id="points">Points: </p>
+            </div>
+            <div class="row">
+                <p id="money">Money: </p>
+            </div>
+            <div class="row">
+                <p id="location">Location: </p>
+            </div>
+            <div class="row">
+                <img src="../pictures/map.png" id="map" width="200" height="100">
+            </div>
+        </div>
+        <div class="column">
+            <h2>OBJECTS:</h2>
+            <div class="row">
+                <img src="../pictures/pokeball.png" id="object1img" width="50" height="50" style="float:left">
+                <p id="object1">name</p>
+            </div>
+            <div class="row">
+                <img src="../pictures/pokeball.png" id="object2img" width="50" height="50" style="float:left">
+                <p id="object2">name</p>
+            </div>
+            <div class="row">
+                <img src="../pictures/pokeball.png" id="object3img" width="50" height="50" style="float:left">
+                <p id="object3">name</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
