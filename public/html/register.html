@@ -36,9 +36,10 @@
 <body>
 <form class="form">
 
-    <h1>Register</h1>
     <div class="container">
-
+        <div id="title">
+            <h1>Register</h1>
+        </div>
         <div class="input-container">
             <div class="box"><input type="text" placeholder="Username" id="username" required></div>
         </div>
@@ -57,8 +58,11 @@
         <div class="input-container">
             <div class="box"><input type="nickname" placeholder="Choose your nickname" id="nickname" required></div>
         </div>
-        <input type="submit" value="Register" class="button" id="btnRegister">
-        <p>Have already an account?<a class="link" href="login.html"> Iniciar sesión</a></p>
+        <div class="center">
+            <input type="submit" value="OK" class="button" id="btnRegister">
+        </div>
+
+        <p>Already have an account? <a class="link" href="login.html">Login</a></p>
     </div>
 </form>
 </body>
