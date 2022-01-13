@@ -1,0 +1,121 @@
+* {
+    box-sizing: border-box;
+    }
+
+    .column {
+    float: left;
+    width: 30%;
+    padding: 5px;
+    }
+
+    /* Clearfix (clear floats) */
+    .row::after {
+    content: "";
+    clear: both;
+    display: table;
+    }
+
+html, body{
+  width: border-box;
+  height: border-box;
+  background: url("../pictures/homewallpaper.png") repeat fixed;
+  background-size: 100%;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 200;
+}
+#title{
+    height: 120px;
+    border-radius: 20px;
+    margin-top:60px;
+    width: 35%;
+    margin: 0 auto;
+}
+img{
+    border-radius: 15px;
+}
+#charactername{
+    font-family: DejaVu Sans Mono, monospace;
+    font-size: 70px;
+}
+#home{
+    text-align: center;
+    margin-top: 40px;
+    font-family: DejaVu Sans Mono, monospace;
+    font-size: 30px;
+    color:white;
+}
+#pokemons{
+    margin-top:25px;
+    margin-left:150px;
+    font-family: DejaVu Sans Mono, monospace;
+    font-size: 20px;
+    background:white;
+    width: 300px;
+    height: 300px;
+    border: 2px solid black;
+    border-radius: 20px;
+}
+h2{
+    font-weight: bold;
+    text-align:center;
+}
+
+#objects{
+    margin-top:25px;
+    margin-left:30px;
+    font-family: DejaVu Sans Mono, monospace;
+    font-size: 20px;
+    background:white;
+    width: 300px;
+    height: 300px;
+    border: 2px solid black;
+    border-radius: 20px;
+}
+
+#pointsdiv{
+    text-align:center;
+    margin-top:25px;
+    margin-left:20px;
+    font-family: DejaVu Sans Mono, monospace;
+    font-size: 20px;
+    width: 260px;
+    height: 70px;
+    background:white;
+    border: 2px solid black;
+    border-radius: 20px;
+}
+#moneydiv{
+    text-align:center;
+    margin-top: 5px;
+    margin-left:20px;
+    font-family: DejaVu Sans Mono, monospace;
+    font-size: 20px;
+    width: 260px;
+    height: 70px;
+    background:white;
+    border: 2px solid black;
+    border-radius: 20px;
+}
+#locationdiv{
+    text-align:center;
+    margin-top: 5px;
+    margin-left:20px;
+    font-family: DejaVu Sans Mono, monospace;
+    font-size: 20px;
+    width: 260px;
+    height: 190px;
+    background:white;
+    border: 2px solid black;
+    border-radius: 20px;
+}
+button{
+    width: 110px;
+    height: 60px;
+    background-color:#abe8ff;
+    text-align: center;
+    font-size: 15px;
+    font-family: DejaVu Sans Mono, monospace;
+    border-radius: 5px;
+    margin:0 auto;
+    display:block;
+}
