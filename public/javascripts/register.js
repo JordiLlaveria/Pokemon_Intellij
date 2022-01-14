@@ -1,7 +1,9 @@
 
 $(document).ready(function(){
+    console.log("start")
     $("#btnRegister").click(function(e){
         e.preventDefault();
+        console.log("click")
         var username = $('#username').val();
         var password = $('#password').val();
         var password2 = $('#password2').val();
