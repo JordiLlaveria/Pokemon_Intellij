@@ -1,13 +1,17 @@
 
 $(document).ready(function(){
+<<<<<<< HEAD
     console.log("start")
     $("#btnRegister").click(function(e){
+=======
+    $(".form").submit(function(e){
+>>>>>>> be8d2ff679bb9054f55ff27f79e26c041f08630e
         e.preventDefault();
         console.log("click")
         var username = $('#username').val();
+        var email = $('#email').val();
         var password = $('#password').val();
         var password2 = $('#password2').val();
-        var email = $('#email').val();
         var nickname = $('#nickname').val();
 
         if (password != password2){ //Check if the passwords match
@@ -37,11 +41,9 @@ $(document).ready(function(){
                     window.location.href = "avatarChoice.html";
 
                 },
-                error: function(error){
-                    message = '"error"'
-                    console.log("Error",error);
-                    alert("Error");
-                },
+                error: function( xhr, textStatus, errorThrown) {
+                              alert(xhr.responseText+"/"+textStatus+"/"+errorThrown);
+                }
             });
         }
     });
