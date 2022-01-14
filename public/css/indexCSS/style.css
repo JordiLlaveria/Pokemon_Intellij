@@ -188,7 +188,7 @@ a:hover {
 /*-------- nav css --------------*/
 
 .navbar-brand > img {
-    height: 50px;
+    height: 150px;
     transition: all 0.35s ease 0s; 
     -webkit-transition: all 0.35s ease 0s;
      -moz-transition: all 0.35s ease 0s;
@@ -201,7 +201,7 @@ a:hover {
     padding: 0;
 }
 .navbar-default {
-    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    background:rgba(0,0,0,0) none repeat scroll 0 0;
     border: medium none;
     transition: all 0.35s ease 0s;
     -webkit-transition: all 0.35s ease 0s;
@@ -256,7 +256,7 @@ header {
     background:url("../../pictures/indexIMG/bg_slilder-1.jpg") ;
     background-attachment:fixed;
     background-size:cover;
-    height: 670px;
+    height: 650px;
     color: #fff;
     transition: all 0.35s ease 0s;
     -webkit-transition: all 0.35s ease 0s;
