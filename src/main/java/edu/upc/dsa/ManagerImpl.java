@@ -98,19 +98,11 @@ public class ManagerImpl implements Manager {
     public int updateCharacter(Character character) {
         // FALTA IMPLEMENTAR EN LA BBDD
         try {
-            int i = 0;
-            boolean trobat = false;
-            while ((i < characterList.size()) && (trobat == false)) {
-                if (characterList.get(i).getName().equals(character.getName())) {
-                    trobat = true;}
-                else { i = i + 1;}
-            }
-            if (trobat == true) {
-                characterList.remove(i);
-                characterList.add(i, character);
-                return 0;}
-            else { return -1;}
-        }catch (Exception e){ return -3;}
+            FactorySession s = new FactorySession();
+            Session sess = s.openSession();
+            sess.update(character);
+            return 0; // modificación correcta
+        }catch(Exception e) {return -2;}
     }
 
     @Override //TEMPORAL
@@ -171,126 +163,4 @@ public class ManagerImpl implements Manager {
 
 
 
-    /*
-
-
-    @Override
-    public void createObject(Objects objects) {
-        int i=0;
-        int trobat=0;
-        while ((i< objectsList.size()) && (trobat == 0)){
-            if (objectsList.get(i).getName().equals(objects.getName())){
-                trobat++;
-            }
-            i++;
-        }
-        if(trobat==0){
-            objectsList.add(objects);}
-    }
-
-    @Override
-    public void addObject(User user, Objects objects) {
-        int i=0;
-        int trobat = 0;
-        while ((i<userList.size()) &&(trobat==0)){
-            if (userList.get(i).getName().equals(user.getName())){
-                searchCharacter(userList.get(i)).addObject(objects);
-                searchCharacter(userList.get(i)).setMoney(searchCharacter(userList.get(i)).getMoney() - objects.getPrice());
-                trobat = 1;
-            }
-            i++;
-        }
-    }
-
-    @Override
-    public void addPokemon(Pokemons pokemons) {
-        this.pokemonsList.add(pokemons);
-    }
-
-    @Override
-    public LinkedList<User> getUsers() {
-        return this.userList;
-    }
-
-    @Override
-    public LinkedList<edu.upc.dsa.models.Map> getMaps() {
-        return this.mapList;
-    }
-
-    @Override
-    public LinkedList<Character> getRanking() {
-        LinkedList<Character> rankinglist = this.characterList;
-        Collections.sort(rankinglist,new Ranking());
-        return rankinglist;
-    }
-
-    @Override
-    public LinkedList<Pokemons> getPokemons() {
-        return this.pokemonsList;
-    }
-
-    @Override
-    public LinkedList<Pokemons> getPokemonsCharacter(Character character) {
-        int i=0;
-        int trobat=0;
-        LinkedList<Pokemons> pokemons = new LinkedList<Pokemons>();
-        while ((i<userList.size())&&(trobat == 0)){
-            if (searchCharacter(userList.get(i)).getName().equals(character.getName())){
-                trobat=1;
-            }
-            else {
-                i++;
-            }
-        }
-        if(trobat==1){
-            int j=0;
-            while (i<pokemonsList.size())
-            {
-                if (pokemonsList.get(j).getName()==searchCharacter(userList.get(i)).getPokemon1name()||pokemonsList.get(j).getName()==searchCharacter(userList.get(i)).getPokemon2name()||pokemonsList.get(j).getName()==searchCharacter(userList.get(i)).getPokemon3name())
-                {
-                    pokemons.add(pokemonsList.get(j));
-                }
-                j++;
-            }
-            return pokemons;
-        }
-        else{return null;}
-    }
-
-
-
-    @Override
-    public LinkedList<Objects> getObjectsPersonatge(Character character) {
-        int i=0;
-        int trobat=0;
-        LinkedList<Objects> objects= new LinkedList<Objects>();
-        while ((i<userList.size())&&(trobat == 0)){
-            if (searchCharacter(userList.get(i)).getName().equals(character.getName())){
-                trobat=1;
-            }
-            else {
-                i++;
-            }
-        }
-        if(trobat==1){
-            int j=0;
-            while (i< objectsList.size())
-            {
-                if (objectsList.get(j).getName()==searchCharacter(userList.get(i)).getObject1name()|| objectsList.get(j).getName()==searchCharacter(userList.get(i)).getObject2name()|| objectsList.get(j).getName()==searchCharacter(userList.get(i)).getObject3name())
-                {
-                    objects.add(objectsList.get(j));
-                }
-                j++;
-            }
-            return objects;
-        }
-        else{return null;}
-    }
-
-    @Override
-    public Map levelup(Character character) {
-        return null;
-    }
-
-     */
 }

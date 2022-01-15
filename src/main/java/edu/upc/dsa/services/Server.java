@@ -201,6 +201,7 @@ public class Server {
     @Path("/updateuser")
     @Produces(MediaType.APPLICATION_JSON)
     public Response update(User u){
+
         if(u!=null){
             this.manager.updateUser(u);
             return Response.status(201).entity(u).build();

@@ -21,6 +21,6 @@ $(document).ready(function(){
     })
     $("#closeBt").click(function(){
         let url = window.location.origin;
-        window.location.replace(url+"/html/index.html");
+        window.location.replace(url+"/html/home.html");
     })
 });

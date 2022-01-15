@@ -17,7 +17,7 @@
 html, body{
   width: border-box;
   height: border-box;
-  background: url("../pictures/pokedex.jpg") repeat fixed;
+  background: url("../pictures/ranking.jpg") repeat fixed;
   background-size: 100%;
   font-family: 'Open Sans', sans-serif;
   font-weight: 200;
@@ -31,9 +31,9 @@ h1{
     text-transform: uppercase;
     margin-top:60px;
 }
-#pokedex{
+#ranking{
     background-color: white;
-    width: 500px;
+    width: 600px;
     height: 320px;
     text-align:center;
     margin: auto;
@@ -43,7 +43,7 @@ h1{
     font-family: DejaVu Sans Mono, monospace;
 }
 #titles{
-    width: 500px;
+    width: 600px;
     height: 50px;
     text-align:center;
     margin: auto;
@@ -51,7 +51,6 @@ h1{
     font-family: DejaVu Sans Mono, monospace;
     font-weight: bold;
 }
-
 #base{
     width: 900px;
     height: 500px;

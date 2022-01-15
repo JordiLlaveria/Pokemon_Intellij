@@ -5,22 +5,21 @@ $(document).ready(function(){
     })
     $.ajax({
         type: 'GET',
-        url: 'http://localhost:8080/dsaApp/endpoint/pokemons',
+        url: 'http://localhost:8080/dsaApp/endpoint/ranking',
         data: { get_param: 'value' },
         dataType: 'json',
         success: function (data) {
-            $.each(data, function(index, element) {
+            for (let i = 0; i < 10; i++){
                 $("#name").append($('<div>', {
-                    text: element.name
+                    text: data[i].name
                 }));
-                $("#type").append($('<div>', {
-                    text: element.type
+                $("#points").append($('<div>', {
+                    text: data[i].points
                 }));
-                $("#health").append($('<div>', {
-                    text: element.maxhealth
+                $("#pokemon").append($('<div>', {
+                    text: data[i].pokemon1name
                 }));
-
-            });
+            }
         }
     });
 });
