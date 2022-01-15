@@ -18,7 +18,6 @@ $(document).ready(function(){
         else if (password == null || password2 == null || email == null) {//Check that there's no empty spaces
             alert("Please fill all the spaces")
         }
-
         else {
             $.ajax({
                 headers: {
@@ -37,7 +36,7 @@ $(document).ready(function(){
 
                 },
                 error: function( xhr, textStatus, errorThrown) {
-                    alert("Error. Try again with another name.");
+                    alert("Error.");
                 }
             });
         }
