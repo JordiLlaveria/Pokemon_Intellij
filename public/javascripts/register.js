@@ -1,11 +1,6 @@
 
 $(document).ready(function(){
-<<<<<<< HEAD
-    console.log("start")
     $("#btnRegister").click(function(e){
-=======
-    $(".form").submit(function(e){
->>>>>>> be8d2ff679bb9054f55ff27f79e26c041f08630e
         e.preventDefault();
         console.log("click")
         var username = $('#username').val();
@@ -42,7 +37,7 @@ $(document).ready(function(){
 
                 },
                 error: function( xhr, textStatus, errorThrown) {
-                              alert(xhr.responseText+"/"+textStatus+"/"+errorThrown);
+                    alert("Error. Try again with another name.");
                 }
             });
         }

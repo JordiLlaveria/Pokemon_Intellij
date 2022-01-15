@@ -32,15 +32,15 @@ public class Server {
     @GET
     @ApiOperation(value = "get list of pokemons", notes = "asdasd")
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Successful", response = Pokemons.class, responseContainer = "List"),
+            @ApiResponse(code = 200, message = "Successful", response = Basepokemon.class, responseContainer = "List"),
             @ApiResponse(code = 500, message = "Error")
     })
     @Path("/pokemons")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getPokemons(){
-        List<Pokemons> pokemons = this.manager.getPokemons();
+        List<Basepokemon> pokemons = this.manager.getPokemons();
         if(pokemons.size()!=0) {
-            GenericEntity<List<Pokemons>> entity = new GenericEntity<List<Pokemons>>(pokemons) {
+            GenericEntity<List<Basepokemon>> entity = new GenericEntity<List<Basepokemon>>(pokemons) {
             };
             return Response.status(200).entity(entity).build();
         }

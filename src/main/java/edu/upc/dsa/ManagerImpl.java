@@ -145,12 +145,12 @@ public class ManagerImpl implements Manager {
     }
 
     @Override
-    public List<Pokemons> getPokemons() {
+    public List<Basepokemon> getPokemons() {
         try{
-        LinkedList<Pokemons> pokemons = null;
+        LinkedList<Basepokemon> pokemons = null;
         FactorySession s = new FactorySession();
         Session sess = s.openSession();
-        pokemons = sess.findAll(Pokemons.class);
+        pokemons = sess.findAll(Basepokemon.class);
         return pokemons;
         }catch(Exception e) {return null;} //error lista vacia
     }

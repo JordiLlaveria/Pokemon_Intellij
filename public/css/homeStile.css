@@ -27,7 +27,7 @@ html, body{
     height: 120px;
     border-radius: 20px;
     margin-top:60px;
-    width: 35%;
+    width: 450px;
     margin: 0 auto;
 }
 img{
@@ -46,7 +46,6 @@ img{
 }
 #pokemons{
     margin-top:25px;
-    margin-left:150px;
     font-family: DejaVu Sans Mono, monospace;
     font-size: 20px;
     background:white;
@@ -111,7 +110,7 @@ h2{
 button{
     width: 110px;
     height: 60px;
-    background-color:#abe8ff;
+    background-color:#ebb746;
     text-align: center;
     font-size: 15px;
     font-family: DejaVu Sans Mono, monospace;
@@ -119,3 +118,18 @@ button{
     margin:0 auto;
     display:block;
 }
+#optionsdiv{
+    margin-left:40px;
+}
+#playdiv{
+    margin-left:40px;
+}
+#data{
+    margin:0 auto;
+    width: 940px;
+}
+#buttons{
+    margin:0 auto;
+    width: 940px;
+}
+

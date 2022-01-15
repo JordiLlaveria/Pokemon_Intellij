@@ -1,5 +1,10 @@
 $(document).ready(function(){
     var charactername = localStorage.getItem("charactername");
+
+    $("#optionsBt").click(function(){
+        let url = window.location.origin;
+        window.location.replace(url+"/html/options.html");
+    })
     $.ajax({
         type: 'GET',
         url: "http://localhost:8080/dsaApp/endpoint/character/"+charactername,
@@ -61,4 +66,5 @@ $(document).ready(function(){
             }
         }
     });
+
 });
