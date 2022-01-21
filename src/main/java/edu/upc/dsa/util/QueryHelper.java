@@ -61,6 +61,7 @@ public class QueryHelper {
     public static String createQueryUPDATE(Object entity){
         StringBuffer sb = new StringBuffer("UPDATE ");
         //String nametable = entity.getClass().getSimpleName().substring(0,1).toLowerCase() + entity.getClass().getSimpleName().substring(1);
+        sb.append("pokemon.");
         sb.append(entity.getClass().getSimpleName()).append(" ");
         sb.append("SET ");
 

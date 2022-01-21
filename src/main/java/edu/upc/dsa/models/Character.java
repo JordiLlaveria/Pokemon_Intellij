@@ -3,17 +3,17 @@ package edu.upc.dsa.models;
 public class Character {
     private String name;
     private String username;
+    private String avatar;
+    private String id;
+    private String map;
     private Double money;
     private Double points;
-    private String map;
-    private String avatar;
     private String pokemon1name;
     private String pokemon2name;
     private String pokemon3name;
     private String object1name;
     private String object2name;
     private String object3name;
-    private String id;
     //LinkedList<Pokemons> pokemons = new LinkedList<Pokemons>();
     //LinkedList<Object> objects = new LinkedList<Object>();
 
