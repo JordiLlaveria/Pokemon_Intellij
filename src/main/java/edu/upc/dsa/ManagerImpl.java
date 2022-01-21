@@ -98,19 +98,11 @@ public class ManagerImpl implements Manager {
     public int updateCharacter(Character character) {
         // FALTA IMPLEMENTAR EN LA BBDD
         try {
-            int i = 0;
-            boolean trobat = false;
-            while ((i < characterList.size()) && (trobat == false)) {
-                if (characterList.get(i).getName().equals(character.getName())) {
-                    trobat = true;}
-                else { i = i + 1;}
-            }
-            if (trobat == true) {
-                characterList.remove(i);
-                characterList.add(i, character);
-                return 0;}
-            else { return -1;}
-        }catch (Exception e){ return -3;}
+            FactorySession s = new FactorySession();
+            Session sess = s.openSession();
+            sess.update(character);
+            return 0; // modificación correcta
+        }catch(Exception e) {return -2;} //no se ha podido conectar con la BBDD
     }
 
     @Override //TEMPORAL

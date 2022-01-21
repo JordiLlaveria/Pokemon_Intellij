@@ -210,6 +210,24 @@ public class Server {
         }
     }
 
+    @PUT
+    @ApiOperation(value = "update character BBDD", notes = "asdasd")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Successful", response = Character.class),
+            @ApiResponse(code = 404, message = "Not found")
+    })
+    @Path("/updatecharacter")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response updateCharacter(Character c){
+        if(c!=null){
+            this.manager.updateCharacter(c);
+            return Response.status(201).entity(c).build();
+        }
+        else{
+            return Response.status(404).build();
+        }
+    }
+
     // PETICIÓ BOTIGA COMPRAR
     @POST
     @ApiOperation(value = "Buy an object", notes = "asdasd")
