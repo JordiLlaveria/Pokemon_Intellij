@@ -1,23 +1,20 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
-    <title>Register</title>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
+    <title>EditProfile</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="../javascripts/register.js"></script>
+    <script type="text/javascript" src="../javascripts/editprofile.js"></script>
 
-    <link rel ="stylesheet" href ="../css/registerStile.css">
+    <link rel ="stylesheet" href ="../css/editprofileStile.css">
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Odibee+Sans&display=swap" rel="stylesheet">
-
-
 </head>
-
 <style>
     * {
     box-sizing: border-box;
@@ -36,18 +33,13 @@
     display: table;
     }
 </style>
-
 <body>
 <form class="form">
 
     <div class="container">
         <div id="title">
-            <h1>Register</h1>
+            <h1>EDIT PROFILE</h1>
         </div>
-        <div class="input-container">
-            <div class="box"><input type="text" placeholder="Username" id="username" required></div>
-        </div>
-
         <div class="input-container">
             <div class="box"><input type="text" placeholder="Email" id="email" required></div>
         </div>
@@ -59,16 +51,13 @@
         <div class="input-container">
             <div class="box"><input type="password" placeholder="Password" id="password2" required></div>
         </div>
-        <div class="input-container">
-            <div class="box"><input type="nickname" placeholder="Choose your nickname" id="nickname" required></div>
+        <div class="center">
+            <input type="submit" value="OK" class="button" id="btnOK">
         </div>
         <div class="center">
-            <input type="submit" value="OK" class="button" id="btnRegister">
+            <input type="submit" value="CLOSE" class="button" id="btnClose">
         </div>
-
-        <p>Already have an account? <a class="link" href="login.html">Login</a></p>
     </div>
 </form>
 </body>
-
 </html>

@@ -10,6 +10,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
     $(document).ready(function(){
+    var charactername = localStorage.getItem("charactername");
+    $('#title').text("Hello "+charactername+"!");
     $("button").click(function(e){
         e.preventDefault();
         var pokemon = $(this).val();
@@ -55,48 +57,49 @@
 });
 </script>
 
+    <link rel ="stylesheet" href ="../css/pokemonChoiceStile.css">
 
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Odibee+Sans&display=swap" rel="stylesheet">
 
 </head>
-<style>
-    * {
-    box-sizing: border-box;
-    }
 
-    .column {
-    float: left;
-    width: 33.33%;
-    padding: 5px;
-    }
-
-    /* Clearfix (clear floats) */
-    .row::after {
-    content: "";
-    clear: both;
-    display: table;
-    }
-</style>
 <body>
 <form class="form">
 
-    <h1>Register</h1>
-    <div class="row">
-        <div class="column">
-            <img alt="Pokémon 1" src="../pictures/bulbasaur.png" width="200" height="200"/>
-            <button id="bulbasaurBt" value="Bulbasaur">Bulbasaur</button>
-        </div>
-        <div class="column">
-            <img alt="Pokémon 2" src="../pictures/charmander.png" width="200" height="200"/>
-            <button id="charmanderBt" value="Charmander">Charmander</button>
-        </div>
-        <div class="column">
-            <img alt="Pokémon 3" src="../pictures/squirtle.png" width="200" height="200"/>
-            <button id="squirtleBt" value="Squirtle">Squirtle</button>
+    <h1 id="title">Hello!</h1>
+    <div class="container" id="subtitle">
+        <p>Perfect! Now choose wisely your first Pokemon.</p>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="column">
+                <div class="row">
+                    <img alt="Pokémon 1" src="../pictures/bulbasaur.png" width="180" height="180"/>
+                </div>
+                <div class="row">
+                    <button id="bulbasaurBt" value="Bulbasaur">Bulbasaur</button>
+                </div>
+            </div>
+            <div class="column">
+                <div class="row">
+                    <img alt="Pokémon 2" src="../pictures/charmander.png" width="180" height="180"/>
+                </div>
+                <div class="row">
+                    <button id="charmanderBt" value="Charmander">Charmander</button>
+                </div>
+            </div>
+            <div class="column">
+                <div class="row">
+                    <img alt="Pokémon 3" src="../pictures/squirtle.png" width="180" height="180"/>
+                </div>
+                <div class="row">
+                    <button id="squirtleBt" value="Squirtle">Squirtle</button>
+                </div>
+            </div>
         </div>
     </div>
 
-
 </form>
-
 </body>
 </html>

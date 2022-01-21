@@ -19,21 +19,25 @@
 <body>
 
 <form class="form">
+    <h1 id="title">Hello!</h1>
+    <div class="container" id="subtitle">
+        <p>Login</p>
+    </div>
 
-    <fieldset>
-
-        <legend class="legend">Login</legend>
+        <div class="row">
 
         <div class="input">
             <input type="text" placeholder="Username" id="username" required />
             <span><i class="fa fa-envelope-o"></i></span>
         </div>
-
+        </div>
+        <div class="row">
         <div class="input">
             <input type="password" placeholder="Password" id="password" required />
             <span><i class="fa fa-lock"></i></span>
         </div>
-
+        </div>
+        <div class="row">
         <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
             <div class="flipper">
                 <div class="front">
@@ -48,8 +52,8 @@
                 </div>
             </div>
         </div>
-
-    </fieldset>
+        </div>
+        <p>Don't have an account? <a class="link" href="register.html">Sign in</a></p>
 
     <div class="feedback">
         login successful <br />

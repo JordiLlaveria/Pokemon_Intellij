@@ -16,7 +16,7 @@ public interface Manager {
     public int updateCharacter(Character character); // FALTA IMPLEMENTAR EN BBDD
     public LinkedList<Objects> getObjects(); // TEMPORAL
     public User deleteUser(String username);
-    public List<Pokemons> getPokemons();
+    public List<Basepokemon> getPokemons();
     public List<Character> getRanking();
     /*
 

@@ -10,32 +10,20 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../javascripts/home.js"></script>
+    <link rel ="stylesheet" href ="../css/homeStile.css">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Odibee+Sans&display=swap" rel="stylesheet">
 </head>
-<style>
-    * {
-    box-sizing: border-box;
-    }
 
-    .column {
-    float: left;
-    width: 30%;
-    padding: 5px;
-    }
-
-    /* Clearfix (clear floats) */
-    .row::after {
-    content: "";
-    clear: both;
-    display: table;
-    }
-</style>
 <body>
-    <div class="row">
+    <p id="home">HOME</p>
+    <div class="row" id="title">
         <img src="../pictures/pokeball.png" id="avatar" width="120" height="120" style="float:left">
-        <h1 id="charactername" style="font-size:70px;"> Profile</h1>
+        <h1 id="charactername"> Profile</h1>
     </div>
-    <div class="row">
-        <div class="column">
+    <div class="row" id="data">
+        <div class="column" id="pokemons">
             <h2>POKÉMONS:</h2>
             <div class="row">
                 <img src="../pictures/pokeball.png" id="pokemon1img" width="50" height="50" style="float:left">
@@ -50,21 +38,7 @@
                 <p id="pokemon3">name</p>
             </div>
         </div>
-        <div class="column">
-            <div class="row">
-                <p id="points">Points: </p>
-            </div>
-            <div class="row">
-                <p id="money">Money: </p>
-            </div>
-            <div class="row">
-                <p id="location">Location: </p>
-            </div>
-            <div class="row">
-                <img src="../pictures/map.png" id="map" width="200" height="100">
-            </div>
-        </div>
-        <div class="column">
+        <div class="column" id="objects">
             <h2>OBJECTS:</h2>
             <div class="row">
                 <img src="../pictures/pokeball.png" id="object1img" width="50" height="50" style="float:left">
@@ -79,6 +53,34 @@
                 <p id="object3">name</p>
             </div>
         </div>
+        <div class="column">
+            <div class="row" id="pointsdiv">
+                <p id="points">Points: </p>
+            </div>
+            <div class="row" id="moneydiv">
+                <p id="money">Money: </p>
+            </div>
+            <div class="row" id="locationdiv">
+                <div class="row">
+                    <p id="location">Location: </p>
+                </div>
+                <div class="row">
+                    <img src="../pictures/map.png" id="map" width="200" height="100">
+                </div>
+            </div>
+        </div>
     </div>
+    <div class="row" id="buttons">
+        <div class="column" id="shopdiv">
+            <button id="shopBt">Shop</button>
+        </div>
+        <div class="column" id="optionsdiv">
+            <button id="optionsBt">Options</button>
+        </div>
+        <div class="column" id="playdiv">
+            <button id="playBt">Play!</button>
+        </div>
+    </div>
+
 </body>
 </html>

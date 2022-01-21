@@ -1,0 +1,72 @@
+* {
+    box-sizing: border-box;
+    }
+
+    .column {
+    float: left;
+    width: 30%;
+    padding: 5px;
+    }
+
+    /* Clearfix (clear floats) */
+    .row::after {
+    content: "";
+    clear: both;
+    display: table;
+    }
+html, body{
+  width: border-box;
+  height: border-box;
+  background: url("../pictures/pokedex.jpg") repeat fixed;
+  background-size: 100%;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 200;
+}
+h1{
+    color: black;
+    text-align: center;
+    font-size: 40px;
+    font-family: DejaVu Sans Mono, monospace;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-top:60px;
+}
+#pokedex{
+    background-color: white;
+    width: 500px;
+    height: 320px;
+    text-align:center;
+    margin: auto;
+    border: 2px solid black;
+    border-radius: 20px;
+    font-size: 20px;
+    font-family: DejaVu Sans Mono, monospace;
+}
+#titles{
+    width: 500px;
+    height: 50px;
+    text-align:center;
+    margin: auto;
+    font-size: 20px;
+    font-family: DejaVu Sans Mono, monospace;
+    font-weight: bold;
+}
+
+#base{
+    width: 900px;
+    height: 500px;
+    text-align:center;
+    margin: auto;
+    border-radius: 25px;
+}
+
+#closeBt{
+    font-family: DejaVu Sans Mono, monospace;
+    font-size: 20px;
+    text-align: center;
+    margin-top: 10px;
+    height: 50px;
+    width: 100px;
+    background-color:white;
+    border-radius:10px;
+}
