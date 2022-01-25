@@ -23,7 +23,7 @@ $(document).ready(function(){
                     'Content-Type': 'application/json'
                 },
                 //New User
-                url: "/dsaApp/endpoint/user",
+                url: "http://147.83.7.204:8080/dsaApp/endpoint/user",
                 type: "POST",
                 data: JSON.stringify({"name":username, "password": password, "email":email, "charactername": nickname}),
                 dataType:'json',

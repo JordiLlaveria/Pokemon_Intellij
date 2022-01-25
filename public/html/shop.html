@@ -8,11 +8,97 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="../javascripts/shop.js"></script>
+
     <link rel="stylesheet" href="../css/pokemonChoiceStile.css" />
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Odibee+Sans&display=swap" rel="stylesheet">
 </head>
+<script>
+
+$(document).ready(function(){
+    myStorage = window.localStorage;
+    var username = localStorage.getItem("username");
+
+    $("#buttonpokeball").click(function(){
+        if(username == null){
+            $.ajax({
+                headers: {'Accept': 'application/json',
+                    'Content-Type': 'application/json'},
+                    url: "http://localhost:8080/dsaApp/endpoint/Store/Shopping",
+                    type: "POST",
+                    body: JSON.stringify({"object": "Pokeball", "username": username}),
+                    dataType: 'json',
+                    success: function(data) {
+                        alert("Superball correctly bought"); //necessitem dir-li les monedes que li queden
+                            window.location.href = "shop.html";
+                    },
+                    error: function(error){ //preguntar dema
+                        alert("You don't have enough money");
+                    }
+            });
+        }else{alert("Please LogIn or SignIn")}
+    });
+    $("#buttonsuperball").click(function(){
+        if(username != null){
+            $ajax({
+                headers: {'Accept': 'application/json',
+                    'Content-Type': 'application/json'},
+                    url: "http://localhost:8080/dsaApp/endpoint/Store/Shopping",
+                    type: "POST",
+                    body: JSON.stringify({"object": "Superball", "username": username}),
+                    dataType: 'json',
+                    success: function(data) {
+                        alert("Superball correctly bought"); //necessitem dir-li les monedes que li queden
+                            window.location.href = "shop.html";
+                    },
+                    error: function(error){ //preguntar dema
+                        alert("You don't have enough money");
+                    }
+            });
+        }else{alert("Please LogIn or SignIn")}
+    });
+    $("#buttonpotion").click(function(){
+        if(username != null){
+                $ajax({
+                    headers: {'Accept': 'application/json',
+                        'Content-Type': 'application/json'},
+                        url: "http://localhost:8080/dsaApp/endpoint/Store/Shopping",
+                        type: "POST",
+                        body: JSON.stringify({"object": "Potion", "username": username}),
+                        dataType: 'json',
+                        success: function(data) {
+                            alert("Superball correctly bought"); //necessitem dir-li les monedes que li queden
+                                window.location.href = "shop.html";
+                        },
+                        error: function(error){ //preguntar dema
+                            alert("You don't have enough money");
+                        }
+                });
+        }else{alert("Please LogIn or SignIn")}
+    });
+    $("#buttonsuperpotion").click(function(){
+        if(username != null){
+                $ajax({
+                    headers: {'Accept': 'application/json',
+                        'Content-Type': 'application/json'},
+                        url: "http://localhost:8080/dsaApp/endpoint/Store/Shopping",
+                        type: "POST",
+                        body: JSON.stringify({"object": "Superpotion", "username": username}),
+                        dataType: 'json',
+                        success: function(data) {
+                            alert("Superball correctly bought"); //necessitem dir-li les monedes que li queden
+                                window.location.href = "shop.html";
+                        },
+                        error: function(error){ //preguntar dema
+                            alert("You don't have enough money");
+                        }
+                });
+        }else{alert("Please LogIn or SignIn")}
+    });
+
+});
+
+</script>
 <style>
     * {
     box-sizing: border-box;
@@ -35,7 +121,7 @@
 <body>
 <form class="form">
 
-<h1 id="title">Welcome to the Shop!</h1>
+<h1 id="title">Welcome to the Shop!See our catalogue!</h1>
 <div class="container">
         <div class="column">
             <h3>Pokeball</h3>

@@ -2,16 +2,13 @@
 $(document).ready(function(){
     myStorage = window.localStorage;
     var username = localStorage.getItem("username");
-
-
-
-
+    
     $("#buttonpokeball").click(function(){
         if(username == null){
             $.ajax({
                 headers: {'Accept': 'application/json',
                     'Content-Type': 'application/json'},
-                    url: "http://localhost:8080/dsaApp/endpoint/auth/shop/buyObject",
+                    url: "http://147.83.7.204:8080/dsaApp/endpoint/Store/Shopping",
                     type: "POST",
                     body: JSON.stringify({"object": "pokeball", "username": username}),
                     dataType: 'json',
@@ -30,7 +27,7 @@ $(document).ready(function(){
             $ajax({
                 headers: {'Accept': 'application/json',
                     'Content-Type': 'application/json'},
-                    url: BASE_URI.concat("/auth/shop/buyObject"),
+                    url: "http://147.83.7.204:8080/dsaApp/endpoint/Store/Shopping",
                     type: "POST",
                     data: JSON.stringify({"object": "superball", "username": username}),
                     dataType: 'json',
@@ -49,7 +46,7 @@ $(document).ready(function(){
                 $ajax({
                     headers: {'Accept': 'application/json',
                         'Content-Type': 'application/json'},
-                        url: BASE_URI.concat("/auth/shop/buyObject"),
+                        url: "http://147.83.7.204:8080/dsaApp/endpoint/Store/Shopping",
                         type: "POST",
                         data: JSON.stringify({"object": "potion", "username": username}),
                         dataType: 'json',
@@ -68,7 +65,7 @@ $(document).ready(function(){
                 $ajax({
                     headers: {'Accept': 'application/json',
                         'Content-Type': 'application/json'},
-                        url: BASE_URI.concat("/auth/shop/buyObject"),
+                        url: "http://147.83.7.204:8080/dsaApp/endpoint/Store/Shopping",
                         type: "POST",
                         data: JSON.stringify({"object": "superpotion", "username": username}),
                         dataType: 'json',
