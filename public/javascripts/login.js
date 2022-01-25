@@ -1,7 +1,7 @@
 
 $(document).ready(function(){
-   $("#btnRegister").click(function(e){
-   e.preventDefault();
+    $(".form").submit(function(){
+    e.preventDefault();
         var username = $('#username').val();
         var password = $('#password').val();
             $.ajax({
