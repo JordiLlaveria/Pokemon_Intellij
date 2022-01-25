@@ -26,7 +26,7 @@ $(document).ready(function(){
                     'Content-Type': 'application/json'},
                     url: "http://localhost:8080/dsaApp/endpoint/Store/Shopping",
                     type: "POST",
-                    body: JSON.stringify({"object": "Pokeball", "username": username}),
+                    body: JSON.stringify({"name": "Pokeball"},{"name": username}),
                     dataType: 'json',
                     success: function(data) {
                         alert("Pokeball correctly bought"); //necessitem dir-li les monedes que li queden
@@ -44,7 +44,7 @@ $(document).ready(function(){
                     'Content-Type': 'application/json'},
                     url: "http://localhost:8080/dsaApp/endpoint/Store/Shopping",
                     type: "POST",
-                    body: JSON.stringify({"object": "Superball", "username": username}),
+                    body: JSON.stringify({"name": "Superball"},{"name": username}),
                     dataType: 'json',
                     success: function(data) {
                         alert("Superball correctly bought"); //necessitem dir-li les monedes que li queden
@@ -55,6 +55,7 @@ $(document).ready(function(){
             });
         }else{alert("Please LogIn or SignIn")}
     });
+
     $("#buttonpotion").click(function(){
         if(username != null){
                 $ajax({
@@ -62,7 +63,7 @@ $(document).ready(function(){
                         'Content-Type': 'application/json'},
                         url: "http://localhost:8080/dsaApp/endpoint/Store/Shopping",
                         type: "POST",
-                        body: JSON.stringify({"object": "Potion", "username": username}),
+                          body: JSON.stringify({"name": "Potion"},{"name": username}),
                         dataType: 'json',
                         success: function(data) {
                             alert("Potion correctly bought"); //necessitem dir-li les monedes que li queden
@@ -81,7 +82,7 @@ $(document).ready(function(){
                         'Content-Type': 'application/json'},
                         url: "http://localhost:8080/dsaApp/endpoint/Store/Shopping",
                         type: "POST",
-                        body: JSON.stringify({"object": "Superpotion", "username": username}),
+                        body: JSON.stringify({"name": "Superpotion"},{"name": username}),
                         dataType: 'json',
                         success: function(data) {
                             alert("Superpotion correctly bought"); //necessitem dir-li les monedes que li queden
@@ -120,6 +121,9 @@ $(document).ready(function(){
 <form class="form">
 
 <h1 id="title">Welcome to the Shop!See our catalogue!</h1>
+    <div>
+        <button style="margin:100px" type="button" onclick="window.location.href='home.html'" class="btn-flotante" value="Return">Go Back</button>
+    </div>
 <div class="container">
         <div class="column">
             <h3>Pokeball</h3>
