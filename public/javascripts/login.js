@@ -1,6 +1,7 @@
 
 $(document).ready(function(){
     $(".form").submit(function(){
+    e.preventDefault();
         var username = $('#username').val();
         var password = $('#password').val();
             $.ajax({
@@ -12,8 +13,8 @@ $(document).ready(function(){
                 dataType: 'json',
                 success: function(data) {
                     alert("Welcome back!");
-                    myStorage.setItem("username", data.username);
-                    myStorage.setItem("password", data.password);
+                    localStorage.setItem("username", data.username);
+                    localStorage.setItem("password", data.password);
                     window.location.href = "home.html"; //Anem a la pagina principal
                 },
                 error: function( xhr, textStatus, errorThrown) {
