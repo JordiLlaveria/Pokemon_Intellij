@@ -16,27 +16,48 @@
 
 
 </head>
-<body>
 
+<style>
+    * {
+    box-sizing: border-box;
+    }
+
+    .column {
+    float: left;
+    width: 33.33%;
+    padding: 5px;
+    }
+
+    /* Clearfix (clear floats) */
+    .row::after {
+    content: "";
+    clear: both;
+    display: table;
+    }
+</style>
+
+<body>
 <form class="form">
+
     <div class="container">
         <div id="title">
-            <h1>Login</h1>
+            <h1>Register</h1>
         </div>
-            <div class="input-container">
-                <input type="text" placeholder="Username" id="username" required />
-                <span><i class="fa fa-envelope-o"></i></span>
-            </div>
-            <div class="input-container">
-                <input type="password" placeholder="Password" id="password" required />
-                <span><i class="fa fa-lock"></i></span>
-            </div>
-            </br>
+        <div class="input-container">
+            <div class="box"><input type="text" placeholder="Username" id="username" required></div>
+        </div>
+
+        <div class="input-container">
+            <div class="box"><input type="password" placeholder="Password" id="password" required></div>
+        </div>
+
         <div class="center">
-        <input type="submit" value="OK" class="button" id="btnRegister">
-    </div>
-            <p>Don't have an account? <a class="link" href="register.html">Sign in</a></p>
+            <input type="submit" value="OK" class="button" id="btnRegister">
+        </div>
+
+        <p>Don't  have an account? <a class="link" href="register.html">Login</a></p>
     </div>
 </form>
 </body>
+
 </html>

@@ -26,12 +26,12 @@ $(document).ready(function(){
                     'Content-Type': 'application/json'},
                     url: "http://localhost:8080/dsaApp/endpoint/Store/Shopping",
                     type: "POST",
-                    body: JSON.stringify({"object": "Pokeball", "username": username}),
+                    body: JSON.stringify({{"name":"Pokeball"},{ "name":username}}),
                     dataType: 'json',
                     success: function(data) {
                         alert("Pokeball correctly bought"); //necessitem dir-li les monedes que li queden
                     },
-                    error: function(error){ //preguntar dema
+                    error: function(xhr, textStatus, errorThrown){ //preguntar dema
                         alert("You don't have enough money");
                     }
             });
@@ -39,7 +39,7 @@ $(document).ready(function(){
     });
     $("#buttonsuperball").click(function(){
         if(username != null){
-            $ajax({
+            $.ajax({
                 headers: {'Accept': 'application/json',
                     'Content-Type': 'application/json'},
                     url: "http://localhost:8080/dsaApp/endpoint/Store/Shopping",
@@ -49,7 +49,7 @@ $(document).ready(function(){
                     success: function(data) {
                         alert("Superball correctly bought"); //necessitem dir-li les monedes que li queden
                     },
-                    error: function(error){ //preguntar dema
+                    error: function(xhr, textStatus, errorThrown){ //preguntar dema
                         alert("You don't have enough money");
                     }
             });
@@ -57,7 +57,7 @@ $(document).ready(function(){
     });
     $("#buttonpotion").click(function(){
         if(username != null){
-                $ajax({
+                $.ajax({
                     headers: {'Accept': 'application/json',
                         'Content-Type': 'application/json'},
                         url: "http://localhost:8080/dsaApp/endpoint/Store/Shopping",
@@ -66,7 +66,6 @@ $(document).ready(function(){
                         dataType: 'json',
                         success: function(data) {
                             alert("Potion correctly bought"); //necessitem dir-li les monedes que li queden
-
                         },
                         error: function(error){ //preguntar dema
                             alert("You don't have enough money");
@@ -76,7 +75,7 @@ $(document).ready(function(){
     });
     $("#buttonsuperpotion").click(function(){
         if(username != null){
-                $ajax({
+                $.ajax({
                     headers: {'Accept': 'application/json',
                         'Content-Type': 'application/json'},
                         url: "http://localhost:8080/dsaApp/endpoint/Store/Shopping",
@@ -150,4 +149,4 @@ $(document).ready(function(){
 </div>
 </form>
 </body>
-</html>
+</ht

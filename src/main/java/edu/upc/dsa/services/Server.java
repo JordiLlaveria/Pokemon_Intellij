@@ -1,5 +1,7 @@
 package edu.upc.dsa.services;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.module.SimpleModule;
 import edu.upc.dsa.FactorySession;
 import edu.upc.dsa.Manager;
 import edu.upc.dsa.ManagerImpl;
@@ -237,33 +239,35 @@ public class Server {
     @Path("/Store/Shopping")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response buyObject(ObjectWithCharacter objectWithCharacter) {
-        logger.info("Buying: "+ objectWithCharacter);
-        Character character = objectWithCharacter.getCharacter();
-        Objects item = objectWithCharacter.getObject();
-
-        if(character.getName()!=null){
-            Character ch= manager.getCharacter(character.getName());
-            if (ch.getMoney()>=item.getPrice()){
-                ch.setMoney(ch.getMoney()-item.getPrice());
-                if(ch.getObject1name()==null){
-                    ch.setObject1name(item.getName());
-                    manager.updateCharacter(ch);
-                    return Response.status(201).entity(ch).build();}
-                else if(ch.getObject2name()==null){
-                    ch.setObject2name(item.getName());
-                    manager.updateCharacter(ch);
-                    return Response.status(201).entity(ch).build();}
-                else if(ch.getObject3name()==null){
-                    ch.setObject3name(item.getName());
-                    manager.updateCharacter(ch);
-                    return Response.status(201).entity(ch).build();}
-                else { return Response.status(501).entity(character).build();}
+        logger.info("Buying...");
+            Character character = objectWithCharacter.getCharacter();
+            Objects item = objectWithCharacter.getObject();
+            if (character.getName() != null) {
+                Character ch = manager.getCharacter(character.getName());
+                if (ch.getMoney() >= item.getPrice()) {
+                    ch.setMoney(ch.getMoney() - item.getPrice());
+                    if (ch.getObject1name() == null) {
+                        ch.setObject1name(item.getName());
+                        manager.updateCharacter(ch);
+                        return Response.status(201).entity(ch).build();
+                    } else if (ch.getObject2name() == null) {
+                        ch.setObject2name(item.getName());
+                        manager.updateCharacter(ch);
+                        return Response.status(201).entity(ch).build();
+                    } else if (ch.getObject3name() == null) {
+                        ch.setObject3name(item.getName());
+                        manager.updateCharacter(ch);
+                        return Response.status(201).entity(ch).build();
+                    } else {
+                        return Response.status(501).entity(character).build();
+                    }
+                } else {
+                    return Response.status(500).entity(ch).build();
+                }
+            } else {
+                logger.error(character.getName());
+                return Response.status(400).entity(character).build();
             }
-            else {
-                return Response.status(500).entity(ch).build();}
-        }
-        else {
-            return Response.status(400).entity(character).build();}
     }
 
     // PETICIÓ BOTIGA MOSTRAR OBJECTES
