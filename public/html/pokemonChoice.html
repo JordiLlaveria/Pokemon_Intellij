@@ -8,54 +8,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script>
-    $(document).ready(function(){
-    var charactername = localStorage.getItem("charactername");
-    $('#title').text("Hello "+charactername+"!");
-    $("button").click(function(e){
-        e.preventDefault();
-        var pokemon = $(this).val();
-        console.log(pokemon);
-        localStorage.setItem("pokemonInitial",pokemon);
-        var avatar = localStorage.getItem("avatar");
-        var username = localStorage.getItem("username");
-        var charactername = localStorage.getItem("charactername");
-            $.ajax({
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                },
-                url: "http://localhost:8080/dsaApp/endpoint/character",
-                type: "POST",
-                data: JSON.stringify({"name": charactername,
-                                        "username": username,
-                                        "money": 0,
-                                        "points": 0,
-                                        "map": "level1",
-                                        "avatar": avatar,
-                                        "pokemon1name": pokemon,
-                                        "pokemon2name": null,
-                                        "pokemon3name": null,
-                                        "object1name": null,
-                                        "object2name": null,
-                                        "object3name": null}),
-                dataType:'json',
-
-                success: function(data) {
-                    alert("Character loaded");
-                    console.log("New Character load");
-                    window.location.href = "home.html";
-
-                },
-                error: function(error){
-                    message = '"error"'
-                    console.log("Error",error);
-                    alert("Error");
-                },
-            });
-    });
-});
-</script>
+    <script type="text/javascript" src="../javascripts/pokemonChoice.js"></script>
 
     <link rel ="stylesheet" href ="../css/pokemonChoiceStile.css">
 

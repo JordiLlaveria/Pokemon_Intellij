@@ -3,6 +3,7 @@ package edu.upc.dsa;
 import edu.upc.dsa.models.*;
 import edu.upc.dsa.models.Character;
 import edu.upc.dsa.models.Objects;
+import edu.upc.dsa.util.RandomUtils;
 import org.apache.log4j.Logger;
 
 import javax.ws.rs.core.GenericEntity;
@@ -71,6 +72,7 @@ public class ManagerImpl implements Manager {
     public int addCharacter(Character character) {
         try{
             FactorySession s = new FactorySession();
+
             Session sess = s.openSession();
             Object c = null;
             c = sess.get(Character.class,character.getName());

@@ -102,7 +102,7 @@ h2{
     font-family: DejaVu Sans Mono, monospace;
     font-size: 20px;
     width: 260px;
-    height: 190px;
+    height: 210px;
     background:white;
     border: 2px solid black;
     border-radius: 20px;
@@ -119,9 +119,6 @@ button{
     display:block;
 }
 #optionsdiv{
-    margin-left:40px;
-}
-#playdiv{
     margin-left:40px;
 }
 #data{

@@ -33,7 +33,7 @@ public class QueryHelperTest {
     }
     @Test
     public void testInsertCharacterandUser(){
-        Character c = new Character("Pablito","Pablo","Red",null,"level2", 200.0,20.0,null,null,null,null,null,null);
+        Character c = new Character("Pablito","Pablo","Red","level2", 200.0,20.0,null,null,null,null,null,null);
         Session sess = s.openSession();
         sess.save(c);
         User u = new User("Pablo", "12345", "pablo@gmail.com","Pablito");

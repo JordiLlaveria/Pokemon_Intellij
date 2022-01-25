@@ -1,0 +1,77 @@
+* {
+    box-sizing: border-box;
+    }
+
+    .column {
+    float: left;
+    width: 30%;
+    padding: 5px;
+    }
+
+    /* Clearfix (clear floats) */
+    .row::after {
+    content: "";
+    clear: both;
+    display: table;
+    }
+html, body{
+  width: border-box;
+  height: border-box;
+  background: url("../pictures/mapswallpaper.png") repeat fixed;
+  background-size: 100%;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 200;
+}
+h1{
+    color: white;
+    text-align: center;
+    font-size: 40px;
+    font-family: DejaVu Sans Mono, monospace;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-top:60px;
+}
+#maps{
+    background-color: white;
+    width: 700px;
+    height: 850px;
+    text-align:center;
+    margin: auto;
+    border: 2px solid black;
+    border-radius: 20px;
+    font-size: 20px;
+    font-family: DejaVu Sans Mono, monospace;
+    margin-top:40px;
+}
+p{
+    text-align:center;
+    margin: auto;
+    font-size: 20px;
+    font-family: DejaVu Sans Mono, monospace;
+    font-weight: bold;
+    color: white;
+    margin-top:40px;
+}
+
+.container{
+    width: 700px;
+    height: 1000px;
+    text-align:center;
+    margin: auto;
+    border-radius: 25px;
+}
+
+.row{
+    margin-top:20px;
+}
+
+#closeBt{
+    font-family: DejaVu Sans Mono, monospace;
+    font-size: 20px;
+    text-align: center;
+    margin-top: 10px;
+    height: 50px;
+    width: 100px;
+    background-color:white;
+    border-radius:10px;
+}

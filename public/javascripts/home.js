@@ -40,6 +40,7 @@ $(document).ready(function(){
             $("#points").text("Points: "+data.points.toString());
             $("#money").text("Money: "+data.money.toString());
             $("#location").text("Level: " + data.map);
+            $("#map").attr("src","../pictures/"+data.map+".jpeg");
             if(data.object1name != null){
                 $("#object1img").attr("src","../pictures/"+data.object1name.toLowerCase()+".png");
                 $("#object1").text(data.object1name);
@@ -64,6 +65,7 @@ $(document).ready(function(){
                 $("#object3img").hide();
                 $("#object3").hide();
             }
+
         }
     });
 
