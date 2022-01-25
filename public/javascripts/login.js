@@ -6,7 +6,7 @@ $(document).ready(function(){
             $.ajax({
                 headers: {'Accept': 'application/json',
                 'Content-Type': 'application/json'},
-                url: "http://localhost:8080/dsaApp/endpoint/login",
+                url: "http://147.83.7.204:8080/dsaApp/endpoint/login",
                 type: "POST",
                 data: JSON.stringify({"username": username, "password": password}),
                 dataType: 'json',

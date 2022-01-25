@@ -23,7 +23,7 @@ $(document).ready(function(){
     $("#deleteBt").click(function(){
         var username = localStorage.getItem("username");
         $.ajax({
-            url: "http://localhost:8080/dsaApp/endpoint/delete/"+username,
+            url: "http://147.83.7.204:8080/dsaApp/endpoint/delete/"+username,
             type: "PUT",
             data: { get_param: 'value' },
             dataType:'json',

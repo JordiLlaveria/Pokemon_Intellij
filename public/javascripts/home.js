@@ -7,7 +7,7 @@ $(document).ready(function(){
     })
     $.ajax({
         type: 'GET',
-        url: "http://localhost:8080/dsaApp/endpoint/character/"+charactername,
+        url: "http://147.83.7.204:8080/dsaApp/endpoint/character/"+charactername,
         data: { get_param: 'value' },
         dataType: 'json',
         success: function (data) {
