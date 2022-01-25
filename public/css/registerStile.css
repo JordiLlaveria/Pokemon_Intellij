@@ -49,3 +49,96 @@ html, body{
     margin: auto;
     border-radius: 25px;
 }
+
+.submit{
+  text-align:center;
+  width: 45px;
+  height: 45px;
+  display: block;
+  margin: 0 auto -15px auto;
+  background: #fff;
+  background-image: url("../pictures/miniball-mini.jpg");
+  border-radius: 100%;
+  border: 1px solid #FF7052;
+  color: #FF7052;
+  font-size: 24px;
+  cursor: pointer;
+
+
+  -moz-transition: all 2.3s ease-in-out;
+  -webkit-transition: all 2.3s ease-in-out;
+  -o-transition: all 2.3s ease-in-out;
+  -ms-transition: all 2.3s ease-in-out;
+  transition: all 2.3s ease-in-out;
+
+  &:hover, &:focus{
+
+    -moz-transform: rotateY(-360deg);
+    -webkit-transform: rotateY(-360deg);
+    o-transform: rotateY(-360deg);
+    -ms-transform: rotateY(-360deg);
+    transform: rotateY(-360deg);
+
+    background: #FF7052;
+    color: #fff;
+    outline: 0;
+  }
+}
+.flip-container {
+    perspective: 1000;
+
+}
+    /* flip the pane when hovered */
+.flip-container:hover .flipper, .flip-container.hover .flipper {
+        transform: rotateY(180deg);
+}
+
+.flip-container, .front, .back {
+
+    width: 320px;
+    height: 80px;
+}
+
+/* flip speed goes here */
+.flipper {
+    transition: 0.6s;
+    transform-style: preserve-3d;
+
+    position: relative;
+}
+
+/* hide back of pane during swap */
+.front, .back {
+    backface-visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* front pane, placed above back */
+.front {
+    z-index: 2;
+}
+
+/* back, initially hidden pane */
+.back {
+    transform: rotateY(180deg);
+}
+
+
+* {
+    box-sizing: border-box;
+    }
+
+    .column {
+    float: left;
+    width: 33.33%;
+    padding: 5px;
+    }
+
+    /* Clearfix (clear floats) */
+    .row::after {
+    content: "";
+    clear: both;
+    display: table;
+}

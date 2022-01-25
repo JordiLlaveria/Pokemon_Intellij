@@ -10,11 +10,14 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
+import org.apache.log4j.Logger;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.GenericEntity;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.io.Console;
+import java.util.LinkedList;
 import java.util.List;
 
 
@@ -22,6 +25,7 @@ import java.util.List;
 @Path("/endpoint")
 public class Server {
     private Manager manager;
+    final static Logger logger = Logger.getLogger(ManagerImpl.class);
     public Server(){
         this.manager = ManagerImpl.getInstance();
         //manager.registerUser(new User("Joana","hola","joana@email.com","tijuana"));
@@ -233,6 +237,7 @@ public class Server {
     @Path("/Store/Shopping")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response buyObject(ObjectWithCharacter objectWithCharacter) {
+        logger.info("Buying: "+ objectWithCharacter);
         Character character = objectWithCharacter.getCharacter();
         Objects item = objectWithCharacter.getObject();
 
@@ -272,9 +277,12 @@ public class Server {
     @Produces(MediaType.APPLICATION_JSON)
     public Response getObjects(){
         try {
-        GenericEntity<List<Objects>> entity =  new GenericEntity<List<Objects>>(manager.getObjects()) {};
-        return Response.status(200).entity(entity).build();
-        }catch(Exception e){return Response.status(500).build();}
+            List<Objects> objlist = manager.getObjects();
+            GenericEntity<List<Objects>> entity =  new GenericEntity<List<Objects>>(objlist) {};
+            return Response.status(200).entity(entity).build();
+        }catch(Exception e){
+            logger.error(e.toString());
+            return Response.status(500).entity(e).build();}
     }
 
     @PUT
