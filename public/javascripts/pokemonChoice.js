@@ -18,7 +18,7 @@ $(document).ready(function(){
                 type: "POST",
                 data: JSON.stringify({"name": charactername,
                                         "username": username,
-                                        "money": 0,
+                                        "money": 500,
                                         "points": 0,
                                         "map": "HomeTown",
                                         "avatar": avatar,

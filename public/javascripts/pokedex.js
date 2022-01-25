@@ -5,7 +5,7 @@ $(document).ready(function(){
     })
     $.ajax({
         type: 'GET',
-        url: 'http://147.83.7.204:8080/dsaApp/endpoint/pokemons',
+        url: 'http://localhost:8080/dsaApp/endpoint/pokemons',
         data: { get_param: 'value' },
         dataType: 'json',
         success: function (data) {
