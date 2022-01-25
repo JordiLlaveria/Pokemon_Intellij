@@ -1,7 +1,9 @@
 
 $(document).ready(function(){
-    $(".form").submit(function(){
-    e.preventDefault();
+console.log("Function");
+     $("#btnLogin").click(function(e){
+        e.preventDefault();
+        console.log("Clicked");
         var username = $('#username').val();
         var password = $('#password').val();
             $.ajax({
@@ -15,6 +17,7 @@ $(document).ready(function(){
                     alert("Welcome back!");
                     localStorage.setItem("username", data.username);
                     localStorage.setItem("password", data.password);
+                    localStorage.setItem("charactername",data.charactername);
                     window.location.href = "home.html"; //Anem a la pagina principal
                 },
                 error: function( xhr, textStatus, errorThrown) {
