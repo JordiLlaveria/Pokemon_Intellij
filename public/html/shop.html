@@ -20,7 +20,7 @@ $(document).ready(function(){
     var username = localStorage.getItem("username");
 
     $("#buttonpokeball").click(function(){
-        if(username == null){
+        if(username != null){
             $.ajax({
                 headers: {'Accept': 'application/json',
                     'Content-Type': 'application/json'},
@@ -29,8 +29,7 @@ $(document).ready(function(){
                     body: JSON.stringify({"object": "Pokeball", "username": username}),
                     dataType: 'json',
                     success: function(data) {
-                        alert("Superball correctly bought"); //necessitem dir-li les monedes que li queden
-                            window.location.href = "shop.html";
+                        alert("Pokeball correctly bought"); //necessitem dir-li les monedes que li queden
                     },
                     error: function(error){ //preguntar dema
                         alert("You don't have enough money");
@@ -49,7 +48,6 @@ $(document).ready(function(){
                     dataType: 'json',
                     success: function(data) {
                         alert("Superball correctly bought"); //necessitem dir-li les monedes que li queden
-                            window.location.href = "shop.html";
                     },
                     error: function(error){ //preguntar dema
                         alert("You don't have enough money");
@@ -67,8 +65,8 @@ $(document).ready(function(){
                         body: JSON.stringify({"object": "Potion", "username": username}),
                         dataType: 'json',
                         success: function(data) {
-                            alert("Superball correctly bought"); //necessitem dir-li les monedes que li queden
-                                window.location.href = "shop.html";
+                            alert("Potion correctly bought"); //necessitem dir-li les monedes que li queden
+
                         },
                         error: function(error){ //preguntar dema
                             alert("You don't have enough money");
@@ -86,8 +84,8 @@ $(document).ready(function(){
                         body: JSON.stringify({"object": "Superpotion", "username": username}),
                         dataType: 'json',
                         success: function(data) {
-                            alert("Superball correctly bought"); //necessitem dir-li les monedes que li queden
-                                window.location.href = "shop.html";
+                            alert("Superpotion correctly bought"); //necessitem dir-li les monedes que li queden
+
                         },
                         error: function(error){ //preguntar dema
                             alert("You don't have enough money");

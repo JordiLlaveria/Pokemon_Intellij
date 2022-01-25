@@ -14,7 +14,7 @@ $(document).ready(function(){
                     'Accept': 'application/json',
                     'Content-Type': 'application/json'
                 },
-                url: "http://147.83.7.204:8080/dsaApp/endpoint/character",
+                url: "http://localhost:8080/dsaApp/endpoint/character",
                 type: "POST",
                 data: JSON.stringify({"name": charactername,
                                         "username": username,
