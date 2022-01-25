@@ -161,6 +161,14 @@ public class ManagerImpl implements Manager {
         return characters;
     }
 
-
+    public List<Map> getMaps(){
+        try{
+            LinkedList<Map> maps = null;
+            FactorySession s = new FactorySession();
+            Session sess = s.openSession();
+            maps = sess.findAll(Map.class);
+            return maps;
+        }catch(Exception e) {return null;}
+    }
 
 }

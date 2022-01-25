@@ -69,8 +69,6 @@ public class Server {
         }
     }
 
-    /*
-
 
     @GET
     @ApiOperation(value = "get list of maps", notes = "asdasd")
@@ -81,24 +79,17 @@ public class Server {
     @Path("/maps")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getMaps(){
-        LinkedList<edu.upc.dsa.models.Map> maps = this.manager.getMaps();
-        GenericEntity<List<Map>> entity = null;
-        return Response.status(200).entity(entity).build();
+        List<Map> maps = this.manager.getMaps();
+        if(maps.size()!=0) {
+            GenericEntity<List<Map>> entity = new GenericEntity<List<Map>>(maps) {
+            };
+            return Response.status(200).entity(entity).build();
+        }
+        else{
+            return Response.status(500).build();
+        }
     }
-    @GET
-    @ApiOperation(value = "get list of ranked users", notes = "asdasd")
-    @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Successful", response = User.class, responseContainer = "List"),
-            @ApiResponse(code = 500, message = "Error")
-    })
-    @Path("/ranking")
-    @Produces(MediaType.APPLICATION_JSON)
-    public Response getRankedUsers(){
-        List <User> rankedusers = this.manager.getRanking();
-        GenericEntity<List<User>> entity = new GenericEntity<List<User>>(rankedusers) {};
-        return Response.status(200).entity(entity).build();
-    }
-    */
+
 
     // PETICIÓ OBTENIR CARACTER SEGONS EL NOM
     @GET

@@ -4,8 +4,8 @@ $(document).ready(function(){
         window.location.replace(url+"/html/pokedex.html");
     })
     $("#mapsBt").click(function(){
-        //let url = window.location.origin;
-        //window.location.replace(url+"/html/pokedex.html");
+        let url = window.location.origin;
+        window.location.replace(url+"/html/maps.html");
     })
     $("#rankingBt").click(function(){
         let url = window.location.origin;

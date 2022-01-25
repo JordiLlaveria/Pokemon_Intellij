@@ -18,6 +18,7 @@ public interface Manager {
     public User deleteUser(String username);
     public List<Basepokemon> getPokemons();
     public List<Character> getRanking();
+    public List<Map> getMaps();
     /*
 
     public void addCharacter(User user, Character character);
@@ -25,7 +26,7 @@ public interface Manager {
     public void addObject(User user, Objects objects);
     public void addPokemon(Pokemons pokemons);
     public LinkedList<User> getUsers();
-    public LinkedList<Map> getMaps();
+
     public LinkedList<Character> getRanking();
     public LinkedList<Pokemons> getPokemons();
     public LinkedList<Pokemons> getPokemonsCharacter(Character character);
