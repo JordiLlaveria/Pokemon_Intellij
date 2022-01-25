@@ -25,7 +25,7 @@ $(document).ready(function(){
                     'Content-Type': 'application/json'
                 },
                 //New User
-                url: "http://147.83.7.204:8080/dsaApp/endpoint/updateuser",
+                url: "http://localhost:8080/dsaApp/endpoint/updateuser",
                 type: "PUT",
                 data: JSON.stringify({"name":username, "password": password, "email":email, "charactername": charactername}),
                 dataType:'json',

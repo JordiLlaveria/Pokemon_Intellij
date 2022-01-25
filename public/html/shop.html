@@ -20,7 +20,7 @@ $(document).ready(function(){
     var username = localStorage.getItem("username");
 
     $("#buttonpokeball").click(function(){
-        if(username == null){
+        if(username != null){
             $.ajax({
                 headers: {'Accept': 'application/json',
                     'Content-Type': 'application/json'},

@@ -110,7 +110,7 @@ public class Server {
             if (character!=null){
                 return Response.status(201).entity(character).build();}
             else{
-                return Response.status(500).build();}}
+                return Response.status(404).build();}}
         else{
             return Response.status(500).build();}
     }

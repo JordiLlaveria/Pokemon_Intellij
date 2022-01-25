@@ -8,7 +8,7 @@ $(document).ready(function(){
             $.ajax({
                 headers: {'Accept': 'application/json',
                     'Content-Type': 'application/json'},
-                    url: "http://147.83.7.204:8080/dsaApp/endpoint/Store/Shopping",
+                    url: "http://localhost:8080/dsaApp/endpoint/Store/Shopping",
                     type: "POST",
                     body: JSON.stringify({"object": "pokeball", "username": username}),
                     dataType: 'json',
