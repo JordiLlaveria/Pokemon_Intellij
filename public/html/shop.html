@@ -26,7 +26,7 @@ $(document).ready(function(){
                     'Content-Type': 'application/json'},
                     url: "http://localhost:8080/dsaApp/endpoint/Store/Shopping",
                     type: "POST",
-                    body: JSON.stringify({"name": "Pokeball"},{"name": username}),
+                    data: JSON.stringify({"object": "Pokeball", "price": 100,"character":username}),
                     dataType: 'json',
                     success: function(data) {
                         alert("Pokeball correctly bought"); //necessitem dir-li les monedes que li queden

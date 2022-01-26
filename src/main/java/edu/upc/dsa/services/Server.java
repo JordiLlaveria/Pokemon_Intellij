@@ -240,32 +240,35 @@ public class Server {
     @Consumes(MediaType.APPLICATION_JSON)
     public Response buyObject(ObjectWithCharacter objectWithCharacter) {
         logger.info("Buying...");
-            Character character = objectWithCharacter.getCharacter();
-            Objects item = objectWithCharacter.getObject();
-            if (character.getName() != null) {
-                Character ch = manager.getCharacter(character.getName());
-                if (ch.getMoney() >= item.getPrice()) {
-                    ch.setMoney(ch.getMoney() - item.getPrice());
+            String character = objectWithCharacter.getCharacter();
+            String item = objectWithCharacter.getObject();
+            if (character != null) {
+                Character ch = manager.getCharacter(character);
+                if (ch.getMoney() >= objectWithCharacter.getPrice()) {
+                    logger.info("Sold...");
+                    ch.setMoney(ch.getMoney() - objectWithCharacter.getPrice());
                     if (ch.getObject1name() == null) {
-                        ch.setObject1name(item.getName());
+                        ch.setObject1name(item);
                         manager.updateCharacter(ch);
                         return Response.status(201).entity(ch).build();
                     } else if (ch.getObject2name() == null) {
-                        ch.setObject2name(item.getName());
+                        ch.setObject2name(item);
                         manager.updateCharacter(ch);
                         return Response.status(201).entity(ch).build();
                     } else if (ch.getObject3name() == null) {
-                        ch.setObject3name(item.getName());
+                        ch.setObject3name(item);
                         manager.updateCharacter(ch);
                         return Response.status(201).entity(ch).build();
                     } else {
+                        logger.error(character);
                         return Response.status(501).entity(character).build();
                     }
                 } else {
+                    logger.error(character);
                     return Response.status(500).entity(ch).build();
                 }
             } else {
-                logger.error(character.getName());
+                logger.error(character);
                 return Response.status(400).entity(character).build();
             }
     }
