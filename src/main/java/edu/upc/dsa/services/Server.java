@@ -244,6 +244,7 @@ public class Server {
             String item = objectWithCharacter.getObject();
             if (character != null) {
                 Character ch = manager.getCharacter(character);
+                logger.error(character);
                 if (ch.getMoney() >= objectWithCharacter.getPrice()) {
                     logger.info("Sold...");
                     ch.setMoney(ch.getMoney() - objectWithCharacter.getPrice());
